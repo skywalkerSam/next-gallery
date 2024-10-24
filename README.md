@@ -2,6 +2,10 @@
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
+```bash
+pnpm create t3-app@latest
+```
+
 ## What's next? How do I make an app with this?
 
 We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
@@ -27,3 +31,17 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+## TODOs
+
+- [ ] Deploy w/ vercel
+- [ ] Basic UI
+- [ ] DB w/ vercel postgres
+- [ ] DB integration
+- [ ] Auth w/ Clerk
+- [ ] Image Uploads
+- [ ] Error handling w/Sentry
+- [ ] Routing */image* (parallel routes)
+- [ ] Delete w/ **Server Actions**
+- [ ] Analytics w/ posthog
+- [ ] Rate-limits w/ upstash
