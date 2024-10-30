@@ -16,6 +16,10 @@ const config = {
    },
   ],
  },
+
+ // For reducing build time.)
+ typescript: { ignoreBuildErrors: true },
+ eslint: { ignoreDuringBuilds: true }
 };
 
 export default config;

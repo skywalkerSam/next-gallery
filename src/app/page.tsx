@@ -32,7 +32,19 @@ export default function HomePage() {
           <span className="text-[hsl(0,0%,11%)]">NEXT</span>
         </h1>
         <div className="flex flex-wrap gap-1">
-          {testImages.map((image) => (
+          {/* prod */}
+          {/* {testImages.map((image) => (
+            <div key={image.id}>
+              <Image
+                src={image.url}
+                alt="Image"
+                width={450}
+                height={450}
+              ></Image>
+            </div>
+          ))} */}
+          {/* for testing */}
+          {[...testImages, ...testImages].map((image) => (
             <div key={image.id}>
               <Image
                 src={image.url}
