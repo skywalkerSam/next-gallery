@@ -34,8 +34,8 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## TODOs
 
-- [ ] Deploy w/ vercel
-- [ ] Basic UI
+- [X] Deploy w/ vercel
+- [X] Basic UI
 - [ ] DB w/ vercel postgres
 - [ ] DB integration
 - [ ] Auth w/ Clerk
