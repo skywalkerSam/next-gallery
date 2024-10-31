@@ -25,13 +25,14 @@ const testImages: Array<{ id: number; url: string }> = testUrls.map(
 
 export default function HomePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#619efb] to-[#000002] text-gray-500">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#010142] text-gray-500">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         <h1 className="text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
           Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
           <span className="text-[hsl(0,0%,11%)]">NEXT</span>
         </h1>
         <div className="flex flex-wrap gap-1">
+          {/* prod */}
           {testImages.map((image) => (
             <div key={image.id}>
               <Image
@@ -42,6 +43,17 @@ export default function HomePage() {
               ></Image>
             </div>
           ))}
+          {/* for testing */}
+          {/* {[...testImages, ...testImages].map((image) => (
+            <div key={image.id}>
+              <Image
+                src={image.url}
+                alt="Image"
+                width={450}
+                height={450}
+              ></Image>
+            </div>
+          ))} */}
         </div>
         {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
@@ -68,7 +80,7 @@ export default function HomePage() {
           </Link>
         </div> */}
       </div>
-      <footer className="row-start-3 mt-36 flex flex-wrap items-center justify-center">
+      <footer className="row-start-3 mt-36 flex flex-wrap items-center justify-center mb-9">
         <div>
           <small className="text-gray-500">Built with</small>
           <a
