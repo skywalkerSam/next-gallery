@@ -33,8 +33,8 @@ export default function HomePage() {
         </h1>
         <div className="flex flex-wrap gap-1">
           {/* prod */}
-          {testImages.map((image) => (
-            <div key={image.id}>
+          {testImages.map((image, i) => (
+            <div key={image.id + '-' + i}>
               <Image
                 src={image.url}
                 alt="Image"

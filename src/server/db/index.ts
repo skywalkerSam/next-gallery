@@ -1,6 +1,6 @@
 import { drizzle } from "drizzle-orm/vercel-postgres";
 import { sql } from "@vercel/postgres";
-import * as schema from "./schema"
+import * as schema from "./schema";
 // import {
 //   pgTable,
 //   serial,
@@ -10,7 +10,7 @@ import * as schema from "./schema"
 // } from "drizzle-orm/pg-core";
 
 // Use this object to send drizzle queries to your DB
-export const db = drizzle(sql, {schema});
+export const db = drizzle(sql, { schema });
 // Create a pgTable that maps to a table in your DB
 // export const ExampleTable = pgTable(
 //   "users",
@@ -47,7 +47,7 @@ export const db = drizzle(sql, {schema});
 //   conn: postgres.Sql | undefined;
 // };
 
-// const conn = globalForDb.conn ?? postgres(env.DATABASE_URL);
+// const conn = globalForDb.conn ?? postgres(env.POSTGRES_URL);
 // if (env.NODE_ENV !== "production") globalForDb.conn = conn;
 
 // export const db = drizzle(conn, { schema });
