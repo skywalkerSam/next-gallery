@@ -14,9 +14,15 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+// export const metadata: Metadata = {
+//   title: "Image Gallery",
+//   description: "Image Gallery w/ NEXT.js + vercel.",
+// };
+
 export const metadata: Metadata = {
   title: "Image Gallery",
-  description: "Image Gallery w/ NEXT.js + vercel.",
+  description: "Image Gallery with Next.js + Vercel.",
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({

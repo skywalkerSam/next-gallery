@@ -4,7 +4,7 @@ import { type Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Image Gallery",
-  description: "Next Gallery with Next.js + Create T3 App by @skywalkerSam",
+  description: "Image Gallery with Next.js + Vercel.",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
