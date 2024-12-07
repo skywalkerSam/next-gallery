@@ -1,6 +1,11 @@
 // import Link from "next/link";
+// import dynamic from "next/dynamic";
 import Image from "next/image";
 
+// dynamic behavior
+export const dynamic = "force-dynamic";
+
+// images w/ uploadthing
 const testUrls: string[] = [
   "https://utfs.io/f/suXlWOYj6P5mlyveTv2FdBCMI6LznvwAF7HrjlGR8kmbJY5K",
   "https://utfs.io/f/suXlWOYj6P5mgdRzw1a0DF9hfBImAUEWdQ0GqoYgt2Ta1CJr",
@@ -16,6 +21,7 @@ const testUrls: string[] = [
   "https://utfs.io/f/suXlWOYj6P5mh0uTBjHLuq3fIbErM1Xl482VAz6H9QYDJgRK",
 ];
 
+// image IDs
 const testImages: Array<{ id: number; url: string }> = testUrls.map(
   (url, index) => ({
     id: index++,
@@ -23,7 +29,7 @@ const testImages: Array<{ id: number; url: string }> = testUrls.map(
   }),
 );
 
-export default function HomePage() {
+export default function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#010142] text-gray-500">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
@@ -81,39 +87,6 @@ export default function HomePage() {
           </Link>
         </div> */}
       </div>
-      <footer className="row-start-3 mb-9 mt-36 flex flex-wrap items-center justify-center">
-        <div>
-          <small className="text-gray-500">Built with</small>
-          <a
-            href="https://nextjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              //   className="dark:invert"
-              src="https://nextjs.org/icons/next.svg"
-              alt="Next.js logo"
-              width={180}
-              height={38}
-              priority
-            />
-          </a>
-          <br />
-          <small className="text-gray-500">
-            &copy; Copyright 12024,{" "}
-            <a
-              href="https://github.com/skywalkerSam/"
-              className="text-cyan-500"
-              target="_blank"
-            >
-              @skywalkerSam
-            </a>
-          </small>
-          {/* <small className="mr-6 text-gray-500">
-            &copy; Copyright 12024, ASAI Inc.
-          </small> */}
-        </div>
-      </footer>
     </main>
   );
 }
