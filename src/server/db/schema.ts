@@ -37,6 +37,7 @@ export const images = createTable(
   }),
 );
 
+// for testing dynamic stuff at /posts
 // export const posts = createTable(
 //   "post",
 //   {
