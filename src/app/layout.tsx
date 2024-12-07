@@ -1,32 +1,33 @@
-import "~/styles/globals.css";
+import type { Metadata } from "next";
+import localFont from "next/font/local";
+import "./globals.css";
 
-import { GeistSans } from "geist/font/sans";
-import { type Metadata } from "next";
+const geistSans = localFont({
+  src: "./fonts/GeistVF.woff",
+  variable: "--font-geist-sans",
+  weight: "100 900",
+});
+const geistMono = localFont({
+  src: "./fonts/GeistMonoVF.woff",
+  variable: "--font-geist-mono",
+  weight: "100 900",
+});
 
 export const metadata: Metadata = {
-  title: "Image Gallery",
-  description: "Next Gallery with Next.js + Create T3 App by @skywalkerSam",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  title: "NEXT.js 15",
+  description: "NEXT.js 15 Demo ",
 };
-
-export function TopNav() {
-  return (
-    <nav className="flex w-full items-center justify-between p-4 text-xl font-semibold">
-      {" "}
-      {/* border-b */}
-      <div></div>
-      <div>Sign In</div>
-    </nav>
-  );
-}
 
 export default function RootLayout({
   children,
-}: Readonly<{ children: React.ReactNode }>) {
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="flex flex-col gap-4 bg-black text-gray-400">
-        <TopNav />
+    <html lang="en">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {children}
       </body>
     </html>
