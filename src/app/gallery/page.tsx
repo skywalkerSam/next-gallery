@@ -3,7 +3,7 @@
 import Image from "next/image";
 
 // dynamic behavior
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 // images w/ uploadthing
 const testUrls: string[] = [
