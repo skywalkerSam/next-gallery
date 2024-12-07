@@ -35,7 +35,7 @@ export default function HomePage() {
           {/* prod */}
           {/* shouldn't have used index as a key but, just to keep thy console clear & '-' to counter weird JS behaviors.) */}
           {testImages.map((image, i) => (
-            <div key={image.id + '-' + i}>
+            <div key={image.id + "-" + i}>
               <Image
                 src={image.url}
                 alt="Image"
@@ -81,7 +81,7 @@ export default function HomePage() {
           </Link>
         </div> */}
       </div>
-      <footer className="row-start-3 mt-36 flex flex-wrap items-center justify-center mb-9">
+      <footer className="row-start-3 mb-9 mt-36 flex flex-wrap items-center justify-center">
         <div>
           <small className="text-gray-500">Built with</small>
           <a
