@@ -50,6 +50,6 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 `NOTE:` `vercel env pull` to pull *.env*
 
-`Tip:` `git add -p` - diff
+`Tip:` `git add -p` for git diff
 
 Until next time.)
