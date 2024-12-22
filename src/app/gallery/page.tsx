@@ -32,7 +32,7 @@ export const dynamic = "force-dynamic";
 
 export default async function Page() {
   const images = await db.query.images.findMany({
-    orderBy: (order, {desc}) => desc(order.id)  // nice:)
+    orderBy: (order, {desc}) => desc(order.id)  // asc, nice.)
   });
 
   return (
