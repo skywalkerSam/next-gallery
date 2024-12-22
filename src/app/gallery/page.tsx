@@ -1,35 +1,40 @@
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
+import {db} from "~/server/db"
 
 // dynamic behavior
 export const dynamic = "force-dynamic";
 
-// images w/ uploadthing
-const testUrls: string[] = [
-  "https://utfs.io/f/suXlWOYj6P5mlyveTv2FdBCMI6LznvwAF7HrjlGR8kmbJY5K",
-  "https://utfs.io/f/suXlWOYj6P5mgdRzw1a0DF9hfBImAUEWdQ0GqoYgt2Ta1CJr",
-  "https://utfs.io/f/suXlWOYj6P5mfqCcKs26pjHoZscJI1UuBOgFKiEMSa3XGvqx",
-  "https://utfs.io/f/suXlWOYj6P5mFJe8r1mkT4re6FHUXmsdiP1v7bMD5jWBGg0A",
-  "https://utfs.io/f/suXlWOYj6P5mGP0uXcVWCxR45grP3wq2Un6tIcayuhofNY9V",
-  "https://utfs.io/f/suXlWOYj6P5meWD2yG7xj2cVFsz0dw8MHNDSt19mhyQLKigI",
-  "https://utfs.io/f/suXlWOYj6P5mCRCWOshy9hp3d8uf7xJznlReXIsNiM5B12DA",
-  "https://utfs.io/f/suXlWOYj6P5mqtNWj4LMPy9d0NzxhwsMlt8SWb1ojm5pUIEv",
-  "https://utfs.io/f/suXlWOYj6P5mJc0GtgUPtN9DlEFPjdUmXnCsaZ6u01K7LMih",
-  "https://utfs.io/f/suXlWOYj6P5m39Pb8zsJQi4BAbP5WzmlFnh81v9OcNYVtRyZ",
-  "https://utfs.io/f/suXlWOYj6P5m0oRoWEJxwFpHSrVeunNyC7TQMXJsRdzm4bxY",
-  "https://utfs.io/f/suXlWOYj6P5mh0uTBjHLuq3fIbErM1Xl482VAz6H9QYDJgRK",
-];
+// // images w/ uploadthing
+// const testUrls: string[] = [
+//   "https://utfs.io/f/suXlWOYj6P5mlyveTv2FdBCMI6LznvwAF7HrjlGR8kmbJY5K",
+//   "https://utfs.io/f/suXlWOYj6P5mgdRzw1a0DF9hfBImAUEWdQ0GqoYgt2Ta1CJr",
+//   "https://utfs.io/f/suXlWOYj6P5mfqCcKs26pjHoZscJI1UuBOgFKiEMSa3XGvqx",
+//   "https://utfs.io/f/suXlWOYj6P5mFJe8r1mkT4re6FHUXmsdiP1v7bMD5jWBGg0A",
+//   "https://utfs.io/f/suXlWOYj6P5mGP0uXcVWCxR45grP3wq2Un6tIcayuhofNY9V",
+//   "https://utfs.io/f/suXlWOYj6P5meWD2yG7xj2cVFsz0dw8MHNDSt19mhyQLKigI",
+//   "https://utfs.io/f/suXlWOYj6P5mCRCWOshy9hp3d8uf7xJznlReXIsNiM5B12DA",
+//   "https://utfs.io/f/suXlWOYj6P5mqtNWj4LMPy9d0NzxhwsMlt8SWb1ojm5pUIEv",
+//   "https://utfs.io/f/suXlWOYj6P5mJc0GtgUPtN9DlEFPjdUmXnCsaZ6u01K7LMih",
+//   "https://utfs.io/f/suXlWOYj6P5m39Pb8zsJQi4BAbP5WzmlFnh81v9OcNYVtRyZ",
+//   "https://utfs.io/f/suXlWOYj6P5m0oRoWEJxwFpHSrVeunNyC7TQMXJsRdzm4bxY",
+//   "https://utfs.io/f/suXlWOYj6P5mh0uTBjHLuq3fIbErM1Xl482VAz6H9QYDJgRK",
+// ];
 
-// image IDs
-const testImages: Array<{ id: number; url: string }> = testUrls.map(
-  (url, index) => ({
-    id: index++,
-    url,
-  }),
-);
+// // image IDs
+// const testImages: Array<{ id: number; url: string }> = testUrls.map(
+//   (url, index) => ({
+//     id: index++,
+//     url,
+//   }),
+// );
 
-export default function Page() {
+export default async function Page() {
+  const images = await db.query.images.findMany({
+    orderBy: (order, {desc}) => desc(order.id)  // nice:)
+  });
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#010125] text-gray-500">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
@@ -40,7 +45,7 @@ export default function Page() {
         <div className="flex flex-wrap gap-1">
           {/* prod */}
           {/* shouldn't have used index as a key but, just to keep thy console clear & '-' to counter weird JS behaviors.) */}
-          {testImages.map((image, i) => (
+          {images.map((image, i) => (
             <div key={image.id + "-" + i}>
               <Image
                 src={image.url}
@@ -48,6 +53,7 @@ export default function Page() {
                 width={450}
                 height={450}
               ></Image>
+              {/* {image.name} */}
             </div>
           ))}
           {/* for testing */}
