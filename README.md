@@ -1,4 +1,6 @@
-# Create T3 App
+# Image Gallery w/ NEXT.js + Vercel.
+
+`/gallery`
 
 This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
 
@@ -36,8 +38,8 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 - [X] Deploy w/ vercel
 - [X] Basic UI
-- [ ] DB w/ vercel postgres
-- [ ] DB integration
+- [X] DB w/ vercel postgres
+- [X] DB integration
 - [ ] Auth w/ Clerk
 - [ ] Image Uploads
 - [ ] Error handling w/Sentry
@@ -45,3 +47,9 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [ ] Delete w/ **Server Actions**
 - [ ] Analytics w/ posthog
 - [ ] Rate-limits w/ upstash
+
+`NOTE:` `vercel env pull` to pull *.env*
+
+`Tip:` `git add -p` for git diff
+
+Until next time.)
