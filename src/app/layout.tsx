@@ -1,3 +1,10 @@
+import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton
+} from '@clerk/nextjs';
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -21,7 +28,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Image Gallery",
-  description: "Image Gallery with Next.js + Vercel.",
+  description: "Image Gallery with Next.js + Vercel by skywalkerSam",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
