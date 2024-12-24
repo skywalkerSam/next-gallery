@@ -3,7 +3,11 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-2 mb-24 flex flex-col items-center gap-8 sm:items-start">
+      <main className="row-start-2 mb-6 flex flex-col items-center gap-8 sm:items-start">
+        <h1 className="row-start-3 mb-3 mt-9 flex flex-wrap items-center justify-center gap-6 text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
+          Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
+          <span className="text-[hsl(0,0%,11%)]">NEXT</span>
+        </h1>
         {/* <Image
           className="dark:invert"
           src="/next.svg"
@@ -26,7 +30,7 @@ export default function Home() {
         <Link href="/gallery">
           <div className="flex flex-col items-center gap-4 sm:flex-row">
             <a
-              className="flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-sm text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-12 sm:min-w-44 sm:px-5 sm:text-base dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              className="flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-52 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
               target="_blank"
               rel="noopener noreferrer"
