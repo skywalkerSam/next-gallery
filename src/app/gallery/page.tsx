@@ -32,17 +32,17 @@ export const dynamic = "force-dynamic";
 
 export default async function Page() {
   const images = await db.query.images.findMany({
-    orderBy: (order, {desc}) => desc(order.id)  // asc, nice.)
+    orderBy: (order, {asc}) => asc(order.id)  // desc, nice.)
   });
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#010125] text-gray-500">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <h1 className="text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
+        {/* <h1 className="text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
           Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
           <span className="text-[hsl(0,0%,11%)]">NEXT</span>
-        </h1>
-        <div className="flex flex-wrap gap-1">
+        </h1> */}
+        <div className="flex flex-wrap gap-2 p-3 row-start-1 items-center justify-center mt-0">
           {/* prod */}
           {/* shouldn't have used index as a key but, just to keep thy console clear & '-' to counter weird JS behaviors.) */}
           {images.map((image, i) => (

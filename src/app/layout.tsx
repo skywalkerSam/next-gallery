@@ -1,3 +1,11 @@
+import {
+  ClerkProvider,
+  SignIn,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+} from "@clerk/nextjs";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -21,7 +29,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   title: "Image Gallery",
-  description: "Image Gallery with Next.js + Vercel.",
+  description: "Image Gallery with Next.js + Vercel by skywalkerSam",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
@@ -31,43 +39,64 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-        <footer className="row-start-3 flex flex-wrap items-center justify-center gap-6">
-          <div>
-            <small className="text-gray-500">Built with</small>
-            <a
-              href="https://nextjs.org"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className="dark:invert"
-                src="https://nextjs.org/icons/next.svg"
-                alt="Next.js logo"
-                width={180}
-                height={38}
-                priority
-              />
-            </a>
-            <br />
-            <small className="text-gray-500">
-              &copy; Copyright 12024,{" "}
+    <ClerkProvider>
+      <html lang="en">
+        <body
+          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        >
+          <SignedOut>
+            <h1 className="row-start-3 mb-3 mt-12 flex flex-wrap items-center justify-center gap-6 text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
+              Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
+              <span className="text-[hsl(0,0%,11%)]">NEXT</span>
+            </h1>
+            <div className="row-start-3 mb-24 mt-24 flex flex-wrap items-center justify-center gap-6">
+              {/* <SignIn routing="hash"></SignIn> */}
+              <div className="row-start-3 mb-48 mt-48 flex h-10 flex-wrap items-center justify-center rounded-full border border-solid border-black/[.08] p-3 px-4 text-2xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-44 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+                <SignInButton />
+              </div>
+            </div>
+          </SignedOut>
+          <SignedIn>
+            <header className="flex justify-between p-3 text-xl font-semibold text-gray-400">
+              <h1>ASAI Inc.</h1>
+              <UserButton showName></UserButton>
+            </header>
+            {/* <UserButton /> */}
+            {children}
+          </SignedIn>
+          <footer className="row-start-3 mb-3 mt-9 flex flex-wrap items-center justify-center gap-6">
+            <div>
+              <small className="text-gray-500">Built with</small>
               <a
-                href="https://github.com/skywalkerSam/"
-                className="text-cyan-500"
+                href="https://nextjs.org"
                 target="_blank"
+                rel="noopener noreferrer"
               >
-                @skywalkerSam
+                <Image
+                  className="dark:invert"
+                  src="https://nextjs.org/icons/next.svg"
+                  alt="Next.js logo"
+                  width={180}
+                  height={38}
+                  priority
+                />
               </a>
-            </small>
-          </div>
-        </footer>
-      </body>
-    </html>
+              <br />
+              <small className="text-gray-500">
+                &copy; Copyright 12024,{" "}
+                <a
+                  href="https://github.com/skywalkerSam/"
+                  className="text-cyan-500"
+                  target="_blank"
+                >
+                  @skywalkerSam
+                </a>
+              </small>
+            </div>
+          </footer>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
 
