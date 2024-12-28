@@ -45,13 +45,14 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <SignedOut>
-            <h1 className="row-start-3 mb-3 mt-12 flex flex-wrap items-center justify-center gap-6 text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
+            <h1 className="row-start-3 mb-3 mt-12 flex flex-wrap items-center justify-center gap-3 text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
               Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
               <span className="text-[hsl(0,0%,11%)]">NEXT</span>
             </h1>
-            <div className="row-start-3 mb-24 mt-24 flex flex-wrap items-center justify-center gap-6">
+            <div className="row-start-3 mb-60 mt-60 flex flex-wrap items-center justify-center gap-3">
               {/* <SignIn routing="hash"></SignIn> */}
-              <div className="row-start-3 mb-48 mt-48 flex h-10 flex-wrap items-center justify-center rounded-full border border-solid border-black/[.08] p-3 px-4 text-2xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-44 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+              {/* <div className="row-start-3 mb-48 mt-48 flex h-10 flex-wrap items-center justify-center rounded-full border border-solid border-black/[.08] p-3 px-4 text-2xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-44 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"> */}
+              <div className="flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-36 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
                 <SignInButton />
               </div>
             </div>
@@ -64,7 +65,7 @@ export default function RootLayout({
             {/* <UserButton /> */}
             {children}
           </SignedIn>
-          <footer className="row-start-3 mb-3 mt-9 flex flex-wrap items-center justify-center gap-6">
+          <footer className="row-start-3 mb-3 mt-9 flex flex-wrap items-center justify-center gap-3">
             <div>
               <small className="text-gray-500">Built with</small>
               <a
