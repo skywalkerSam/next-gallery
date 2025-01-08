@@ -8,8 +8,9 @@ import {
 } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
 import Image from "next/image";
+import "./globals.css";
+import "@uploadthing/react/styles.css";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",

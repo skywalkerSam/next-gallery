@@ -1,5 +1,11 @@
-import { createRouteHandler } from "uploadthing/next";
+// // basic GET route w/ NEXT
+// export function GET() {
+//   return new Response("Hello World!")
+// }
 
+
+
+import { createRouteHandler } from "uploadthing/next";
 import { ourFileRouter } from "./core";
 
 // Export routes for Next App Router
