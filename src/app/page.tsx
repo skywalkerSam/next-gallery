@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { UploadButton } from "@uploadthing/react";
 
 export default function Home() {
   return (
@@ -28,7 +29,7 @@ export default function Home() {
         </ol> */}
 
         <Link href="/gallery">
-          <div className="flex flex-col items-center gap-3 sm:flex-row">
+          <div className="flex flex-col items-center gap-3 sm:flex-row mt-3">
             <a
               className="flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-52 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
               href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -62,6 +63,10 @@ export default function Home() {
           </a> */}
           </div>
         </Link>
+        {/* uploadthing image uploads */}
+        <div className="flex flex-col items-center gap-3 sm:flex-row mt-36">
+        <UploadButton endpoint="imageUploader"></UploadButton>
+        </div>
       </main>
       {/* <footer className="row-start-3 flex flex-wrap items-center justify-center gap-6">
         <div>
