@@ -1,6 +1,10 @@
 import { auth } from "@clerk/nextjs/server";
+// import { db } from "@vercel/postgres";
 import { createUploadthing, type FileRouter } from "uploadthing/next";
 import { UploadThingError } from "uploadthing/server";
+import { db } from "~/server/db";
+import { images } from "~/server/db/schema";
+
 
 const f = createUploadthing();
 
@@ -25,16 +29,21 @@ export const ourFileRouter = {
       const user = await auth();
 
       // If you throw, the user will not be able to upload
-      if (!user || !user.userId) throw new UploadThingError("Unauthorized!");
+      if (!user.userId) throw new UploadThingError("Please sign in and try again...!");
 
       // Whatever is returned here is accessible in onUploadComplete as `metadata`
       return { userId: user.userId };
     })
     .onUploadComplete(async ({ metadata, file }) => {
       // This code RUNS ON YOUR SERVER after upload
-      console.log("Upload complete for userId:", metadata.userId);
+      console.log("\nUpload complete for userId:", metadata.userId);
+      console.log("\nImage URL: ", file.url, "\n");
 
-      console.log("file url", file.url);
+      // let's update thy db
+      await db.insert(images).values({
+        name: file.name,
+        url: file.url
+      })
 
       // !!! Whatever is returned here is sent to the clientside `onClientUploadComplete` callback
       return { uploadedBy: metadata.userId };
