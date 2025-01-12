@@ -1,16 +1,12 @@
 import Link from "next/link";
-import { UploadButton } from "@uploadthing/react";
-// import { OurFileRouter } from "./api/uploadthing/core";
-import type { OurFileRouter } from "./api/uploadthing/core";
+import CustomUploadButton from "~/ui/CustomUploadButton";
+import MainTitle from "~/ui/MainTitle";
 
 export default function Home() {
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
       <main className="row-start-2 mb-6 flex flex-col items-center gap-3 sm:items-start">
-        <h1 className="row-start-3 mb-3 mt-9 flex flex-wrap items-center justify-center gap-3 text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
-          Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
-          <span className="text-[hsl(0,0%,11%)]">NEXT</span>
-        </h1>
+        <MainTitle></MainTitle>
         {/* <Image
           className="dark:invert"
           src="/next.svg"
@@ -30,49 +26,27 @@ export default function Home() {
           <li>Save and see your changes instantly.</li>
         </ol> */}
 
-        <Link href="/gallery">
-          <div className="mt-3 flex flex-col items-center gap-3 sm:flex-row">
+        <div>
+          <Link
+            href={"/gallery"}
+            className="mt-3 flex h-10 flex-col items-center justify-center gap-3 rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-52 sm:flex-row sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+          >
+            Visit Image Gallery →
+          </Link>
+          {/* <Link href="/gallery">
             <a
-              className="flex h-10 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-52 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
+              className="mt-3 flex h-10 flex-col items-center justify-center gap-3 rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-52 sm:flex-row sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"
+              href="/gallery"
               target="_blank"
               rel="noopener noreferrer"
             >
               Visit Image Gallery →
             </a>
-            {/* <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a> */}
-          </div>
-        </Link>
-        {/* uploadthing image uploads */}
-        <div className="mt-36 flex flex-col items-center gap-3 sm:flex-row">
-          {/* <UploadButton endpoint="imageUploader"></UploadButton> */}
-          <UploadButton<
-            OurFileRouter,
-            "imageUploader"
-          > endpoint="imageUploader" />
+          </Link> */}
         </div>
+
+        {/* uploadthing image uploads */}
+        <CustomUploadButton></CustomUploadButton>
       </main>
       {/* <footer className="row-start-3 flex flex-wrap items-center justify-center gap-6">
         <div>
