@@ -2,6 +2,7 @@
 // import dynamic from "next/dynamic";
 import Image from "next/image";
 import { db } from "~/server/db";
+import CustomUploadButton from "~/ui/CustomUploadButton";
 
 // dynamic behavior
 export const dynamic = "force-dynamic";
@@ -36,7 +37,7 @@ export default async function Page() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#010125] text-gray-500">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#7a6b6b] to-black text-gray-500">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         {/* <h1 className="text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
           Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
@@ -80,6 +81,10 @@ export default async function Page() {
             </div>
           ))} */}
         </div>
+
+        {/* uploadthing image uploads */}
+        <CustomUploadButton></CustomUploadButton>
+
         {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
             className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"
