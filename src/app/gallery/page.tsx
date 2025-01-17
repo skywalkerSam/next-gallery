@@ -1,7 +1,8 @@
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
-import {db} from "~/server/db"
+import { db } from "~/server/db";
+import CustomUploadButton from "~/ui/CustomUploadButton";
 
 // dynamic behavior
 export const dynamic = "force-dynamic";
@@ -32,21 +33,20 @@ export const dynamic = "force-dynamic";
 
 export default async function Page() {
   const images = await db.query.images.findMany({
-    orderBy: (order, {asc}) => asc(order.id)  // desc, nice.)
+    orderBy: (order, { asc }) => asc(order.id), // desc, nice.)
   });
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#000000] to-[#010125] text-gray-500">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#7a6b6b] to-black text-gray-500">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         {/* <h1 className="text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
           Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
           <span className="text-[hsl(0,0%,11%)]">NEXT</span>
         </h1> */}
-        <div className="flex flex-wrap gap-2 p-3 row-start-1 items-center justify-center mt-0">
+        <div className="row-start-1 mt-0 flex flex-wrap items-center justify-center gap-2 p-3">
           {/* prod */}
-          {/* shouldn't have used index as a key but, just to keep thy console clear & '-' to counter weird JS behaviors.) */}
-          {images.map((image, i) => (
-            <div key={image.id + "-" + i}>
+          {images.map((image) => (
+            <div key={image.id}>
               <Image
                 src={image.url}
                 alt="Image"
@@ -57,6 +57,19 @@ export default async function Page() {
             </div>
           ))}
           {/* for testing */}
+          {/* shouldn't have used index as a key but, just to keep thy console clear & '-' to counter weird JS behaviors.) */}
+          {/* {images.map((image, i) => (
+            <div key={image.id + "-" + i}>
+              <Image
+                src={image.url}
+                alt="Image"
+                width={450}
+                height={450}
+              ></Image>
+              {image.name}
+            </div>
+          ))} */}
+          {/* multiple pages test */}
           {/* {[...testImages, ...testImages].map((image) => (
             <div key={image.id}>
               <Image
@@ -68,6 +81,10 @@ export default async function Page() {
             </div>
           ))} */}
         </div>
+
+        {/* uploadthing image uploads */}
+        <CustomUploadButton></CustomUploadButton>
+
         {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
             className="flex max-w-xs flex-col gap-4 rounded-xl bg-white/10 p-4 text-white hover:bg-white/20"

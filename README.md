@@ -41,7 +41,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [X] DB w/ vercel postgres
 - [X] DB integration
 - [X] Auth w/ Clerk
-- [ ] Image Uploads
+- [X] Image Uploads
 - [ ] Error handling w/Sentry
 - [ ] Routing */image* (parallel routes)
 - [ ] Delete w/ **Server Actions**
