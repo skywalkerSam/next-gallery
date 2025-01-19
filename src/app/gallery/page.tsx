@@ -50,8 +50,8 @@ export default async function Page() {
               <Image
                 src={image.url}
                 alt="Image"
-                width={450}
-                height={450}
+                width={475}
+                height={475}
               ></Image>
               {/* {image.name} */}
             </div>
