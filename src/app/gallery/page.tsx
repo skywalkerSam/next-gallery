@@ -1,7 +1,8 @@
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
-import { db } from "~/server/db";
+import { getUserImages } from "~/server/queries";
+// import { db } from "~/server/db";
 import CustomUploadButton from "~/ui/CustomUploadButton";
 
 // dynamic behavior
@@ -32,9 +33,11 @@ export const dynamic = "force-dynamic";
 // );
 
 export default async function Page() {
-  const images = await db.query.images.findMany({
-    orderBy: (order, { asc }) => asc(order.id), // desc, nice.)
-  });
+  // Moved to server
+  // const images = await db.query.images.findMany({
+  //   orderBy: (order, { asc }) => asc(order.id), // desc, nice.)
+  // });
+  const images = await getUserImages();
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#212121] to-black text-gray-500">
