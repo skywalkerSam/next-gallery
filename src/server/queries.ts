@@ -17,3 +17,5 @@ export async function getUserImages() {
     throw new Error("User not found!");
   }
 }
+
+// NOTE: Use `taint` to keep sensitive things like tokens away from the client.
