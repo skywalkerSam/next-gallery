@@ -50,7 +50,7 @@ export default async function Page() {
           {/* prod */}
           {images.map((image) => (
             <div key={image.id}>
-              {/* NOTE: Opt out of image optimization for images < 1KB, SVGs, or GIFs as they don't get the benifits */}
+              {/* NOTE: Opt out of image optimization for images < 1KB, SVGs, or GIFs as they don't get the benefits */}
               <Image
                 src={image.url}
                 alt={image.name}
