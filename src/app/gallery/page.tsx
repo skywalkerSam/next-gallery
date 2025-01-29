@@ -1,7 +1,8 @@
 // import Link from "next/link";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
-import { db } from "~/server/db";
+import { getUserImages } from "~/server/queries";
+// import { db } from "~/server/db";
 import CustomUploadButton from "~/ui/CustomUploadButton";
 
 // dynamic behavior
@@ -32,12 +33,14 @@ export const dynamic = "force-dynamic";
 // );
 
 export default async function Page() {
-  const images = await db.query.images.findMany({
-    orderBy: (order, { asc }) => asc(order.id), // desc, nice.)
-  });
+  // Moved to server
+  // const images = await db.query.images.findMany({
+  //   orderBy: (order, { asc }) => asc(order.id), // desc, nice.)
+  // });
+  const images = await getUserImages();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#7a6b6b] to-black text-gray-500">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#212121] to-black text-gray-500">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         {/* <h1 className="text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
           Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
@@ -47,11 +50,14 @@ export default async function Page() {
           {/* prod */}
           {images.map((image) => (
             <div key={image.id}>
+              {/* NOTE: Opt out of image optimization for images < 1KB, SVGs, or GIFs as they don't get the benefits */}
               <Image
                 src={image.url}
-                alt="Image"
-                width={450}
-                height={450}
+                alt={image.name}
+                width={475}
+                height={475}
+                style={{objectFit: "contain"}}
+                loading="eager"
               ></Image>
               {/* {image.name} */}
             </div>
