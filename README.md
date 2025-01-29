@@ -42,14 +42,18 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [x] DB integration
 - [x] Auth w/ Clerk
 - [x] Image Uploads
-- [x] Error handling w/Sentry
+- [x] Error handling w/ Sentry
 - [ ] Routing (parallel routes)
 - [ ] Delete w/ **Server Actions**
-- [ ] Analytics w/ Posthog
+- [ ] Analytics w/ PostHog
 - [ ] Rate-limits w/ upstash
 
-**Tip:** `git add -p` for git diff
+## Notes
 
-**NOTE:** `vercel env pull` to pull _.env_
+- `git add -p` - git diff
+
+- `vercel env pull` - pull _.env_
+
+- Use `pnpm add` and not `pnpm i` or, just use anyone.)
 
 Until next time.)
