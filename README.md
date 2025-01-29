@@ -36,20 +36,19 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## TODOs
 
-- [X] Deploy w/ vercel
-- [X] Basic UI
-- [X] DB w/ vercel postgres
-- [X] DB integration
-- [X] Auth w/ Clerk
-- [X] Image Uploads
-- [X] Error handling w/Sentry
+- [x] Deploy w/ vercel
+- [x] Basic UI
+- [x] DB w/ vercel postgres
+- [x] DB integration
+- [x] Auth w/ Clerk
+- [x] Image Uploads
+- [x] Error handling w/Sentry
 - [ ] Routing (parallel routes)
 - [ ] Delete w/ **Server Actions**
 - [ ] Analytics w/ Posthog
 - [ ] Rate-limits w/ upstash
 
-**NOTE:** `vercel env pull` to pull *.env*
-
 **Tip:** `git add -p` for git diff
+**NOTE:** `vercel env pull` to pull _.env_
 
 Until next time.)
