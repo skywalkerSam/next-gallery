@@ -49,6 +49,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [ ] Rate-limits w/ upstash
 
 **Tip:** `git add -p` for git diff
+
 **NOTE:** `vercel env pull` to pull _.env_
 
 Until next time.)
