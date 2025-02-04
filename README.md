@@ -1,4 +1,4 @@
-# Image Gallery w/ NEXT.js + Vercel.
+# [Image Gallery w/ NEXT.js + Vercel](https://github.com/skywalkerSam/next-gallery/)
 
 `/gallery`
 
