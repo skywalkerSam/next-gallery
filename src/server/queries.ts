@@ -18,4 +18,20 @@ export async function getUserImages() {
   }
 }
 
+export async function getUserImage() {
+  // using auth() for userId validation
+  const user = await auth();
+
+  if (user.userId) {
+    const images = await db.query.images.findFirst({
+      // filter
+      where: (model, { eq }) => eq(model.userId, user.userId),
+      // orderBy: (model, { asc }) => asc(model.id), // desc, nice.)
+    });
+    return images;
+  } else {
+    throw new Error("User not found!");
+  }
+}
+
 // NOTE: Use `taint` to keep sensitive things like tokens away from the client.
