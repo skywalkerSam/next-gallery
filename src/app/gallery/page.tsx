@@ -1,4 +1,4 @@
-// import Link from "next/link";
+import Link from "next/link";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
 import { getUserImages } from "~/server/queries";
@@ -50,16 +50,18 @@ export default async function Page() {
           {/* prod */}
           {images.map((image) => (
             <div key={image.id}>
-              {/* NOTE: Opt out of image optimization for images < 1KB, SVGs, or GIFs as they don't get the benefits */}
-              <Image
-                src={image.url}
-                alt={image.name}
-                width={475}
-                height={475}
-                style={{objectFit: "contain"}}
-                loading="eager"
-              ></Image>
-              {/* {image.name} */}
+              <Link className="card" key={image.id} href={`/images/${image.id}`} passHref>
+                {/* NOTE: Opt out of image optimization for images < 1KB, SVGs, or GIFs as they don't get the benefits */}
+                <Image
+                  src={image.url}
+                  alt={image.name}
+                  width={475}
+                  height={475}
+                  style={{ objectFit: "contain" }}
+                  loading="eager"
+                ></Image>
+                {/* {image.name} */}
+              </Link>
             </div>
           ))}
           {/* for testing */}

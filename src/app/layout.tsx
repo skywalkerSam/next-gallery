@@ -37,9 +37,10 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children, modal
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>
@@ -67,6 +68,8 @@ export default function RootLayout({
             </header>
             {/* <UserButton /> */}
             {children}
+            {modal}
+            <div id="modal-root"></div>
           </SignedIn>
           <footer className="row-start-3 mb-3 mt-9 flex flex-wrap items-center justify-center gap-3">
             <div>
