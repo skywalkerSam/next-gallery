@@ -2,6 +2,8 @@ import "server-only";
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 
+// use closures pattern
+
 export async function getUserImages() {
   // using auth() for userId validation
   const user = await auth();
@@ -18,14 +20,14 @@ export async function getUserImages() {
   }
 }
 
-export async function getUserImage() {
+export async function getUserImage(id: number) {
   // using auth() for userId validation
   const user = await auth();
 
   if (user.userId) {
     const images = await db.query.images.findFirst({
       // filter
-      where: (model, { eq }) => eq(model.userId, user.userId),
+      where: (model, { eq }) => eq(model.id, id),
       // orderBy: (model, { asc }) => asc(model.id), // desc, nice.)
     });
     return images;
