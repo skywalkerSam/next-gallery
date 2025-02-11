@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    // <div className="flex min-h-screen flex-row items-center justify-center">
-    <footer className="flex flex-row items-center justify-center row-start-3 mb-3 mt-9 flex-wrap">
+    <div className="flex flex-row items-center justify-center justify-items-end">
+    <footer>
       <div>
         <small className="text-gray-600">Built w/</small>
         <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">
@@ -23,7 +23,7 @@ export default function Footer() {
           &copy; Copyright 12025,{" "}
           <a
             href="https://github.com/skywalkerSam/"
-            className="hover:text-blue-400 hover:underline"
+            className="hover:underline hover:text-slate-500 focus:text-slate-500"
             target="_blank"
           >
             @skywalkerSam
@@ -31,6 +31,6 @@ export default function Footer() {
         </small>
       </div>
     </footer>
-    // </div>
+    </div>
   );
 }
