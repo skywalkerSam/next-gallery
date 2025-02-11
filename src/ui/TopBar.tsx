@@ -13,8 +13,10 @@ export default function TopBar() {
           <Image
             src="/starboy-logo.png"
             alt="App Logo"
-            width={69}
-            height={69}
+            width={90}
+            height={60}
+            className="p-3"
+            priority
           ></Image>
         </Link>
         {/* uploadthing image uploads */}

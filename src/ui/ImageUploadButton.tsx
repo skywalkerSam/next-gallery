@@ -10,7 +10,7 @@ export default function ImageUploadButton() {
 
   return (
     // <div className="mt-36 flex flex-col items-center gap-3 sm:flex-row">
-    <div>
+    <div className="p-3">
       {/* <UploadButton endpoint="imageUploader"></UploadButton> */}
       <UploadButton<OurFileRouter, "imageUploader"> endpoint="imageUploader" onClientUploadComplete={() => {
         router.refresh();
