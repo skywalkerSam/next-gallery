@@ -1,7 +1,7 @@
 import {
   ClerkProvider,
   // SignIn,
-  SignInButton,
+  // SignInButton,
   SignedIn,
   SignedOut,
   // UserButton,
@@ -16,6 +16,7 @@ import MainTitle from "~/ui/MainTitle";
 import TopBar from "~/ui/TopBar";
 import Footer from "~/ui/Footer";
 import StarboyLogo from "~/ui/StarboyLogo";
+import UserSignInButton from "~/ui/UserSignInButton";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -53,15 +54,16 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <SignedOut>
+            <UserSignInButton></UserSignInButton>
             <MainTitle></MainTitle>
             <StarboyLogo></StarboyLogo>
-            <div className="row-start-3 mb-60 mt-60 flex flex-wrap items-center justify-center gap-3">
+            {/* <div className="row-start-3 mb-60 mt-60 flex flex-wrap items-center justify-center gap-3"> */}
               {/* <SignIn routing="hash"></SignIn> */}
               {/* <div className="row-start-3 mb-48 mt-48 flex h-10 flex-wrap items-center justify-center rounded-full border border-solid border-black/[.08] p-3 px-4 text-2xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-44 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"> */}
-              <div className="flex h-6 items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] hover:text-sky-400 hover:underline sm:h-16 sm:min-w-36 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+              {/* <div className="flex h- items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] hover:text-sky-400 hover:underline sm:h-16 sm:min-w-36 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
                 <SignInButton />
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
           </SignedOut>
           <SignedIn>
             <TopBar></TopBar>
