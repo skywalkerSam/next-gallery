@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { UserButton } from "@clerk/nextjs";
+import ImageUploadButton from "./ImageUploadButton";
 
 export default function TopBar() {
   return (
@@ -9,6 +10,8 @@ export default function TopBar() {
         <Link href="/" className="hover:text-sky-400 hover:underline">
           Starboy Inc.
         </Link>
+        {/* uploadthing image uploads */}
+        <ImageUploadButton></ImageUploadButton>
         <UserButton showName></UserButton>
       </header>
     </div>

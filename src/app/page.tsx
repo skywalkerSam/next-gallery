@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import CustomUploadButton from "~/ui/CustomUploadButton";
+// import ImageUploadButton from "~/ui/ImageUploadButton";
 import MainTitle from "~/ui/MainTitle";
 
 export default function Home() {
@@ -46,7 +46,7 @@ export default function Home() {
         </div>
 
         {/* uploadthing image uploads */}
-        {/* <CustomUploadButton></CustomUploadButton> */}
+        {/* <ImageUploadButton></ImageUploadButton> */}
       </main>
       {/* <footer className="row-start-3 flex flex-wrap items-center justify-center gap-6">
         <div>

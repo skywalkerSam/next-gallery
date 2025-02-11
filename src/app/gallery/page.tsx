@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getUserImages } from "~/server/queries";
 // import { db } from "~/server/db";
-import CustomUploadButton from "~/ui/CustomUploadButton";
+// import ImageUploadButton from "~/ui/ImageUploadButton";
 
 // dynamic behavior
 export const dynamic = "force-dynamic";
@@ -91,7 +91,7 @@ export default async function Page() {
         </div>
 
         {/* uploadthing image uploads */}
-        <CustomUploadButton></CustomUploadButton>
+        {/* <ImageUploadButton></ImageUploadButton> */}
 
         {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
