@@ -8,12 +8,13 @@ import {
 } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Image from "next/image";
+// import Image from "next/image";
 import "./globals.css";
 import "@uploadthing/react/styles.css";
 import MainTitle from "~/ui/MainTitle";
 // import Link from "next/link";
 import TopBar from "~/ui/TopBar";
+import Footer from "~/ui/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -68,36 +69,7 @@ export default function RootLayout({
             {modal}
             <div id="modal-root"></div>
           </SignedIn>
-          <footer className="row-start-3 mb-3 mt-9 flex flex-wrap items-center justify-center gap-3">
-            <div>
-              <small className="text-gray-400">Built with</small>
-              <a
-                href="https://nextjs.org"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Image
-                  className="dark:invert"
-                  src="https://nextjs.org/icons/next.svg"
-                  alt="Next.js logo"
-                  width={180}
-                  height={38}
-                  priority
-                />
-              </a>
-              <br />
-              <small className="text-gray-400">
-                &copy; Copyright 12025,{" "}
-                <a
-                  href="https://github.com/skywalkerSam/"
-                  className="hover:underline hover:text-sky-400"
-                  target="_blank"
-                >
-                  @skywalkerSam
-                </a>
-              </small>
-            </div>
-          </footer>
+          <Footer></Footer>
         </body>
       </html>
     </ClerkProvider>
