@@ -58,17 +58,20 @@ export default function RootLayout({
             <MainTitle></MainTitle>
             <StarboyLogo></StarboyLogo>
             {/* <div className="row-start-3 mb-60 mt-60 flex flex-wrap items-center justify-center gap-3"> */}
-              {/* <SignIn routing="hash"></SignIn> */}
-              {/* <div className="row-start-3 mb-48 mt-48 flex h-10 flex-wrap items-center justify-center rounded-full border border-solid border-black/[.08] p-3 px-4 text-2xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-44 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"> */}
-              {/* <div className="flex h- items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] hover:text-sky-400 hover:underline sm:h-16 sm:min-w-36 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
+            {/* <SignIn routing="hash"></SignIn> */}
+            {/* <div className="row-start-3 mb-48 mt-48 flex h-10 flex-wrap items-center justify-center rounded-full border border-solid border-black/[.08] p-3 px-4 text-2xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-44 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"> */}
+            {/* <div className="flex h- items-center justify-center rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] hover:text-sky-400 hover:underline sm:h-16 sm:min-w-36 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]">
                 <SignInButton />
               </div> */}
             {/* </div> */}
           </SignedOut>
           <SignedIn>
-            <TopBar></TopBar>
-            {/* <UserButton /> */}
-            {children}
+            {/* Defend the layout from weird extensions behaviors */}
+            <div className="grid h-screen grid-rows-[auto,1fr]">
+              <TopBar></TopBar>
+              {/* <UserButton /> */}
+              <main className="overflow-y-scroll">{children}</main>
+            </div>
             {modal}
             <div id="modal-root"></div>
           </SignedIn>
