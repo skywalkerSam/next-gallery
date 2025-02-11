@@ -4,7 +4,7 @@ import {
   SignInButton,
   SignedIn,
   SignedOut,
-  UserButton,
+  // UserButton,
 } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
@@ -12,7 +12,8 @@ import Image from "next/image";
 import "./globals.css";
 import "@uploadthing/react/styles.css";
 import MainTitle from "~/ui/MainTitle";
-import Link from "next/link";
+// import Link from "next/link";
+import TopBar from "~/ui/TopBar";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -61,11 +62,7 @@ export default function RootLayout({
             </div>
           </SignedOut>
           <SignedIn>
-            <header className="flex justify-between p-3 text-xl font-semibold text-gray-400">
-              {/* <h1>Starboy Inc.</h1> */}
-              <Link href="/" className="hover:underline hover:text-sky-400">Starboy Inc.</Link>
-              <UserButton showName></UserButton>
-            </header>
+            <TopBar></TopBar>
             {/* <UserButton /> */}
             {children}
             {modal}
