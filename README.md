@@ -43,7 +43,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [x] Auth w/ Clerk
 - [x] Image Uploads
 - [x] Error handling w/ Sentry
-- [ ] Routing (parallel routes)
+- [x] Routing (parallel routes)
 - [ ] Delete w/ **Server Actions**
 - [ ] Analytics w/ PostHog
 - [ ] Rate-limits w/ upstash
