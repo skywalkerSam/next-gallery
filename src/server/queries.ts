@@ -36,4 +36,8 @@ export async function getUserImage(id: number) {
   }
 }
 
+export async function deleteImage() {
+  //
+}
+
 // NOTE: Use `taint` to keep sensitive things like tokens away from the client.

@@ -1,6 +1,6 @@
 import { getUserImage } from "~/server/queries";
 import { Modal } from "./modal";
-import FullScreenImage from "~/ui/FullScreenImage";
+import FullScreenImage from "~/ui/gallery/FullScreenImage";
 import type { imageType } from "~/types/imageType";
 // import Image from "next/image";
 

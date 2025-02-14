@@ -1,6 +1,6 @@
 import Link from "next/link";
 // import ImageUploadButton from "~/ui/ImageUploadButton";
-import MainTitle from "~/ui/MainTitle";
+import MainTitle from "~/ui/components/MainTitle";
 
 export default function Home() {
   return (
