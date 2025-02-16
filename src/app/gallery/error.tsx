@@ -17,11 +17,11 @@ export default function Error({
   return (
     <div>
       <div className="flex min-h-screen flex-row items-center justify-center p-3">
-        <h1 className="text-3xl text-red-600">Something went wrong!</h1>
+        {/* <h1 className="m-6 text-3xl text-red-600">Something went wrong!</h1> */}
         {/* <br /> */}
         <div>
-          <button className="pointer" onClick={() => reset()}>
-            Try again
+          <button className="pointer text-5xl hover:grow" onClick={() => reset()}>
+            ♻️
           </button>
         </div>
       </div>
