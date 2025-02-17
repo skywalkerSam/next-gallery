@@ -2,7 +2,8 @@
 
 export default function NextLogo() {
   return (
-    <span className="flex flex-wrap tracking-tighter text-6xl text-slate-900">
+    <span className="flex flex-wrap tracking-tighter text-6xl text-gray-400">
+    {/* <span className="flex flex-wrap tracking-tighter text-6xl text-slate-900"> */}
       <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">
         NEXT<span className="text-2xl tracking-tight">.JS</span>
         {/* <Image
