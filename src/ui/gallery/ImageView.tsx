@@ -1,13 +1,21 @@
 import { getUserImage } from "~/server/queries";
 import Image from "next/image";
-import type { imageType } from "~/types/imageType";
+// import type { imageType } from "~/types/imageType";
 import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
 
 export async function ImageView(props: { imageId: number }) {
-  const image: imageType | undefined = await getUserImage(props.imageId);
+  const image = await getUserImage(props.imageId);
+  if (!image) {
+    throw new Error(`Image not found: ${props.imageId}`);
+  }
   const client = await clerkClient();
-  const uploaderInfo = image && (await client.users.getUser(image?.userId));
+  const uploaderInfo = await client.users
+    .getUser(image.userId)
+    .catch(() => null);
+  // const image: imageType | undefined = await getUserImage(props.imageId);
+  // const client = await clerkClient();
+  // const uploaderInfo = image && (await client.users.getUser(image?.userId));
   return (
     <div className="mt-60 flex h-full w-full min-w-0 flex-wrap items-center justify-center p-3 text-gray-400">
       <Suspense fallback={<p>Fetching Image...</p>}>

@@ -4,13 +4,31 @@ import type { imageType } from "~/types/imageType";
 
 export async function FullImageView(props: { imageId: number }) {
   const image: imageType | undefined = await getUserImage(props.imageId);
+  if (!image) {
+    return (
+      <div className="flex min-h-screen flex-row items-center justify-center">
+        <p>Image not found</p>
+      </div>
+    );
+  }
   return (
-    // looking for these specific tailwind classes to center a div never gets old.)
     <div className="flex min-h-screen flex-row items-center justify-center">
-      {/* no use for Image component for this is a full screen image.) */}
-      {image && <img src={image.url} alt={image.name}></img>}
+      <img
+        src={image.url}
+        alt={image.name}
+        onError={(e) => {
+          e.currentTarget.src = "/placeholder.jpg";
+        }}
+      />
     </div>
   );
+  // return (
+  //   // looking for these specific tailwind classes to center a div never gets old.)
+  //   <div className="flex min-h-screen flex-row items-center justify-center">
+  //     {/* no use for Image component for this is a full screen image.) */}
+  //     {image && <img src={image.url} alt={image.name}></img>}
+  //   </div>
+  // );
 }
 
 // // import Image from "next/image";

@@ -24,10 +24,6 @@ body {
 
 /* EOF */
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 dialog {
   max-width: 100vw;
   max-height: 100vh;

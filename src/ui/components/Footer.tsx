@@ -28,6 +28,7 @@ export default function Footer() {
             href="https://github.com/skywalkerSam/"
             className="hover:underline  text-slate-600 hover:text-blue-400 focus:text-blue-400"
             target="_blank"
+            rel="noopener noreferrer"
           >
             @skywalkerSam
           </a>

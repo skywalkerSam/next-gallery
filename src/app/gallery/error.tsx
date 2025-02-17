@@ -1,8 +1,9 @@
 "use client"; // Error boundaries must be Client Components
 
 import { useEffect } from "react";
+import { captureException } from "@sentry/nextjs";
 
-export default function Error({
+export default function GalleryError({
   error,
   reset,
 }: {
@@ -12,6 +13,7 @@ export default function Error({
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error);
+    captureException(error);
   }, [error]);
 
   return (
@@ -20,7 +22,10 @@ export default function Error({
         {/* <h1 className="m-6 text-3xl text-red-600">Something went wrong!</h1> */}
         {/* <br /> */}
         <div>
-          <button className="pointer text-6xl text-slate-900" onClick={() => reset()}>
+          <button
+            className="pointer text-6xl text-slate-900"
+            onClick={() => reset()}
+          >
             ♻️
           </button>
         </div>
