@@ -1,11 +1,16 @@
 "use client";
 
+import NextLogo from "./NextLogo";
+
+// import Image from "next/image";
+
 export default function MainTitle() {
   return (
     <div>
-      <h1 className="row-start-3 mb-3 mt-9 flex flex-wrap items-center justify-center gap-3 text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
+      <h1 className="row-start-3 flex flex-wrap items-center justify-center gap-3 text-slate-500 sm:text-[4rem]">
         Image <span className="text-blue-400">Gallery</span> w/{" "}
-        <span className="text-[hsl(0,0%,11%)]">NEXT</span>
+        {/* <span className="text-black tracking-tighter">NEXT.JS</span> */}
+        <NextLogo></NextLogo>
       </h1>
     </div>
   );

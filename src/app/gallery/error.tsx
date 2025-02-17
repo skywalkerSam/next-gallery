@@ -20,7 +20,7 @@ export default function Error({
         {/* <h1 className="m-6 text-3xl text-red-600">Something went wrong!</h1> */}
         {/* <br /> */}
         <div>
-          <button className="pointer text-5xl hover:grow" onClick={() => reset()}>
+          <button className="pointer text-6xl text-slate-900" onClick={() => reset()}>
             ♻️
           </button>
         </div>

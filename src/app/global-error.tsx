@@ -18,13 +18,13 @@ export default function GlobalError({
   return (
     <html>
       <body>
-        <div className="flex min-h-screen flex-row items-center justify-center p-3">
+        {/* <div className="flex min-h-screen flex-row items-center justify-center p-3">
           <h1 className="text-3xl text-red-600">Something went wrong!</h1>
           <br />
           <button className="pointer" onClick={() => reset()}>
             Try again
           </button>
-        </div>
+        </div> */}
         {/* `NextError` is the default Next.js error page component. Its type
         definition requires a `statusCode` prop. However, since the App Router
         does not expose status codes for errors, we simply pass 0 to render a

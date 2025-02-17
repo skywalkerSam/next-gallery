@@ -7,9 +7,9 @@ import { clerkClient } from "@clerk/nextjs/server";
 export async function ImageView(props: { imageId: number }) {
   const image: imageType | undefined = await getUserImage(props.imageId);
   const client = await clerkClient();
-  const uploaderInfo = image && await client.users.getUser(image?.userId);
+  const uploaderInfo = image && (await client.users.getUser(image?.userId));
   return (
-    <div className="mt-60 flex h-full w-full min-w-0 items-center justify-center p-3 text-gray-400">
+    <div className="mt-60 flex h-full w-full min-w-0 flex-wrap items-center justify-center p-3 text-gray-400">
       <Suspense fallback={<p>Fetching Image...</p>}>
         <div className="flex flex-shrink items-center justify-center">
           {image && (

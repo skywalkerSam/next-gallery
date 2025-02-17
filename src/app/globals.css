@@ -4,15 +4,16 @@
 
 :root {
   --background: transparent;
-  --foreground: white;
+  --foreground: transparent;
 }
 
-@media (prefers-color-scheme: dark) {
+
+/* @media (prefers-color-scheme: dark) {
   :root {
-    --background: transparent;
+    --background: black;
     --foreground: white;
   }
-}
+} */
 
 body {
   color: var(--foreground);

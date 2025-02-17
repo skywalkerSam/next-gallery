@@ -26,13 +26,13 @@ export default function Home() {
           <li>Save and see your changes instantly.</li>
         </ol> */}
 
-        <div>
+        <div className="p-3">
           <Link
             href={"/gallery"}
-            className="p-3 text-xl text-blue-400 hover:underline hover:text-slate-300 active:text-slate-300"
+            className="text-xl text-blue-400 hover:text-slate-300 hover:underline active:text-slate-300"
             // className="mt-3 flex h-10 flex-col items-center justify-center gap-3 rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-52 sm:flex-row sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] hover:underline hover:text-sky-400"
           >
-            Visit Image Gallery  →
+            Visit Image Gallery →
           </Link>
           {/* <Link href="/gallery">
             <a

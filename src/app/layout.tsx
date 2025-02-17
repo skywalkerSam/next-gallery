@@ -55,8 +55,11 @@ export default function RootLayout({
         >
           <SignedOut>
             <UserSignInButton></UserSignInButton>
-            <MainTitle></MainTitle>
             <StarboyLogo></StarboyLogo>
+            <div className="mb-72">
+              <MainTitle></MainTitle>
+            </div>
+
             {/* <div className="row-start-3 mb-60 mt-60 flex flex-wrap items-center justify-center gap-3"> */}
             {/* <SignIn routing="hash"></SignIn> */}
             {/* <div className="row-start-3 mb-48 mt-48 flex h-10 flex-wrap items-center justify-center rounded-full border border-solid border-black/[.08] p-3 px-4 text-2xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-44 sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a]"> */}
@@ -70,7 +73,7 @@ export default function RootLayout({
             <div className="grid h-screen grid-rows-[auto,1fr]">
               <TopBar></TopBar>
               {/* <UserButton /> */}
-              <main className="overflow-y-auto no-scrollbar">{children}</main>
+              <main className="no-scrollbar overflow-y-auto">{children}</main>
             </div>
             {modal}
             <div id="modal-root"></div>
