@@ -24,11 +24,11 @@ export async function ImageView(props: { imageId: number }) {
         </div>
       </Suspense>
       <Suspense fallback={<p>Fetching Metadata...</p>}>
-        <div className="ml-6 flex w-48 flex-shrink flex-col border-l border-sky-400 p-3">
+        <div className="ml-6 flex w-48 flex-shrink flex-col border-l border-blue-400 p-3">
           <div className="text-gray-400">
             <div className="mb-6 text-center">
               <a
-                className="pointer text-xl underline hover:grow hover:text-sky-400"
+                className="pointer text-xl text-blue-400 underline hover:grow hover:text-slate-400"
                 href={image?.url}
                 target="_blank"
               >

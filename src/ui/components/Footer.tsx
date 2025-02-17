@@ -23,7 +23,7 @@ export default function Footer() {
           &copy; Copyright 12025,{" "}
           <a
             href="https://github.com/skywalkerSam/"
-            className="hover:underline hover:text-slate-500 focus:text-slate-500"
+            className="hover:underline text-blue-400 hover:text-slate-500 focus:text-slate-500"
             target="_blank"
           >
             @skywalkerSam
