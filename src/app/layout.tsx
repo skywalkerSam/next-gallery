@@ -45,7 +45,7 @@ export const metadata: Metadata = {
 const centeredDivStyle =
   "flex flex-row min-h-screen justify-center items-center";
 const centeredDivTitleStyle =
-  "flex flex-row min-h-screen justify-center items-center ml-24 mr-12";
+  "flex flex-row min-h-screen justify-center items-center m-24";
 const layoutStyle = "grid h-screen grid-rows-[auto,1fr]";
 
 export default function RootLayout({
