@@ -1,12 +1,17 @@
-// import Link from "next/link";
+import Link from "next/link";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
 import { getUserImages } from "~/server/queries";
+import { Suspense } from "react";
 // import { db } from "~/server/db";
-import CustomUploadButton from "~/ui/CustomUploadButton";
+// import ImageUploadButton from "~/ui/ImageUploadButton";
 
 // dynamic behavior
 export const dynamic = "force-dynamic";
+
+const loadingStyle = [...Array.from({ length: 9 })].map((_, i) => (
+  <div key={i} className="h-[475px] w-[475px] animate-pulse bg-slate-900" />
+));
 
 // // images w/ uploadthing
 // const testUrls: string[] = [
@@ -40,28 +45,44 @@ export default async function Page() {
   const images = await getUserImages();
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#212121] to-black text-gray-500">
+    <main className="to-grey flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-black text-gray-500">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
         {/* <h1 className="text-5xl font-extrabold tracking-tight text-gray-300 sm:text-[5rem]">
           Image <span className="text-[hsl(207,100%,70%)]">Gallery</span> w/{" "}
           <span className="text-[hsl(0,0%,11%)]">NEXT</span>
-        </h1> */}
+          </h1> */}
         <div className="row-start-1 mt-0 flex flex-wrap items-center justify-center gap-2 p-3">
-          {/* prod */}
-          {images.map((image) => (
-            <div key={image.id}>
-              {/* NOTE: Opt out of image optimization for images < 1KB, SVGs, or GIFs as they don't get the benefits */}
-              <Image
-                src={image.url}
-                alt={image.name}
-                width={475}
-                height={475}
-                style={{objectFit: "contain"}}
-                loading="eager"
-              ></Image>
-              {/* {image.name} */}
-            </div>
-          ))}
+          {/* <Suspense fallback={<p className="text-slate-600 text-6xl">Fetching Images...</p>}> */}
+          <Suspense
+            fallback={
+              <div className="grid grid-cols-3 gap-4">
+                {loadingStyle}
+              </div>
+            }
+          >
+            {/* prod */}
+            {images.map((image) => (
+              <div key={image.id}>
+                <Link
+                  className="card"
+                  key={image.id}
+                  href={`/images/${image.id}`}
+                  passHref
+                >
+                  {/* NOTE: Opt out of image optimization for images < 1KB, SVGs, or GIFs as they don't get the benefits */}
+                  <Image
+                    src={image.url}
+                    alt={image.name}
+                    width={475}
+                    height={475}
+                    style={{ objectFit: "contain" }}
+                    loading="lazy"
+                  ></Image>
+                  {/* {image.name} */}
+                </Link>
+              </div>
+            ))}
+          </Suspense>
           {/* for testing */}
           {/* shouldn't have used index as a key but, just to keep thy console clear & '-' to counter weird JS behaviors.) */}
           {/* {images.map((image, i) => (
@@ -89,7 +110,7 @@ export default async function Page() {
         </div>
 
         {/* uploadthing image uploads */}
-        <CustomUploadButton></CustomUploadButton>
+        {/* <ImageUploadButton></ImageUploadButton> */}
 
         {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
