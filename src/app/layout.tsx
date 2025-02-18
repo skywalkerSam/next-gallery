@@ -40,6 +40,12 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/starboy-logo.png" }],
 };
 
+// const centeredDivStyle =
+//   "flex flex-row items-center justify-center p-3";
+const centeredDivStyle =
+  "flex flex-row min-h-screen justify-center items-center";
+const centeredDivTitleStyle =
+  "flex flex-row min-h-screen justify-center items-center m-24";
 const layoutStyle = "grid h-screen grid-rows-[auto,1fr]";
 
 export default function RootLayout({
@@ -57,8 +63,10 @@ export default function RootLayout({
         >
           <SignedOut>
             <UserSignInButton></UserSignInButton>
-            <StarboyLogo></StarboyLogo>
-            <div className="mb-96">
+            <div className={centeredDivStyle}>
+              <StarboyLogo></StarboyLogo>
+            </div>
+            <div className={centeredDivTitleStyle}>
               <MainTitle></MainTitle>
             </div>
 
