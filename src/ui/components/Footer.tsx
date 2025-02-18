@@ -4,14 +4,19 @@ import NextLogo from "./NextLogo";
 
 // import Image from "next/image";
 
+const centeredDivStyle =
+  "flex flex-row items-center justify-center justify-items-end p-3";
+const skywalkerSamStyle =
+  "text-slate-600 hover:text-blue-400 hover:underline focus:text-blue-400";
+
 export default function Footer() {
   return (
-    <div className="flex flex-row items-center justify-center justify-items-end p-3">
-    <footer>
-      <div>
-        <p className="text-slate-600">Built w/</p>
-        <NextLogo></NextLogo>
-        {/* <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">
+    <div className={centeredDivStyle}>
+      <footer>
+        <div>
+          <p className="text-slate-600">Built w/</p>
+          <NextLogo></NextLogo>
+          {/* <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">
           <Image
             className="dark:invert "
             src="https://nextjs.org/icons/next.svg"
@@ -21,20 +26,20 @@ export default function Footer() {
             priority
           />
         </a> */}
-        {/* <br /> */}
-        <p className="text-slate-600">
-          &copy; Copyright 12025,{" "}
-          <a
-            href="https://github.com/skywalkerSam/"
-            className="hover:underline  text-slate-600 hover:text-blue-400 focus:text-blue-400"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            @skywalkerSam
-          </a>
-        </p>
-      </div>
-    </footer>
+          {/* <br /> */}
+          <p className="text-slate-600">
+            &copy; Copyright 12025,{" "}
+            <a
+              href="https://github.com/skywalkerSam/"
+              className={skywalkerSamStyle}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @skywalkerSam
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }

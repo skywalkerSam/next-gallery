@@ -1,3 +1,13 @@
+@media (prefers-reduced-motion: reduce) {
+  .starboy-logo {
+    transition: none;
+  }
+  .starboy-logo:hover,
+  .starboy-logo:focus {
+    filter: none;
+  }
+}
+
 .starboy-logo {
   /* height: 21em; */
   /* padding: 1.5em; */

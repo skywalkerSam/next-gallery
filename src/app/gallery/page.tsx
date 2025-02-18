@@ -9,6 +9,10 @@ import { Suspense } from "react";
 // dynamic behavior
 export const dynamic = "force-dynamic";
 
+const loadingStyle = [...Array.from({ length: 9 })].map((_, i) => (
+  <div key={i} className="h-[475px] w-[475px] animate-pulse bg-slate-900" />
+));
+
 // // images w/ uploadthing
 // const testUrls: string[] = [
 //   "https://utfs.io/f/suXlWOYj6P5mlyveTv2FdBCMI6LznvwAF7HrjlGR8kmbJY5K",
@@ -48,7 +52,14 @@ export default async function Page() {
           <span className="text-[hsl(0,0%,11%)]">NEXT</span>
           </h1> */}
         <div className="row-start-1 mt-0 flex flex-wrap items-center justify-center gap-2 p-3">
-          <Suspense fallback={<p>Fetching Images...</p>}>
+          {/* <Suspense fallback={<p className="text-slate-600 text-6xl">Fetching Images...</p>}> */}
+          <Suspense
+            fallback={
+              <div className="grid grid-cols-3 gap-4">
+                {loadingStyle}
+              </div>
+            }
+          >
             {/* prod */}
             {images.map((image) => (
               <div key={image.id}>

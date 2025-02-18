@@ -40,6 +40,8 @@ export async function getUserImages() {
  * @param id - The unique identifier of the image to retrieve.
  * @returns A promise that resolves with the image object if found, or null if no matching image exists.
  * @throws Error if the user is not authenticated.
+ * @beta
+ * @todo implement caching
  */
 export async function getUserImage(id: number) {
   if (!Number.isInteger(id) || id < 1) {

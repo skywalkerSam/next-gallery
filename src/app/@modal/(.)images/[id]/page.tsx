@@ -1,20 +1,32 @@
 // import { getUserImage } from "~/server/queries";
+import { Suspense } from "react";
 import { Modal } from "./modal";
 // import { FullImageView } from "~/ui/gallery/FullImageView";
 // import type { ImageType } from "~/types/ImageType";
 import { ImageView } from "~/ui/gallery/ImageView";
 // import Image from "next/image";
 
+const centeredDivStyle =
+  "flex flex-row start-row-3 items-center justify-center justify-items-end p-3";
+
 export default async function ImageModal({
-  params,
+  params: { id },
 }: {
-  params: Promise<{ id: string }>;
+  params: { id: string };
 }) {
-  const imageId = (await params).id;
-  // Typecasting to Number because, thy server expects a Number.)
-  const imageIdAsNum = Number(imageId);
-  if (Number.isNaN(imageIdAsNum))
-    throw new Error(`Invalid image ID: "${imageId}" is not a number`);
+  const imageId = Number(id);
+  if (!Number.isInteger(imageId) || imageId < 1) {
+    throw new Error("Invalid image ID");
+  }
+  //   params,
+  // }: {
+  //   params: Promise<{ id: string }>;
+  // }) {
+  //   const imageId = (await params).id;
+  //   // Typecasting to Number because, thy server expects a Number.)
+  //   const imageIdAsNum = Number(imageId);
+  //   if (Number.isNaN(imageIdAsNum))
+  //     throw new Error(`Invalid image ID: "${imageId}" is not a number`);
   // if (Number.isNaN(imageIdAsNum)) throw new Error("Image ID not found!");
 
   // const image = await getUserImage(imageIdAsNum);
@@ -26,7 +38,15 @@ export default async function ImageModal({
       <Modal>
         {/* {image && <FullScreenImage expectedImage={image}></FullScreenImage>} */}
         {/* { image && <ImageView imageId={imageIdAsNum}></ImageView>} */}
-        <ImageView imageId={imageIdAsNum}></ImageView>
+        <Suspense
+          fallback={
+            <div className={centeredDivStyle}>
+              <p className="text-6xl text-slate-600">Loading...</p>
+            </div>
+          }
+        >
+          <ImageView imageId={imageId}></ImageView>
+        </Suspense>
         {/* <FullImageView imageId={imageIdAsNum}></FullImageView> */}
       </Modal>
     </div>

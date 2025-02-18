@@ -9,9 +9,13 @@ export function Modal({ children }: { children: React.ReactNode }) {
   const dialogRef = useRef<ElementRef<"dialog">>(null);
 
   useEffect(() => {
+    // const currentDialog = dialogRef.current;
     if (!dialogRef.current?.open) {
       dialogRef.current?.showModal();
     }
+    // return () => {
+    //   currentDialog?.close();
+    // };
   }, []);
 
   function onDismiss() {
@@ -34,6 +38,16 @@ export function Modal({ children }: { children: React.ReactNode }) {
         />
       </dialog>
     </div>,
-    document.getElementById("modal-root") ?? document.body,
+    // document.getElementById("modal-root") ?? document.body,
+    (() => {
+      const target = document.getElementById("modal-root");
+      if (!target) {
+        console.warn(
+          "Modal root element not found, falling back to document.body",
+        );
+        return document.body;
+      }
+      return target;
+    })(),
   );
 }

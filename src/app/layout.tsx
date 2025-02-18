@@ -40,6 +40,8 @@ export const metadata: Metadata = {
   icons: [{ rel: "icon", url: "/starboy-logo.png" }],
 };
 
+const layoutStyle = "grid h-screen grid-rows-[auto,1fr]";
+
 export default function RootLayout({
   children,
   modal,
@@ -70,10 +72,10 @@ export default function RootLayout({
           </SignedOut>
           <SignedIn>
             {/* Defend the layout from weird extensions behaviors */}
-            <div className="grid h-screen grid-rows-[auto,1fr]">
+            <div className={layoutStyle}>
               <TopBar></TopBar>
               {/* <UserButton /> */}
-              <main className="no-scrollbar overflow-y-auto">{children}</main>
+              <main className="overflow-y-auto">{children}</main>
             </div>
             {modal}
             <div id="modal-root"></div>

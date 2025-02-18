@@ -3,6 +3,7 @@ import Image from "next/image";
 // import type { ImageType } from "~/types/ImageType";
 import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
+import ImageComponent from "./ImageComponent";
 
 export async function ImageView(props: { imageId: number }) {
   const image = await getUserImage(props.imageId);
@@ -25,13 +26,14 @@ export async function ImageView(props: { imageId: number }) {
       <Suspense fallback={<p>Fetching Image...</p>}>
         <div className="flex flex-shrink items-center justify-center">
           {image && (
-            <Image
-              src={image.url}
-              className="object-contain"
-              alt={image.name}
-              width={900}
-              height={900}
-            />
+            // <Image
+            //   src={image.url}
+            //   className="object-contain"
+            //   alt={image.name}
+            //   width={900}
+            //   height={900}
+            // />
+            <ImageComponent image={image}></ImageComponent>
           )}
         </div>
       </Suspense>
@@ -43,6 +45,7 @@ export async function ImageView(props: { imageId: number }) {
                 className="pointer text-xl text-blue-400 underline hover:grow hover:text-slate-400"
                 href={image?.url}
                 target="_blank"
+                rel="noopener noreferrer"
               >
                 Image Overview
               </a>

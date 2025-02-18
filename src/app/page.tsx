@@ -2,10 +2,25 @@ import Link from "next/link";
 // import ImageUploadButton from "~/ui/ImageUploadButton";
 import MainTitle from "~/ui/components/MainTitle";
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Next Gallery - Home",
+  description:
+    "Welcome to Next Gallery - A modern image gallery built with Next.js",
+};
+
+const pageStyle =
+  "grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20";
+const mainStyle =
+  "row-start-2 mb-6 flex flex-col items-center gap-3 sm:items-start";
+const visitImageGalleryStyle =
+  "inline-flex items-center rounded-md text-xl text-blue-400 hover:text-slate-600 focus:outline-none focus:ring-0 focus:ring-blue-400 focus:ring-offset-2 active:text-slate-600 tracking-tight";
+
 export default function Home() {
   return (
-    <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20">
-      <main className="row-start-2 mb-6 flex flex-col items-center gap-3 sm:items-start">
+    <div className={pageStyle}>
+      <main className={mainStyle}>
         <MainTitle></MainTitle>
         {/* <Image
           className="dark:invert"
@@ -29,10 +44,16 @@ export default function Home() {
         <div className="p-3">
           <Link
             href={"/gallery"}
-            className="text-xl text-blue-400 hover:text-slate-300 hover:underline active:text-slate-300"
+            // className="text-xl text-blue-400 hover:text-slate-300 hover:underline active:text-slate-300"
             // className="mt-3 flex h-10 flex-col items-center justify-center gap-3 rounded-full border border-solid border-black/[.08] px-4 text-xl text-gray-400 transition-colors hover:border-transparent hover:bg-[#f2f2f2] sm:h-16 sm:min-w-52 sm:flex-row sm:px-5 dark:border-white/[.145] dark:hover:bg-[#1a1a1a] hover:underline hover:text-sky-400"
+            className={visitImageGalleryStyle}
+            aria-label="Navigate to image gallery"
           >
-            Visit Image Gallery →
+            {/* Visit Image Gallery → */}
+            <span className="hover:underline">Visit Image Gallery</span>
+            <span aria-hidden="true" className="ml-2">
+              →
+            </span>
           </Link>
           {/* <Link href="/gallery">
             <a
