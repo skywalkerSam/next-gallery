@@ -1,6 +1,6 @@
 import { getUserImage } from "~/server/queries";
 import Image from "next/image";
-// import type { imageType } from "~/types/imageType";
+// import type { ImageType } from "~/types/ImageType";
 import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
 
@@ -12,8 +12,12 @@ export async function ImageView(props: { imageId: number }) {
   const client = await clerkClient();
   const uploaderInfo = await client.users
     .getUser(image.userId)
-    .catch(() => null);
-  // const image: imageType | undefined = await getUserImage(props.imageId);
+    // .catch(() => null);
+    .catch((error) => {
+      console.error("Failed to fetch user info: ", error);
+      return { fullName: "Unknown User" };
+    });
+  // const image: ImageType | undefined = await getUserImage(props.imageId);
   // const client = await clerkClient();
   // const uploaderInfo = image && (await client.users.getUser(image?.userId));
   return (

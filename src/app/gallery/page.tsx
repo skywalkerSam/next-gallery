@@ -65,7 +65,7 @@ export default async function Page() {
                     width={475}
                     height={475}
                     style={{ objectFit: "contain" }}
-                    loading="eager"
+                    loading="lazy"
                   ></Image>
                   {/* {image.name} */}
                 </Link>

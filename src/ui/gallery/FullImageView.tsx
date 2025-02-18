@@ -1,9 +1,12 @@
 import { getUserImage } from "~/server/queries";
 // import Image from "next/image";
-import type { imageType } from "~/types/imageType";
+import type { ImageType } from "~/types/ImageType";
+
+const PLACEHOLDER_IMAGE = "/starboy-logo.png";
+// const PLACEHOLDER_IMAGE = "https://github.com/skywalkerSam";
 
 export async function FullImageView(props: { imageId: number }) {
-  const image: imageType | undefined = await getUserImage(props.imageId);
+  const image: ImageType | undefined = await getUserImage(props.imageId);
   if (!image) {
     return (
       <div className="flex min-h-screen flex-row items-center justify-center">
@@ -16,8 +19,9 @@ export async function FullImageView(props: { imageId: number }) {
       <img
         src={image.url}
         alt={image.name}
+        // placeholder image
         onError={(e) => {
-          e.currentTarget.src = "/placeholder.jpg";
+          e.currentTarget.src = PLACEHOLDER_IMAGE;
         }}
       />
     </div>
@@ -32,12 +36,12 @@ export async function FullImageView(props: { imageId: number }) {
 }
 
 // // import Image from "next/image";
-// import type { imageType } from "~/types/imageType";
+// import type { ImageType } from "~/types/ImageType";
 
 // export default function FullScreenImage({
 //   expectedImage,
 // }: {
-//   expectedImage: imageType;
+//   expectedImage: ImageType;
 // }) {
 //   return (
 //     // looking for these specific tailwind classes to center a div never gets old.)

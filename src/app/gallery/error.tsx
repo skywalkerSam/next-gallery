@@ -14,14 +14,36 @@ export default function GalleryError({
     // Log the error to an error reporting service
     console.error(error);
     captureException(error);
+    // Log the error with additional context
+    console.error("Gallery Error:", {
+      message: error.message,
+      digest: error.digest,
+      stack: error.stack,
+    });
+    captureException(error, {
+      tags: { component: "GalleryError" },
+    });
   }, [error]);
 
   return (
     <div>
       <div className="flex min-h-screen flex-row items-center justify-center p-3">
-        {/* <h1 className="m-6 text-3xl text-red-600">Something went wrong!</h1> */}
-        {/* <br /> */}
+        <h1 className="m-6 text-3xl text-red-600">Unable to load gallery</h1>
+        <br />
         <div>
+          <button
+            className="pointer text-6xl text-slate-900"
+            onClick={() => reset()}
+            aria-label="Retry loading gallery"
+          >
+            ♻️
+          </button>
+        </div>
+      </div>
+
+      {/* <h1 className="m-6 text-3xl text-red-600">Something went wrong!</h1> */}
+      {/* <br /> */}
+      {/* <div>
           <button
             className="pointer text-6xl text-slate-900"
             onClick={() => reset()}
@@ -29,7 +51,7 @@ export default function GalleryError({
             ♻️
           </button>
         </div>
-      </div>
+      </div> */}
       {/* <h2>Something went wrong!</h2>
       <button
         onClick={

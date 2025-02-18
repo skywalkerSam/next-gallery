@@ -42,6 +42,10 @@ export async function getUserImages() {
  * @throws Error if the user is not authenticated.
  */
 export async function getUserImage(id: number) {
+  if (!Number.isInteger(id) || id < 1) {
+    throw new Error("Invalid image ID");
+  }
+
   // using auth() for userId validation
   const user = await auth();
 
