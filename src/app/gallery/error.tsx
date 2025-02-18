@@ -19,26 +19,21 @@ export default function GalleryError({
   return (
     <div>
       <div className="flex min-h-screen flex-row items-center justify-center p-3">
-        {/* <h1 className="m-6 text-3xl text-red-600">Something went wrong!</h1> */}
-        {/* <br /> */}
+        <h1 className="m-6 text-3xl text-red-600">
+          Unable to load gallery
+        </h1>
+        <br />
         <div>
           <button
             className="pointer text-6xl text-slate-900"
             onClick={() => reset()}
+            aria-label="Retry loading gallery"
           >
             ♻️
           </button>
         </div>
       </div>
-      {/* <h2>Something went wrong!</h2>
-      <button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </button> */}
     </div>
+  );
   );
 }
