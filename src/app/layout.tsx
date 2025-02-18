@@ -57,8 +57,10 @@ export default function RootLayout({
         >
           <SignedOut>
             <UserSignInButton></UserSignInButton>
+            <div className="mt-9 mb-32">
             <StarboyLogo></StarboyLogo>
-            <div className="mb-96">
+            </div>
+            <div className="mb-96 p-6">
               <MainTitle></MainTitle>
             </div>
 

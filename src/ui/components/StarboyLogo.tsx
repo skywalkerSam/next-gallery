@@ -3,8 +3,7 @@
 import Image from "next/image";
 import "~/styles/StarboyLogo.css";
 
-const starboyLogoStyle =
-  "mt-9 mb-48 flex flex-row items-center justify-center p-3";
+const starboyLogoStyle = "flex flex-row items-center justify-center p-3";
 
 export default function StarboyLogo() {
   return (
