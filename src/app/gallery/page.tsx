@@ -2,16 +2,16 @@ import Link from "next/link";
 // import dynamic from "next/dynamic";
 import Image from "next/image";
 import { getUserImages } from "~/server/queries";
-import { Suspense } from "react";
+// import { Suspense } from "react";
+import ImageUploadButton from "~/ui/gallery/default-upload-button";
 // import { db } from "~/server/db";
-// import ImageUploadButton from "~/ui/ImageUploadButton";
 
 // dynamic behavior
 export const dynamic = "force-dynamic";
 
-const loadingStyle = [...Array.from({ length: 9 })].map((_, i) => (
-  <div key={i} className="h-[475px] w-[475px] animate-pulse bg-slate-900" />
-));
+// const loadingStyle = [...Array.from({ length: 9 })].map((_, i) => (
+//   <div key={i} className="h-[475px] w-[475px] animate-pulse bg-slate-900" />
+// ));
 
 // // images w/ uploadthing
 // const testUrls: string[] = [
@@ -53,13 +53,13 @@ export default async function Page() {
           </h1> */}
         <div className="row-start-1 mt-0 flex flex-wrap items-center justify-center gap-2 p-3">
           {/* <Suspense fallback={<p className="text-slate-600 text-6xl">Fetching Images...</p>}> */}
-          <Suspense
+          {/* <Suspense
             fallback={
               <div className="grid grid-cols-3 gap-4">
                 {loadingStyle}
               </div>
             }
-          >
+          > */}
             {/* prod */}
             {images.map((image) => (
               <div key={image.id}>
@@ -82,7 +82,7 @@ export default async function Page() {
                 </Link>
               </div>
             ))}
-          </Suspense>
+          {/* </Suspense> */}
           {/* for testing */}
           {/* shouldn't have used index as a key but, just to keep thy console clear & '-' to counter weird JS behaviors.) */}
           {/* {images.map((image, i) => (
@@ -110,7 +110,7 @@ export default async function Page() {
         </div>
 
         {/* uploadthing image uploads */}
-        {/* <ImageUploadButton></ImageUploadButton> */}
+        <ImageUploadButton></ImageUploadButton>
 
         {/* <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:gap-8">
           <Link
