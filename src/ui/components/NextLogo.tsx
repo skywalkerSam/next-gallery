@@ -1,6 +1,8 @@
 "use client";
+import type { JSX } from "react";
 
-const nextStyle = "flex flex-wrap tracking-tighter text-6xl text-gray-400 hover:text-slate-600 hover:underline";
+const nextStyle =
+  "flex flex-wrap tracking-tighter text-6xl text-gray-400 hover:text-slate-600 hover:underline";
 const jsStyle = "text-2xl tracking-tight";
 
 export default function NextLogo(): JSX.Element {
