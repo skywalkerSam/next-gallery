@@ -28,7 +28,7 @@ export default function Footer() {
         </a> */}
           {/* <br /> */}
           <p className="text-slate-600">
-            &copy; Copyright 12025,{" "}
+            &copy; 12025,{" "}
             <a
               href="https://github.com/skywalkerSam/"
               className={skywalkerSamStyle}
