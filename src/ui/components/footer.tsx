@@ -1,6 +1,6 @@
 "use client";
 
-import NextLogo from "./NextLogo";
+import NextLogo from "./next-logo";
 
 // import Image from "next/image";
 

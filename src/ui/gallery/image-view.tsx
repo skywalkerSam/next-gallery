@@ -3,7 +3,7 @@ import Image from "next/image";
 // import type { ImageType } from "~/types/ImageType";
 import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
-import ImageComponent from "./ImageComponent";
+import ImageComponent from "./modal-image-component";
 
 export async function ImageView(props: { imageId: number }) {
   const image = await getUserImage(props.imageId);

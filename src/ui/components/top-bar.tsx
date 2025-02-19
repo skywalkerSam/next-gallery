@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { UserButton } from "@clerk/nextjs";
-import ImageUploadButton from "../gallery/ImageUploadButton";
-import "~/styles/StarboyLogo.css";
+import ImageUploadButton from "../gallery/default-upload-button";
+import "~/styles/starboy-logo.css";
 
 import type { JSX } from "react";
 
