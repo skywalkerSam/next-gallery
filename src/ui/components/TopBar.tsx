@@ -4,6 +4,8 @@ import { UserButton } from "@clerk/nextjs";
 import ImageUploadButton from "../gallery/ImageUploadButton";
 import "~/styles/StarboyLogo.css";
 
+import type { JSX } from "react";
+
 const topBarStyle =
   "flex justify-between p-3 text-xl font-semibold text-gray-400";
 

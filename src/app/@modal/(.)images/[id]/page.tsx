@@ -9,11 +9,13 @@ import { ImageView } from "~/ui/gallery/ImageView";
 const centeredDivStyle =
   "flex flex-row start-row-3 items-center justify-center justify-items-end p-3";
 
-export default async function ImageModal({
-  params: { id },
-}: {
-  params: { id: string };
+export default async function ImageModal(props: {
+  params: Promise<{ id: string }>;
 }) {
+  const params = await props.params;
+
+  const { id } = params;
+
   const imageId = Number(id);
   if (!Number.isInteger(imageId) || imageId < 1) {
     throw new Error("Invalid image ID");
