@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Modal } from "./modal";
 // import { FullImageView } from "~/ui/gallery/FullImageView";
 // import type { ImageType } from "~/types/ImageType";
-import { ImageView } from "~/ui/gallery/ImageView";
+import { ImageView } from "~/ui/gallery/image-view";
 // import Image from "next/image";
 
 const centeredDivStyle =

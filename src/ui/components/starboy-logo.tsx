@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import "~/styles/StarboyLogo.css";
+import "~/styles/starboy-logo.css";
 
 const starboyLogoStyle = "flex flex-row items-center justify-center p-3";
 

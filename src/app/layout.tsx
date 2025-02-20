@@ -11,12 +11,12 @@ import localFont from "next/font/local";
 // import Image from "next/image";
 import "./globals.css";
 import "@uploadthing/react/styles.css";
-import MainTitle from "~/ui/components/MainTitle";
+import MainTitle from "~/ui/components/main-title";
 // import Link from "next/link";
-import TopBar from "~/ui/components/TopBar";
-import Footer from "~/ui/components/Footer";
-import StarboyLogo from "~/ui/components/StarboyLogo";
-import UserSignInButton from "~/ui/components/UserSignInButton";
+import TopBar from "~/ui/components/top-bar";
+import Footer from "~/ui/components/footer";
+import StarboyLogo from "~/ui/components/starboy-logo";
+import UserSignInButton from "~/ui/components/sign-in-button";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
