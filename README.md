@@ -44,6 +44,8 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [x] Image Uploads
 - [x] Error handling w/ Sentry
 - [x] Routing (parallel routes)
+- [X] Upload Button
+- [X] shadcn-ui
 - [ ] Delete w/ **Server Actions**
 - [ ] Analytics w/ PostHog
 - [ ] Rate-limits w/ upstash
