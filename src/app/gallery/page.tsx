@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getUserImages } from "~/server/queries";
 // import { Suspense } from "react";
-import ImageUploadButton from "~/ui/gallery/default-upload-button";
+import ImageUploadButton from "~/components/ui/gallery/default-upload-button";
 // import { db } from "~/server/db";
 
 // dynamic behavior

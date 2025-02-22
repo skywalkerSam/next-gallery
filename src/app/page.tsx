@@ -1,6 +1,6 @@
 import Link from "next/link";
 // import ImageUploadButton from "~/ui/ImageUploadButton";
-import MainTitle from "~/ui/components/main-title";
+import MainTitle from "~/components/ui/main-title";
 
 import type { Metadata } from "next";
 
