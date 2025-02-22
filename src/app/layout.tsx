@@ -17,6 +17,7 @@ import TopBar from "~/ui/components/top-bar";
 import Footer from "~/ui/components/footer";
 import StarboyLogo from "~/ui/components/starboy-logo";
 import UserSignInButton from "~/ui/components/sign-in-button";
+import { Toaster } from "~/components/ui/sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -87,6 +88,8 @@ export default function RootLayout({
             </div>
             {modal}
             <div id="modal-root"></div>
+            {/* Sonner */}
+            <Toaster position="bottom-right" expand={true} closeButton richColors></Toaster>
           </SignedIn>
           <Footer></Footer>
         </body>

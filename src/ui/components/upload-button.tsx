@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "~/utils/uploadthing";
 import UploadIcon from "../svg/upload-icon";
+import { toast } from "sonner";
+import LoadingSVG from "~/components/ui/loading-svg";
 
 const uploadIconStyle = "cursor-pointer hover:text-slate-600";
 // const uploadIconFocusStyle =
@@ -38,7 +40,21 @@ const useUploadThingInputProps = (...args: Input) => {
 export default function UploadButton() {
   const router = useRouter();
   const { inputProps } = useUploadThingInputProps("imageUploader", {
+    onUploadBegin() {
+      // const toastId = toast.info("Uploading...");
+      toast.info("Uploading...", {
+        duration: 10000,
+        id: "upload-info",
+        icon: <LoadingSVG></LoadingSVG>,
+      });
+    },
     onClientUploadComplete() {
+      // toast.dismiss(toastId);
+      toast.dismiss("upload-info");
+      // toast.dismiss();
+      toast.success("Upload Complete.", {
+        duration: 5000,
+      });
       router.refresh();
     },
   });
