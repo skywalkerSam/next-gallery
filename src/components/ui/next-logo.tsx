@@ -3,8 +3,8 @@ import type { JSX } from "react";
 // import Image from "next/image";
 
 // const centeredDivStyle = "flex items-center justify-center p-3";
-const spanStyle = "text-6xl tracking-tight dark:invert";
-const nextStyle = "text-6xl text-black hover:text-slate-400";
+const spanStyle = "text-slate-950 hover:text-slate-600 dark:invert";
+const nextStyle = "text-6xl font-semibold";
 const jsStyle = "text-2xl tracking-tighter";
 
 export default function NextLogo(): JSX.Element {

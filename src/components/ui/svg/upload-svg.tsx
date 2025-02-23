@@ -2,7 +2,7 @@
 
 export default function UploadIcon() {
   return (
-    <div className="p-3 mt-3">
+    <div className="p-3 mt-3 text-slate-950 hover:text-slate-600 dark:invert">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
