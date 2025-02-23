@@ -14,6 +14,21 @@ import {
 
 export function ModeToggle() {
   const { setTheme } = useTheme();
+  // keyboard integration
+  React.useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      //   if (e.ctrlKey && e.key === "j") {
+      if (e.shiftKey && e.key === "D") {
+        setTheme("dark");
+        //   } else if (e.ctrlKey && e.key === "k") {
+      } else if (e.shiftKey && e.key === "L") {
+        setTheme("light");
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyPress);
+    return () => window.removeEventListener("keydown", handleKeyPress);
+  }, [setTheme]);
 
   return (
     <DropdownMenu>
