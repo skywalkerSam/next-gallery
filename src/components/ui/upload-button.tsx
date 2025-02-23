@@ -45,7 +45,7 @@ export default function UploadButton() {
       toast.info("Uploading...", {
         duration: 10000,
         id: "upload-info",
-        icon: <LoadingSVG></LoadingSVG>,
+        icon: <LoadingSVG fill="#38adf5"></LoadingSVG>,
       });
     },
     onClientUploadComplete() {
