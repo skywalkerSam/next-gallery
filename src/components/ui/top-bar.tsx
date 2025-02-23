@@ -7,10 +7,8 @@ import { UserButton } from "@clerk/nextjs";
 import "~/styles/starboy-logo.css";
 import type { JSX } from "react";
 import UploadButton from "./upload-button";
-// import { ModeToggle } from "../theme-toggle";
 
-const topBarStyle =
-  "flex justify-between p-3";
+const topBarStyle = "flex justify-between p-3";
 
 export default function TopBar(): JSX.Element {
   return (
@@ -22,7 +20,7 @@ export default function TopBar(): JSX.Element {
           {/* Starboy Inc. */}
           <Image
             src="/starboy-logo.png"
-            alt="App Logo"
+            alt="Starboy Logo"
             width={90}
             height={60}
             className="starboy-logo p-3"
@@ -36,9 +34,6 @@ export default function TopBar(): JSX.Element {
         {/* <UserButton appearance={{elements: {avatarImage: {}}}}></UserButton> */}
         <UserButton></UserButton>
       </header>
-      <div>
-        {/* <ModeToggle></ModeToggle> */}
-      </div>
     </div>
   );
 }

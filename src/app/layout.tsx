@@ -16,7 +16,7 @@ import MainTitle from "~/components/ui/main-title";
 import TopBar from "~/components/ui/top-bar";
 import Footer from "~/components/ui/footer";
 import StarboyLogo from "~/components/ui/starboy-logo";
-import UserSignInButton from "~/components/ui/sign-in-button";
+import UserSignInButton from "~/components/ui/clerk-sign-in";
 import { Toaster } from "~/components/ui/sonner";
 import { ThemeProvider } from "~/components/theme-provider";
 import { ModeToggle } from "~/components/theme-toggle";
