@@ -4,8 +4,8 @@ import type { JSX } from "react";
 
 // const centeredDivStyle = "flex items-center justify-center p-3";
 const spanStyle = "text-slate-950 hover:text-slate-600 dark:invert";
-const nextStyle = "text-6xl font-semibold";
-const jsStyle = "text-2xl tracking-tighter";
+const nextStyle = "text-5xl font-semibold";
+const jsStyle = "text-lg tracking-tighter";
 
 export default function NextLogo(): JSX.Element {
   return (

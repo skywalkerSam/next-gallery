@@ -4,7 +4,7 @@ import NextLogo from "./next-logo";
 
 // import Image from "next/image";
 
-const titleStyle = "text-slate-500 text-6xl tracking-tight p-3 gap-3 inline-flex";
+const titleStyle = "text-slate-500 text-5xl tracking-tight p-3 gap-3 inline-flex";
 
 export default function MainTitle() {
   return (
