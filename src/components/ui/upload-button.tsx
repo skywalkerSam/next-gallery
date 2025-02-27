@@ -5,6 +5,7 @@ import { useUploadThing } from "~/utils/uploadthing";
 import UploadIcon from "./svg/upload-svg";
 import { toast } from "sonner";
 import LoadingSVG from "~/components/ui/svg/loading-svg";
+import { usePostHog } from "posthog-js/react";
 
 const uploadIconStyle = "cursor-pointer hover:text-slate-600";
 // const uploadIconFocusStyle =
@@ -39,8 +40,12 @@ const useUploadThingInputProps = (...args: Input) => {
 
 export default function UploadButton() {
   const router = useRouter();
+  const posthog = usePostHog();
+
   const { inputProps } = useUploadThingInputProps("imageUploader", {
     onUploadBegin() {
+      posthog.capture("Image Upload");
+
       // const toastId = toast.info("Uploading...");
       toast.info("Uploading...", {
         duration: 10000,

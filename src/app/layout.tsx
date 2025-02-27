@@ -20,6 +20,7 @@ import UserSignInButton from "~/components/ui/clerk-sign-in";
 import { Toaster } from "~/components/ui/sonner";
 import { ThemeProvider } from "~/components/theme-provider";
 import { ModeToggle } from "~/components/theme-toggle";
+import { PostHogProvider } from "./_analytics/providers";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -55,49 +56,51 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-      <html lang="en">
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
+      <PostHogProvider>
+        <html lang="en">
+          <body
+            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
-            <SignedOut>
-              <UserSignInButton></UserSignInButton>
-              <div className={centeredDivStyle}>
-                <StarboyLogo></StarboyLogo>
+            <ThemeProvider
+              attribute="class"
+              defaultTheme="system"
+              enableSystem
+              disableTransitionOnChange
+            >
+              <SignedOut>
+                <UserSignInButton></UserSignInButton>
+                <div className={centeredDivStyle}>
+                  <StarboyLogo></StarboyLogo>
+                </div>
+                <div className={centeredDivTitleStyle}>
+                  <MainTitle></MainTitle>
+                </div>
+              </SignedOut>
+              <SignedIn>
+                {/* Defend the layout from weird extensions behaviors */}
+                <div className={layoutStyle}>
+                  <TopBar></TopBar>
+                  {/* <UserButton /> */}
+                  <main className="overflow-y-auto">{children}</main>
+                </div>
+                {modal}
+                <div id="modal-root"></div>
+                {/* Sonner */}
+                <Toaster
+                  position="bottom-right"
+                  expand={true}
+                  closeButton
+                  richColors
+                ></Toaster>
+              </SignedIn>
+              <div className="m-3 flex items-center justify-center p-3">
+                <ModeToggle></ModeToggle>
               </div>
-              <div className={centeredDivTitleStyle}>
-                <MainTitle></MainTitle>
-              </div>
-            </SignedOut>
-            <SignedIn>
-              {/* Defend the layout from weird extensions behaviors */}
-              <div className={layoutStyle}>
-                <TopBar></TopBar>
-                {/* <UserButton /> */}
-                <main className="overflow-y-auto">{children}</main>
-              </div>
-              {modal}
-              <div id="modal-root"></div>
-              {/* Sonner */}
-              <Toaster
-                position="bottom-right"
-                expand={true}
-                closeButton
-                richColors
-              ></Toaster>
-            </SignedIn>
-            <div className="m-3 flex items-center justify-center p-3">
-              <ModeToggle></ModeToggle>
-            </div>
-            <Footer></Footer>
-          </ThemeProvider>
-        </body>
-      </html>
+              <Footer></Footer>
+            </ThemeProvider>
+          </body>
+        </html>
+      </PostHogProvider>
     </ClerkProvider>
   );
 }
