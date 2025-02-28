@@ -1,9 +1,10 @@
 import { getUserImage } from "~/server/queries";
-import Image from "next/image";
+// import Image from "next/image";
 // import type { ImageType } from "~/types/ImageType";
 import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
 import ImageComponent from "./modal-image-component";
+import { Button } from "../button";
 
 export async function ImageView(props: { imageId: number }) {
   const image = await getUserImage(props.imageId);
@@ -62,6 +63,11 @@ export async function ImageView(props: { imageId: number }) {
             <div className="mb-3">
               <p>Uploaded By: {uploaderInfo?.fullName}</p>
             </div>
+          </div>
+          <div className="mb-9 mt-9 flex items-center justify-center">
+            <Button type="submit" variant={"destructive"}>
+              Delete
+            </Button>
           </div>
         </div>
       </Suspense>
