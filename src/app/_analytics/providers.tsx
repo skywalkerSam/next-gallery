@@ -16,11 +16,17 @@ export function PostHogProvider({ children }: { children: React.ReactNode }) {
       }
 
       // as string
+      // posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
+      //   api_host:
+      //     process.env.NEXT_PUBLIC_POSTHOG_HOST ?? "https://us.i.posthog.com",
+      //   person_profiles: "identified_only", // or 'always' to reate profiles for anonymous users as well
+      //   capture_pageview: false, // Disable automatic pageview capture, as we capture manually
+      // });
+
+      // ad-blocker bypass
       posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY, {
-        api_host:
-          process.env.NEXT_PUBLIC_POSTHOG_HOST || "https://us.i.posthog.com",
-        person_profiles: "identified_only", // or 'always' to reate profiles for anonymous users as well
-        capture_pageview: false, // Disable automatic pageview capture, as we capture manually
+        api_host: "/ingest",
+        ui_host: "https://us.posthog.com",
       });
 
       // Wrap PostHogPageView in Suspense to avoid the useSearchParams usage above
