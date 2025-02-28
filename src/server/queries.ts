@@ -1,6 +1,11 @@
 import "server-only";
+
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
+import { images } from "./db/schema";
+import { sql } from "@vercel/postgres";
+// import { revalidatePath } from "next/cache";
 
 /**
  * Retrieves all images associated with the authenticated user.
@@ -52,21 +57,21 @@ export async function getUserImage(id: number) {
   const user = await auth();
 
   if (user.userId) {
-    const images = await db.query.images.findFirst({
+    const image = await db.query.images.findFirst({
       // filter
       where: (model, { and, eq }) =>
         and(eq(model.id, id), eq(model.userId, user.userId)),
       // where: (model, { eq }) => eq(model.id, id),
       // orderBy: (model, { asc }) => asc(model.id), // desc, nice.)
     });
-    return images;
+    return image;
   } else {
     throw new Error("User not found!");
   }
 }
 
 /**
- * Deletes an image.
+ * Deletes an image w/ Server Actions
  *
  * This function is a placeholder for image deletion functionality and is currently not implemented.
  *
@@ -78,9 +83,24 @@ export async function getUserImage(id: number) {
  *
  * @beta
  */
-// export async function deleteImage() {
-//   //
-// }
+export async function deleteImage(id: number) {
+  if (!Number.isInteger(id) || id < 1) {
+    throw new Error("Invalid image ID!");
+  }
 
-// NOTE: use closure patterns!
+  // using auth() for userId validation
+  const user = await auth();
+
+  if (user?.userId) {
+    await db
+      .delete(images)
+      .where(and(eq(images!.id, id), eq(images!.userId, user?.userId)));
+    // revalidatePath("/gallery");
+    redirect("/gallery");
+  } else {
+    throw new Error("User not found!");
+  }
+}
+
 // NOTE: Use `taint` to keep sensitive things like tokens away from the client.
+// NOTE: use closure patterns!
