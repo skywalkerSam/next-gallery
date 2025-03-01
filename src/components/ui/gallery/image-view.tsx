@@ -1,4 +1,4 @@
-import { getUserImage } from "~/server/queries";
+import { deleteImage, getUserImage } from "~/server/queries";
 // import Image from "next/image";
 // import type { ImageType } from "~/types/ImageType";
 import { Suspense } from "react";
@@ -64,10 +64,17 @@ export async function ImageView(props: { imageId: number }) {
               <p>Uploaded By: {uploaderInfo?.fullName}</p>
             </div>
           </div>
-          <div className="mb-9 mt-9 flex items-center justify-center">
-            <Button type="submit" variant={"destructive"}>
-              Delete
-            </Button>
+          <div className="mt-3 flex items-center justify-center p-3">
+            <form
+              action={async () => {
+                "use server";
+                await deleteImage(props.imageId);
+              }}
+            >
+              <Button type="submit" variant={"destructive"}>
+                Delete
+              </Button>
+            </form>
           </div>
         </div>
       </Suspense>
