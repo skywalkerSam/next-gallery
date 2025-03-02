@@ -4,7 +4,7 @@ import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { images } from "./db/schema";
-import { sql } from "@vercel/postgres";
+// import { sql } from "@vercel/postgres";
 // import { revalidatePath } from "next/cache";
 
 /**
