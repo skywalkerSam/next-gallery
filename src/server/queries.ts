@@ -91,10 +91,13 @@ export async function deleteImage(id: number) {
   // using auth() for userId validation
   const user = await auth();
 
+  // delete query
   if (user?.userId) {
     await db
       .delete(images)
       .where(and(eq(images!.id, id), eq(images!.userId, user?.userId)));
+
+    // Redirect to /gallery home
     // revalidatePath("/gallery");
     redirect("/gallery");
   } else {
