@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
 import ImageComponent from "./modal-image-component";
 import { Button } from "../button";
+import { redirect } from "next/navigation";
 
 export async function ImageView(props: { imageId: number }) {
   const image = await getUserImage(props.imageId);
@@ -68,7 +69,8 @@ export async function ImageView(props: { imageId: number }) {
             <form
               action={async () => {
                 "use server";
-                await deleteImage(props.imageId);
+                // await deleteImage(props.imageId);
+                await deleteImage(props.imageId).then(redirect("https://next-gallery-blues.vercel.app/gallery"));
               }}
             >
               <Button type="submit" variant={"destructive"}>

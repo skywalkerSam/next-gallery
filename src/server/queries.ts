@@ -2,10 +2,9 @@ import "server-only";
 
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
-import { redirect } from "next/navigation";
 import { images } from "./db/schema";
-// import { sql } from "@vercel/postgres";
-// import { revalidatePath } from "next/cache";
+import { and, eq } from "drizzle-orm";
+// import { NextResponse } from "next/server";
 
 /**
  * Retrieves all images associated with the authenticated user.
@@ -95,11 +94,11 @@ export async function deleteImage(id: number) {
   if (user?.userId) {
     await db
       .delete(images)
-      .where(and(eq(images!.id, id), eq(images!.userId, user?.userId)));
+      .where(and(eq(images?.id, id), eq(images?.userId, user?.userId)))
+      .returning({ imageId: images?.id });
 
-    // Redirect to /gallery home
-    // revalidatePath("/gallery");
-    redirect("/gallery");
+    // NextResponse.redirect("https://next-gallery-blues.vercel.app/gallery");
+    // NextResponse.rewrite(new URL('/gallery'))
   } else {
     throw new Error("User not found!");
   }
