@@ -29,7 +29,7 @@ export default function GalleryError({
       className="flex min-h-screen items-center justify-center p-3"
       role="alert"
     >
-      <Link href={"/"}>
+      <Link href={"/gallery"}>
         <Button variant="ghost" className="text-3xl">
           ♻️
         </Button>

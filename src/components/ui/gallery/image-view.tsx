@@ -70,6 +70,7 @@ export async function ImageView(props: { imageId: number }) {
               action={async () => {
                 "use server";
                 // await deleteImage(props.imageId);
+                // await deleteImage(props.imageId).then(redirect("/"));
                 await deleteImage(props.imageId).then(redirect("https://next-gallery-blues.vercel.app/gallery"));
               }}
             >
