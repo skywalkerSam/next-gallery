@@ -104,6 +104,8 @@ export async function deleteImage(id: number) {
 
     // revalidatePath("/");
     // redirect("/");
+
+    // PostHog Analytics: Delete Image
   } else {
     throw new Error("User not found!");
   }
