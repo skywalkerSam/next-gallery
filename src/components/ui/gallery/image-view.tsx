@@ -66,12 +66,17 @@ export async function ImageView(props: { imageId: number }) {
             </div>
           </div>
           <div className="mt-3 flex items-center justify-center p-3">
+            {/* Server Actions */}
             <form
               action={async () => {
                 "use server";
+                // This runs only on server
+
                 // await deleteImage(props.imageId);
                 // await deleteImage(props.imageId).then(redirect("/"));
-                await deleteImage(props.imageId).then(redirect("https://next-gallery-blues.vercel.app/gallery"));
+                await deleteImage(props.imageId).then(
+                  redirect("https://next-gallery-blues.vercel.app/gallery"),
+                );
               }}
             >
               <Button type="submit" variant={"destructive"}>
