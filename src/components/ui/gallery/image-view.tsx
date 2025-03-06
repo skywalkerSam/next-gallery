@@ -66,7 +66,7 @@ export async function ImageView(props: { imageId: number }) {
             </div>
           </div>
           <div className="mt-3 flex items-center justify-center p-3">
-            {/* Server Actions */}
+            {/* Server Actions (uses POST) */}
             <form
               action={async () => {
                 "use server";
