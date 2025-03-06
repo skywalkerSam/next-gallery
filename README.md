@@ -58,4 +58,9 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 - Use `pnpm add` and not `pnpm i` or, just use anyone.)
 
+## Error Log Archive
+
+1.  i have no clue about this, it happens unexpectedly. One minute it's working fine and another it's not anymore. **/gallery** is effected. *error.tsx* comes to the rescue but, no aid. and the funny part is that after some time, it just somehow magically works, the error's gone.) - wtf?
+    ` ⨯ [Error: [object Object]] { digest: '2626315493' }`
+
 Until next time.)
