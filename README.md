@@ -47,7 +47,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [X] Upload Button
 - [X] shadcn-ui
 - [X] Analytics w/ PostHog
-- [ ] Delete w/ **Server Actions**
+- [X] Delete w/ **Server Actions**
 - [ ] Rate-limits w/ upstash
 
 ## Notes
