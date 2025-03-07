@@ -10,7 +10,7 @@ export default function GalleryError({
   // reset,
 }: {
   error: Error & { digest?: string };
-  reset: () => void;
+  // reset: () => void;
 }) {
   useEffect(() => {
     // error logs

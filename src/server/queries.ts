@@ -110,11 +110,15 @@ export async function deleteImage(id: number) {
       },
     });
 
+    // Redirects ain't working for some reason...!
+
     // NextResponse.redirect("https://next-gallery-blues.vercel.app/gallery");
     // NextResponse.rewrite(new URL('/gallery'))
 
     // revalidatePath("/");
     // redirect("/");
+
+    // redirect("/gallery");
   } else {
     throw new Error("User not found!");
   }

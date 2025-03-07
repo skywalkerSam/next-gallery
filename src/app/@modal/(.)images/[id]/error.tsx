@@ -5,12 +5,12 @@ import { captureException } from "@sentry/nextjs";
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
 
-export default function GalleryError({
+export default function ImagesError({
   error,
   // reset,
 }: {
   error: Error & { digest?: string };
-  reset: () => void;
+  // reset: () => void;
 }) {
   useEffect(() => {
     // error logs

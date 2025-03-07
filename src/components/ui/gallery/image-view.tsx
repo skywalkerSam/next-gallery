@@ -74,6 +74,9 @@ export async function ImageView(props: { imageId: number }) {
 
                 // await deleteImage(props.imageId);
                 // await deleteImage(props.imageId).then(redirect("/"));
+                // await deleteImage(props.imageId).then(redirect("/gallery"));
+
+                // Using hardcoded URLs because the relative paths ain't working for some reason...!
                 await deleteImage(props.imageId).then(
                   redirect("https://next-gallery-blues.vercel.app/gallery"),
                 );
@@ -89,3 +92,9 @@ export async function ImageView(props: { imageId: number }) {
     </div>
   );
 }
+
+// onSubmit={(e) => {
+//   if (!confirm("Are you sure you want to delete this image?")) {
+//     e.preventDefault();
+//   }
+// }}
