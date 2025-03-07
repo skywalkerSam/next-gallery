@@ -4,6 +4,7 @@ import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
 import { images } from "./db/schema";
 import { and, eq } from "drizzle-orm";
+import PostHogServerClient from "./analytics";
 // import { revalidatePath } from "next/cache";
 // import { redirect } from "next/navigation";
 // import { NextResponse } from "next/server";
@@ -99,13 +100,21 @@ export async function deleteImage(id: number) {
       .where(and(eq(images?.id, id), eq(images?.userId, user?.userId)))
       .returning({ imageId: images?.id });
 
+    // PostHog Analytics: Delete Image
+    PostHogServerClient().capture({
+      distinctId: user.userId,
+      event: "deleteImage()",
+      properties: {
+        imageId: id,
+        userId: user.userId,
+      },
+    });
+
     // NextResponse.redirect("https://next-gallery-blues.vercel.app/gallery");
     // NextResponse.rewrite(new URL('/gallery'))
 
     // revalidatePath("/");
     // redirect("/");
-
-    // PostHog Analytics: Delete Image
   } else {
     throw new Error("User not found!");
   }
