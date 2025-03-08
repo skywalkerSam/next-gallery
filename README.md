@@ -60,7 +60,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 ## Error Log Archive
 
-1. [DEV]: i have no clue about this, it happens unexpectedly. One minute it's working fine and another it's not anymore. **/gallery** is effected. *error.tsx* comes to the rescue but, no aid. and the funny part is that after some time, it just somehow magically works, the error's gone.) - wtf?
+1. [DEV]: I have no clue about this particular error because it happens unexpectedly. One minute it's working fine and another it's not. **/gallery** is effected. _error.tsx_ comes to the rescue but, no aid. One error route to another and the loop continues. And the funny part is that after some time it just somehow magically works, the error's gone.) - wtf?
     ` ⨯ [Error: [object Object]] { digest: '2626315493' }`
 
 Until next time.)
