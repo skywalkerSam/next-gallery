@@ -6,6 +6,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 import ImageComponent from "./modal-image-component";
 import { Button } from "../button";
 import { redirect } from "next/navigation";
+import { DeleteButton } from "./delete-button";
 
 export async function ImageView(props: { imageId: number }) {
   const image = await getUserImage(props.imageId);
@@ -82,9 +83,10 @@ export async function ImageView(props: { imageId: number }) {
                 );
               }}
             >
-              <Button type="submit" variant={"destructive"}>
+              <DeleteButton></DeleteButton>
+              {/* <Button type="submit" variant={"destructive"}>
                 Delete
-              </Button>
+              </Button> */}
             </form>
           </div>
         </div>
