@@ -94,9 +94,3 @@ export async function ImageView(props: { imageId: number }) {
     </div>
   );
 }
-
-// onSubmit={(e) => {
-//   if (!confirm("Are you sure you want to delete this image?")) {
-//     e.preventDefault();
-//   }
-// }}

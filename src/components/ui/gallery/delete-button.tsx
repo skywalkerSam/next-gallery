@@ -37,3 +37,9 @@ export function DeleteButton() {
     </Button>
   );
 }
+
+// onSubmit={(e) => {
+//   if (!confirm("Are you sure you want to delete this image?")) {
+//     e.preventDefault();
+//   }
+// }}
