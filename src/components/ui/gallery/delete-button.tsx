@@ -1,5 +1,6 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import { Button } from "../button";
 import { useState } from "react";
 
@@ -11,7 +12,7 @@ export function DeleteButton() {
       <div className="flex flex-col gap-2">
         <p className="text-lg text-destructive">Are you sure?</p>
         <div className="flex gap-2">
-          <Button type="submit" variant="destructive" size="sm">
+          <Button type="submit" variant="destructive" size="sm" onClick={() => redirect('/gallery')}>
             Yes, delete
           </Button>
           <Button
