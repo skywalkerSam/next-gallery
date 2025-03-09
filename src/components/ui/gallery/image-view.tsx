@@ -5,9 +5,9 @@ import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
 import ImageComponent from "./modal-image-component";
 // import { Button } from "../button";
-// import { redirect } from "next/navigation";
+import { redirect } from "next/navigation";
 import { DeleteButton } from "./delete-button";
-import { NextResponse } from "next/server";
+// import { NextResponse } from "next/server";
 
 export async function ImageView(props: { imageId: number }) {
   const image = await getUserImage(props.imageId);
@@ -74,7 +74,7 @@ export async function ImageView(props: { imageId: number }) {
                 "use server";
                 // This runs only on server
                 await deleteImage(props.imageId);
-                // redirect("/gallery");
+                redirect("/gallery");
                 // NextResponse.redirect("/gallery");
 
                 // await deleteImage(props.imageId).then(redirect("/"));
