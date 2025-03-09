@@ -79,12 +79,12 @@ export async function ImageView(props: { imageId: number }) {
                 // NextResponse.redirect("/gallery");
                 // await deleteImage(props.imageId).then(() => NextResponse.redirect("/gallery"));
 
-                // await deleteImage(props.imageId).then(redirect("/gallery"));
+                await deleteImage(props.imageId).then(() => redirect("/gallery"));
 
                 // Using hardcoded URLs because the relative paths ain't working for some reason...!
-                await deleteImage(props.imageId).then(
-                  redirect("https://next-gallery-blues.vercel.app/gallery"),
-                );
+                // await deleteImage(props.imageId).then(
+                //   redirect("https://next-gallery-blues.vercel.app/gallery"),
+                // );
               }}
             >
               <DeleteButton></DeleteButton>

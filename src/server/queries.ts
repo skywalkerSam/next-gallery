@@ -5,8 +5,8 @@ import { auth } from "@clerk/nextjs/server";
 import { images } from "./db/schema";
 import { and, eq } from "drizzle-orm";
 import PostHogServerClient from "./analytics";
-// import { revalidatePath } from "next/cache";
-// import { redirect } from "next/navigation";
+import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 // import { NextResponse } from "next/server";
 
 /**
@@ -115,8 +115,8 @@ export async function deleteImage(id: number) {
     // NextResponse.redirect("https://next-gallery-blues.vercel.app/gallery");
     // NextResponse.rewrite(new URL('/gallery'))
 
-    // revalidatePath("/");
-    // redirect("/");
+    revalidatePath("/gallery");
+    redirect("/gallery");
 
     // redirect("/gallery");
   } else {
