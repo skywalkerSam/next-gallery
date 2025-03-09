@@ -1,6 +1,13 @@
 import "server-only";
+
 import { db } from "./db";
 import { auth } from "@clerk/nextjs/server";
+import { images } from "./db/schema";
+import { and, eq } from "drizzle-orm";
+import PostHogServerClient from "./analytics";
+// import { revalidatePath } from "next/cache";
+// import { redirect } from "next/navigation";
+// import { NextResponse } from "next/server";
 
 /**
  * Retrieves all images associated with the authenticated user.
@@ -52,21 +59,21 @@ export async function getUserImage(id: number) {
   const user = await auth();
 
   if (user.userId) {
-    const images = await db.query.images.findFirst({
+    const image = await db.query.images.findFirst({
       // filter
       where: (model, { and, eq }) =>
         and(eq(model.id, id), eq(model.userId, user.userId)),
       // where: (model, { eq }) => eq(model.id, id),
       // orderBy: (model, { asc }) => asc(model.id), // desc, nice.)
     });
-    return images;
+    return image;
   } else {
     throw new Error("User not found!");
   }
 }
 
 /**
- * Deletes an image.
+ * Deletes an image w/ Server Actions
  *
  * This function is a placeholder for image deletion functionality and is currently not implemented.
  *
@@ -78,9 +85,44 @@ export async function getUserImage(id: number) {
  *
  * @beta
  */
-// export async function deleteImage() {
-//   //
-// }
+export async function deleteImage(id: number) {
+  if (!Number.isInteger(id) || id < 1) {
+    throw new Error("Invalid image ID!");
+  }
 
-// NOTE: use closure patterns!
+  // using auth() for userId validation
+  const user = await auth();
+
+  // delete query
+  if (user?.userId) {
+    await db
+      .delete(images)
+      .where(and(eq(images?.id, id), eq(images?.userId, user?.userId)))
+      .returning({ imageId: images?.id });
+
+    // PostHog Analytics: Delete Image
+    PostHogServerClient().capture({
+      distinctId: user.userId,
+      event: "deleteImage()",
+      properties: {
+        imageId: id,
+        userId: user.userId,
+      },
+    });
+
+    // Redirects ain't working for some reason...!
+
+    // NextResponse.redirect("https://next-gallery-blues.vercel.app/gallery");
+    // NextResponse.rewrite(new URL('/gallery'))
+
+    // revalidatePath("/");
+    // redirect("/");
+
+    // redirect("/gallery");
+  } else {
+    throw new Error("User not found!");
+  }
+}
+
 // NOTE: Use `taint` to keep sensitive things like tokens away from the client.
+// NOTE: use closure patterns!

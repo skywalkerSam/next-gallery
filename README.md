@@ -47,7 +47,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [X] Upload Button
 - [X] shadcn-ui
 - [X] Analytics w/ PostHog
-- [ ] Delete w/ **Server Actions**
+- [X] Delete w/ **Server Actions**
 - [ ] Rate-limits w/ upstash
 
 ## Notes
@@ -57,5 +57,10 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - `vercel env pull` - pull _.env_
 
 - Use `pnpm add` and not `pnpm i` or, just use anyone.)
+
+## Error Log Archive
+
+1. [DEV]: I have no clue about this particular error because it happens unexpectedly. One minute it's working fine and another it's not. **/gallery** is effected. _error.tsx_ comes to the rescue but, no aid. One error route to another and the loop continues. And the funny part is that after some time it just somehow magically works, the error's gone.) - wtf?
+    ` ⨯ [Error: [object Object]] { digest: '2626315493' }`
 
 Until next time.)

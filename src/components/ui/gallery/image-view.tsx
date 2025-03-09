@@ -1,9 +1,13 @@
-import { getUserImage } from "~/server/queries";
-import Image from "next/image";
+import { deleteImage, getUserImage } from "~/server/queries";
+// import Image from "next/image";
 // import type { ImageType } from "~/types/ImageType";
 import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
 import ImageComponent from "./modal-image-component";
+// import { Button } from "../button";
+import { DeleteButton } from "./delete-button";
+import { redirect } from "next/navigation";
+// import { NextResponse } from "next/server";
 
 export async function ImageView(props: { imageId: number }) {
   const image = await getUserImage(props.imageId);
@@ -62,6 +66,32 @@ export async function ImageView(props: { imageId: number }) {
             <div className="mb-3">
               <p>Uploaded By: {uploaderInfo?.fullName}</p>
             </div>
+          </div>
+          <div className="mt-3 flex items-center justify-center p-3">
+            {/* Server Actions (uses POST) */}
+            <form
+              action={async () => {
+                "use server";
+                // This runs only on server
+                // await deleteImage(props.imageId);
+                // redirect("/gallery");
+
+                // NextResponse.redirect("/gallery");
+                // await deleteImage(props.imageId).then(() => NextResponse.redirect("/gallery"));
+
+                // await deleteImage(props.imageId).then(redirect("/gallery"));
+
+                // Using hardcoded URLs because the relative paths ain't working for some reason...!
+                await deleteImage(props.imageId).then(
+                  redirect("https://next-gallery-blues.vercel.app/gallery"),
+                );
+              }}
+            >
+              <DeleteButton></DeleteButton>
+              {/* <Button type="submit" variant={"destructive"}>
+                Delete
+              </Button> */}
+            </form>
           </div>
         </div>
       </Suspense>
