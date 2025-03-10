@@ -19,7 +19,7 @@ export default function TopBar(): JSX.Element {
         <Link href="/">
           {/* Starboy Inc. */}
           <Image
-            src="/starboy-logo.png"
+            src="/icon.svg"
             alt="Starboy Logo"
             width={90}
             height={60}

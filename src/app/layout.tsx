@@ -36,7 +36,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Image Gallery",
   description: "Image Gallery with Next.js + Vercel by skywalkerSam",
-  icons: [{ rel: "icon", url: "/starboy-logo.png" }],
+  icons: [{ rel: "icon", url: "/icon.svg" }],
 };
 
 // const centeredDivStyle =

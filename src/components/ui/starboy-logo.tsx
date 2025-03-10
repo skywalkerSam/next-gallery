@@ -14,7 +14,7 @@ export default function StarboyLogo() {
         rel="noopener noreferrer"
       >
         <Image
-          src="/starboy-logo.png"
+          src="/icon.svg"
           alt="Starboy Logo"
           width={210}
           height={210}
