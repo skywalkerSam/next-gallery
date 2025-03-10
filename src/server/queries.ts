@@ -111,7 +111,7 @@ export async function deleteImage(id: number) {
     });
 
     revalidatePath("/gallery");
-    redirect('/gallery');
+    redirect("/gallery");
 
     // Redirects ain't working for some reason...!
 
