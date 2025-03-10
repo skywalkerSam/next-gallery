@@ -73,13 +73,13 @@ export async function ImageView(props: { imageId: number }) {
               action={async () => {
                 "use server";
                 // This runs only on server
-                // await deleteImage(props.imageId);
+                await deleteImage(props.imageId);
                 // redirect("/gallery");
 
                 // NextResponse.redirect("/gallery");
                 // await deleteImage(props.imageId).then(() => NextResponse.redirect("/gallery"));
 
-                await deleteImage(props.imageId).then(() => redirect("/gallery"));
+                // await deleteImage(props.imageId).then(() => redirect("/gallery"));
 
                 // Using hardcoded URLs because the relative paths ain't working for some reason...!
                 // await deleteImage(props.imageId).then(

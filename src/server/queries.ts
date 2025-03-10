@@ -110,13 +110,13 @@ export async function deleteImage(id: number) {
       },
     });
 
+    revalidatePath("/gallery");
+    redirect('/gallery');
+
     // Redirects ain't working for some reason...!
 
     // NextResponse.redirect("https://next-gallery-blues.vercel.app/gallery");
     // NextResponse.rewrite(new URL('/gallery'))
-
-    revalidatePath("/gallery");
-    redirect("/gallery");
 
     // redirect("/gallery");
   } else {
