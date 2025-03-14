@@ -21,6 +21,6 @@ self.addEventListener("notificationclick", function (event) {
   console.log("Notification click received.");
   event.notification.close();
   event.waitUntil(
-    clients.openWindow("<https://next-gallery-blues.vercel.app>"),
+    clients.openWindow("https://next-gallery-blues.vercel.app"),
   );
 });
