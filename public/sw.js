@@ -1,5 +1,4 @@
- // // @ts-ignore
- // // @ts-expect-error
+// @ts-nocheck it's a JavaScript file
 
 self.addEventListener("push", function (event) {
   if (event.data) {
@@ -21,5 +20,7 @@ self.addEventListener("push", function (event) {
 self.addEventListener("notificationclick", function (event) {
   console.log("Notification click received.");
   event.notification.close();
-  event.waitUntil(clients.openWindow("<https://your-website.com>"));
+  event.waitUntil(
+    clients.openWindow("<https://next-gallery-blues.vercel.app>"),
+  );
 });

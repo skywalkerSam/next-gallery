@@ -3,6 +3,11 @@
 import { useState, useEffect } from "react";
 import { subscribeUser, unsubscribeUser, sendNotification } from "./actions";
 
+/**
+ * Converts a URL-safe base64 string to a Uint8Array.
+ * @param base64String The base64 string to convert.
+ * @returns A Uint8Array containing the raw bytes of the base64 string.
+ */
 function urlBase64ToUint8Array(base64String: string) {
   const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
   const base64 = (base64String + padding).replace(/-/g, "+").replace(/_/g, "/");
@@ -16,7 +21,12 @@ function urlBase64ToUint8Array(base64String: string) {
   return outputArray;
 }
 
-function PushNotificationManager() {
+/**
+ * Manages push notifications by handling service worker registration and push subscription.
+ * Provides UI for subscribing/unsubscribing to push notifications and sending test notifications.
+ * Displays appropriate messages based on the browser's support for push notifications.
+ */
+export function PushNotificationManager() {
   const [isSupported, setIsSupported] = useState(false);
   const [subscription, setSubscription] = useState<PushSubscription | null>(
     null,
@@ -30,6 +40,11 @@ function PushNotificationManager() {
     }
   }, []);
 
+  /**
+   * Registers the service worker from the specified file and sets up the push subscription.
+   * If a subscription already exists, it is retrieved and set in the state.
+   * The service worker is registered with no cache update for the given scope.
+   */
   async function registerServiceWorker() {
     const registration = await navigator.serviceWorker.register("/sw.js", {
       scope: "/",
@@ -94,7 +109,15 @@ function PushNotificationManager() {
   );
 }
 
-function InstallPrompt() {
+/**
+ * @function InstallPrompt
+ * @description This component will display an "Install App" prompt on
+ * mobile devices that are not already in standalone mode. On iOS devices, it
+ * will display a message explaining how to install the app. Otherwise, it will
+ * display a button to trigger the browser's install prompt.
+ * @returns {JSX.Element} The rendered component.
+ */
+export function InstallPrompt() {
   const [isIOS, setIsIOS] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
 
@@ -121,7 +144,7 @@ function InstallPrompt() {
             {" "}
             ⎋{" "}
           </span>
-          and then "Add to Home Screen"
+          and then Add to Home Screen
           <span role="img" aria-label="plus icon">
             {" "}
             ➕{" "}
@@ -133,11 +156,11 @@ function InstallPrompt() {
   );
 }
 
-export default function Page() {
-  return (
-    <div>
-      <PushNotificationManager />
-      <InstallPrompt />
-    </div>
-  );
-}
+// export default function Page() {
+//   return (
+//     <div>
+//       <PushNotificationManager />
+//       <InstallPrompt />
+//     </div>
+//   );
+// }
