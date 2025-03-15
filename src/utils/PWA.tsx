@@ -3,6 +3,15 @@
 import { useState, useEffect } from "react";
 import { subscribeUser, unsubscribeUser, sendNotification } from "./actions";
 
+interface BeforeInstallPromptEvent extends Event {
+  readonly platforms: string[];
+  readonly userChoice: Promise<{
+    outcome: "accepted" | "dismissed";
+    platform: string;
+  }>;
+  prompt(): Promise<void>;
+}
+
 /**
  * Converts a URL-safe base64 string to a Uint8Array.
  * @param base64String The base64 string to convert.
@@ -32,13 +41,8 @@ export function PushNotificationManager() {
     null,
   );
   const [message, setMessage] = useState("");
-
-  useEffect(() => {
-    if ("serviceWorker" in navigator && "PushManager" in window) {
-      setIsSupported(true);
-      registerServiceWorker();
-    }
-  }, []);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   /**
    * Registers the service worker from the specified file and sets up the push subscription.
@@ -46,25 +50,51 @@ export function PushNotificationManager() {
    * The service worker is registered with no cache update for the given scope.
    */
   async function registerServiceWorker() {
-    const registration = await navigator.serviceWorker.register("/sw.js", {
-      scope: "/",
-      updateViaCache: "none",
-    });
-    const sub = await registration.pushManager.getSubscription();
-    setSubscription(sub);
+    try {
+      const registration = await navigator.serviceWorker.register("/sw.js", {
+        scope: "/",
+        updateViaCache: "none",
+      });
+      const sub = await registration.pushManager.getSubscription();
+      setSubscription(sub);
+    } catch (err) {
+      console.error("Failed to register service worker:", err);
+      setError("Failed to register service worker");
+    }
   }
 
+  useEffect(() => {
+    if ("serviceWorker" in navigator && "PushManager" in window) {
+      setIsSupported(true);
+      await registerServiceWorker();
+    }
+  }, []);
+
   async function subscribeToPush() {
-    const registration = await navigator.serviceWorker.ready;
-    const sub = await registration.pushManager.subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: urlBase64ToUint8Array(
-        process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
-      ),
-    });
-    setSubscription(sub);
-    const serializedSub = JSON.parse(JSON.stringify(sub));
-    await subscribeUser(serializedSub);
+    setLoading(true);
+    setError(null);
+    try {
+      const registration = await navigator.serviceWorker.ready;
+      const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
+      if (!vapidKey) {
+        throw new Error("VAPID key is not configured");
+      }
+      const sub = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        // applicationServerKey: urlBase64ToUint8Array(
+        //   process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
+        // ),
+        applicationServerKey: urlBase64ToUint8Array(vapidKey),
+      });
+      setSubscription(sub);
+      const serializedSub = JSON.parse(JSON.stringify(sub)) as PushSubscription;
+      await subscribeUser(serializedSub);
+    } catch (err) {
+      console.error("Failed to subscribe:", err);
+      setError(err instanceof Error ? err.message : "Failed to subscribe");
+    } finally {
+      setLoading(false);
+    }
   }
 
   async function unsubscribeFromPush() {
@@ -120,14 +150,61 @@ export function PushNotificationManager() {
 export function InstallPrompt() {
   const [isIOS, setIsIOS] = useState(false);
   const [isStandalone, setIsStandalone] = useState(false);
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null);
 
   useEffect(() => {
     setIsIOS(
-      /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream,
+      // /iPad|iPhone|iPod/.test(navigator.userAgent) && !(window as any).MSStream,
+      /iPad|iPhone|iPod/.test(navigator.userAgent) && !("MSStream" in window),
     );
 
     setIsStandalone(window.matchMedia("(display-mode: standalone)").matches);
+
+    // Handle the beforeinstallprompt event
+    const handleBeforeInstallPrompt = (e: BeforeInstallPromptEvent) => {
+      // Prevent Chrome 67 and earlier from automatically showing the prompt
+      e.preventDefault();
+      // Stash the event so it can be triggered later
+      setDeferredPrompt(e);
+    };
+
+    window.addEventListener(
+      "beforeinstallprompt",
+      // handleBeforeInstallPrompt as any,
+      handleBeforeInstallPrompt as EventListener,
+    );
+
+    // unmount
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        // handleBeforeInstallPrompt as any,
+        handleBeforeInstallPrompt as EventListener,
+      );
+    };
   }, []);
+
+  /**
+   * Trigger the install prompt.
+   *
+   * This function will show the install prompt, wait for the user to respond,
+   * and then log the outcome of the prompt to the console. The deferred prompt
+   * is then discarded, as we have used it and can't use it again.
+   */
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+
+    // Show the install prompt
+    await deferredPrompt.prompt();
+
+    // Wait for the user to respond to the prompt
+    const { outcome } = await deferredPrompt.userChoice;
+    console.log(`User response to the install prompt: ${outcome}`);
+
+    // We've used the prompt, and can't use it again, throw it away
+    setDeferredPrompt(null);
+  };
 
   if (isStandalone) {
     return null; // Don't show install button if already installed
@@ -136,7 +213,10 @@ export function InstallPrompt() {
   return (
     <div>
       <h3>Install App</h3>
-      <button>Add to Home Screen</button>
+      {/* <button>Add to Home Screen</button> */}
+      <button onClick={handleInstallClick} disabled={isIOS || !deferredPrompt}>
+        Add to Home Screen
+      </button>
       {isIOS && (
         <p>
           To install this app on your iOS device, tap the share button
@@ -155,12 +235,3 @@ export function InstallPrompt() {
     </div>
   );
 }
-
-// export default function Page() {
-//   return (
-//     <div>
-//       <PushNotificationManager />
-//       <InstallPrompt />
-//     </div>
-//   );
-// }

@@ -3,10 +3,25 @@
 import webpush from "web-push";
 
 webpush.setVapidDetails(
-  "<mailto:skywalkersam.dev@gmail.com>",
-  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!,
-  process.env.VAPID_PRIVATE_KEY!,
+  "mailto:skywalkersam.dev@gmail.com",
+  process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY ?? "",
+  process.env.VAPID_PRIVATE_KEY ?? "",
 );
+
+// Validate required environment variables
+function validateEnvVars() {
+  const requiredVars = ["NEXT_PUBLIC_VAPID_PUBLIC_KEY", "VAPID_PRIVATE_KEY"];
+
+  const missingVars = requiredVars.filter((varName) => !process.env[varName]);
+
+  if (missingVars.length > 0) {
+    throw new Error(
+      `Missing required environment variables: ${missingVars.join(", ")}`,
+    );
+  }
+}
+
+validateEnvVars();
 
 let subscription: PushSubscription | null = null;
 
