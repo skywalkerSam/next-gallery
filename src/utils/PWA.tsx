@@ -73,7 +73,7 @@ export function PushNotificationManager() {
         setIsSupported(true);
         await registerServiceWorker();
       }
-    })().catch((e) => console.error(e))
+    })().catch((e) => console.error(e));
   }, []);
 
   async function subscribeToPush() {
