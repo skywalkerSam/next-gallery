@@ -1,3 +1,6 @@
+/**
+ * @todo PWA components temporarily disabled until push notification service is fully configured—will be enabled in a future PR.
+ */
 import Link from "next/link";
 // import ImageUploadButton from "~/ui/ImageUploadButton";
 import MainTitle from "~/components/ui/main-title";
