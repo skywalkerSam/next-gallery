@@ -2,10 +2,8 @@
  * @todo PWA components temporarily disabled until push notification service is fully configured—will be enabled in a future PR.
  */
 import Link from "next/link";
-// import ImageUploadButton from "~/ui/ImageUploadButton";
 import MainTitle from "~/components/ui/main-title";
 import type { Metadata } from "next";
-// import { InstallPrompt, PushNotificationManager } from "~/utils/PWA";
 
 export const metadata: Metadata = {
   title: "Next Gallery - Home",
@@ -37,11 +35,7 @@ export default function Home() {
             </span>
           </Link>
         </div>
-        {/* uploadthing image uploads */}
-        {/* <ImageUploadButton></ImageUploadButton> */}
       </main>
-      {/* <PushNotificationManager></PushNotificationManager>
-      <InstallPrompt></InstallPrompt> */}
     </div>
   );
 }
