@@ -24,7 +24,8 @@ export default function NextLogo(): JSX.Element {
       </span> */}
       <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">
         <Image
-          className="dark:invert m-1"
+          // className="dark:invert m-1"
+          className="m-1 transition-opacity hover:opacity-80 dark:invert"
           src="/next.svg"
           alt="Next.js logo"
           width={180}

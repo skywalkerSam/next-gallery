@@ -121,24 +121,66 @@ export function PushNotificationManager() {
   }
 
   return (
-    <div>
-      <h3>Push Notifications</h3>
+    // <div>
+    //   <h3>Push Notifications</h3>
+    //   {subscription ? (
+    //     <>
+    //       <p>You are subscribed to push notifications.</p>
+    //       <button onClick={unsubscribeFromPush}>Unsubscribe</button>
+    //       <input
+    //         type="text"
+    //         placeholder="Enter notification message"
+    //         value={message}
+    //         onChange={(e) => setMessage(e.target.value)}
+    //       />
+    //       <button onClick={sendTestNotification}>Send Test</button>
+    //     </>
+    //   ) : (
+    //     <>
+    //       <p>You are not subscribed to push notifications.</p>
+    //       <button onClick={subscribeToPush}>Subscribe</button>
+    //     </>
+    //   )}
+    // </div>
+    <div className="rounded-lg border p-4">
+      <h3 className="mb-2 text-lg font-semibold">Push Notifications</h3>
+      {error && <p className="mb-2 text-red-500">{error}</p>}
       {subscription ? (
         <>
-          <p>You are subscribed to push notifications.</p>
-          <button onClick={unsubscribeFromPush}>Unsubscribe</button>
-          <input
-            type="text"
-            placeholder="Enter notification message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-          />
-          <button onClick={sendTestNotification}>Send Test</button>
+          <p className="mb-2">You are subscribed to push notifications.</p>
+          <button
+            className="mb-2 rounded bg-red-500 px-4 py-2 text-white"
+            onClick={unsubscribeFromPush}
+          >
+            Unsubscribe
+          </button>
+          <div className="mt-2 flex gap-2">
+            <input
+              className="flex-grow rounded border p-2"
+              type="text"
+              placeholder="Enter notification message"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
+            <button
+              className="rounded bg-blue-500 px-4 py-2 text-white"
+              onClick={sendTestNotification}
+              disabled={!message.trim()}
+            >
+              Send Test
+            </button>
+          </div>
         </>
       ) : (
         <>
-          <p>You are not subscribed to push notifications.</p>
-          <button onClick={subscribeToPush}>Subscribe</button>
+          <p className="mb-2">You are not subscribed to push notifications.</p>
+          <button
+            className="rounded bg-green-500 px-4 py-2 text-white"
+            onClick={subscribeToPush}
+            disabled={loading}
+          >
+            {loading ? "Subscribing..." : "Subscribe"}
+          </button>
         </>
       )}
     </div>
@@ -217,25 +259,47 @@ export function InstallPrompt() {
   }
 
   return (
-    <div>
-      <h3>Install App</h3>
-      {/* <button>Add to Home Screen</button> */}
-      <button onClick={handleInstallClick} disabled={isIOS || !deferredPrompt}>
+    // <div>
+    //   <h3>Install App</h3>
+    //   {/* <button>Add to Home Screen</button> */}
+    //   <button onClick={handleInstallClick} disabled={isIOS || !deferredPrompt}>
+    //     Add to Home Screen
+    //   </button>
+    //   {isIOS && (
+    //     <p>
+    //       To install this app on your iOS device, tap the share button
+    //       <span role="img" aria-label="share icon">
+    //         {" "}
+    //         ⎋{" "}
+    //       </span>
+    //       and then Add to Home Screen
+    //       <span role="img" aria-label="plus icon">
+    //         {" "}
+    //         ➕{" "}
+    //       </span>
+    //       .
+    //     </p>
+    //   )}
+    // </div>
+    <div className="mt-4 rounded-lg border p-4">
+      <h3 className="mb-2 text-lg font-semibold">Install App</h3>
+      <button
+        className="mb-2 rounded bg-blue-500 px-4 py-2 text-white disabled:opacity-50"
+        onClick={handleInstallClick}
+        disabled={isIOS || !deferredPrompt}
+      >
         Add to Home Screen
       </button>
       {isIOS && (
-        <p>
+        <p className="text-sm">
           To install this app on your iOS device, tap the share button
-          <span role="img" aria-label="share icon">
-            {" "}
-            ⎋{" "}
+          <span role="img" aria-label="share icon" className="mx-1">
+            ⎋
           </span>
           and then Add to Home Screen
-          <span role="img" aria-label="plus icon">
-            {" "}
-            ➕{" "}
+          <span role="img" aria-label="plus icon" className="mx-1">
+            ➕
           </span>
-          .
         </p>
       )}
     </div>
