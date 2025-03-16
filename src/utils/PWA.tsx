@@ -64,10 +64,16 @@ export function PushNotificationManager() {
   }
 
   useEffect(() => {
-    if ("serviceWorker" in navigator && "PushManager" in window) {
-      setIsSupported(true);
-      await registerServiceWorker();
-    }
+    // if ("serviceWorker" in navigator && "PushManager" in window) {
+    //   setIsSupported(true);
+    //   await registerServiceWorker();
+    // }
+    (async () => {
+      if ("serviceWorker" in navigator && "PushManager" in window) {
+        setIsSupported(true);
+        await registerServiceWorker();
+      }
+    })().catch((e) => console.error(e))
   }, []);
 
   async function subscribeToPush() {
