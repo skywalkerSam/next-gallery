@@ -21,6 +21,7 @@ import { Toaster } from "~/components/ui/sonner";
 import { ThemeProvider } from "~/components/theme-provider";
 import { ModeToggle } from "~/components/theme-toggle";
 import { PostHogProvider } from "./_analytics/providers";
+import { layoutStyles } from "~/styles/styles";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,16 +37,8 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Image Gallery",
   description: "Image Gallery with Next.js + Vercel by skywalkerSam",
-  icons: [{ rel: "icon", url: "/starboy-logo.png" }],
+  icons: [{ rel: "icon", url: "/icon.svg" }],
 };
-
-// const centeredDivStyle =
-//   "flex flex-row items-center justify-center p-3";
-const centeredDivStyle =
-  "flex flex-row min-h-screen justify-center items-center";
-const centeredDivTitleStyle =
-  "flex flex-row min-h-screen justify-center items-center m-24";
-const layoutStyle = "grid h-screen grid-rows-[auto,1fr]";
 
 export default function RootLayout({
   children,
@@ -69,16 +62,16 @@ export default function RootLayout({
             >
               <SignedOut>
                 <UserSignInButton></UserSignInButton>
-                <div className={centeredDivStyle}>
+                <div className={layoutStyles.centeredDiv}>
                   <StarboyLogo></StarboyLogo>
                 </div>
-                <div className={centeredDivTitleStyle}>
+                <div className={layoutStyles.centeredDivTitleStyle}>
                   <MainTitle></MainTitle>
                 </div>
               </SignedOut>
               <SignedIn>
                 {/* Defend the layout from weird extensions behaviors */}
-                <div className={layoutStyle}>
+                <div className={layoutStyles.layoutStyle}>
                   <TopBar></TopBar>
                   {/* <UserButton /> */}
                   <main className="overflow-y-auto">{children}</main>

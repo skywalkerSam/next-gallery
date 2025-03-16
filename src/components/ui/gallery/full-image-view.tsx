@@ -2,7 +2,7 @@ import { getUserImage } from "~/server/queries";
 // import Image from "next/image";
 import type { ImageType } from "~/types/ImageType";
 
-const PLACEHOLDER_IMAGE = "/starboy-logo.png";
+const PLACEHOLDER_IMAGE = "/icon.svg";
 // const PLACEHOLDER_IMAGE = "https://github.com/skywalkerSam";
 
 export async function FullImageView(props: { imageId: number }) {

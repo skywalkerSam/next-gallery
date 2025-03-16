@@ -48,6 +48,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [X] shadcn-ui
 - [X] Analytics w/ PostHog
 - [X] Delete w/ **Server Actions**
+- [X] PWA Integration
 - [ ] Rate-limits w/ upstash
 
 ## Notes

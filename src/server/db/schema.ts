@@ -8,7 +8,25 @@ import {
   serial,
   timestamp,
   varchar,
+  // pgTable,
+  // text,
 } from "drizzle-orm/pg-core";
+
+// Initial PWA Integration
+// export const pushSubscriptions = createTable(
+//   "push_subscription",
+//   {
+//     id: text("id").primaryKey().defaultRandom(),
+//     endpoint: text("endpoint").notNull(),
+//     p256dh: text("p256dh").notNull(),
+//     auth: text("auth").notNull(),
+//     userId: text("user_id"),
+//     createdAt: timestamp("created_at").defaultNow().notNull(),
+//   },
+//   (subscription) => ({
+//     userIdIndex: index("user_id_idx").on(subscription.userId),
+//   }),
+// );
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
