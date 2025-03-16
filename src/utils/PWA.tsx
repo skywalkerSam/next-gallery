@@ -75,12 +75,29 @@ export function PushNotificationManager() {
     //   setIsSupported(true);
     //   await registerServiceWorker();
     // }
-    (async () => {
+
+    // (async () => {
+    //   if ("serviceWorker" in navigator && "PushManager" in window) {
+    //     setIsSupported(true);
+    //     await registerServiceWorker();
+    //   }
+    // })().catch((e) => console.error(e));
+
+    /**
+     * Sets up push support by checking if the browser supports service workers and push
+     * notifications and registers the service worker and sets up the push subscription.
+     * If the browser does not support service workers or push notifications, it does nothing.
+     */
+    const setupPushSupport = async () => {
       if ("serviceWorker" in navigator && "PushManager" in window) {
         setIsSupported(true);
         await registerServiceWorker();
       }
-    })().catch((e) => console.error(e));
+    };
+
+    setupPushSupport().catch((e) =>
+      console.error("Failed to setup push support:", e),
+    );
   }, []);
 
   async function subscribeToPush() {

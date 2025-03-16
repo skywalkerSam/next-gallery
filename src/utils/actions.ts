@@ -62,7 +62,11 @@ export async function unsubscribeUser() {
   return { success: true };
 }
 
-export async function sendNotification(message: string) {
+// export async function sendNotification(message: string) {
+export async function sendNotification(
+  message: string,
+  title = "Test Notification",
+) {
   if (!message.trim()) {
     return { success: false, error: "Notification message cannot be empty" };
   }
@@ -76,7 +80,8 @@ export async function sendNotification(message: string) {
     await webpush.sendNotification(
       subscription,
       JSON.stringify({
-        title: "Test Notification",
+        // title: "Test Notification",
+        title: title,
         body: message,
         icon: "/icon.svg",
         badge: "web-app-manifest-192x192.png",

@@ -61,8 +61,9 @@ self.addEventListener("notificationclick", function (event) {
       })
       .then(function (clientList) {
         // If a matching client is found, focus it
-        for (let i = 0; i < clientList.length; i++) {
-          const client = clientList[i];
+        // for (let i = 0; i < clientList.length; i++) {
+        //   const client = clientList[i];
+        for (const client of clientList) {
           if (
             client.url.startsWith(self.location.origin) &&
             "focus" in client
