@@ -5,12 +5,12 @@ export default function robots(): MetadataRoute.Robots {
     rules: [
       {
         userAgent: "*",
-        // allow: "/",
-        // disallow: "/private/",
-        disallow: "/",
+        allow: "/",
+        // disallow: "/",
+        disallow: ["/gallery/", "/dashboard/", "/api/", "/admin/", "/private/"],
       },
     ],
-    // sitemap: "https://next-gallery-blues.vercel.app/sitemap.xml",
-    sitemap: "/sitemap.xml",
+    sitemap: "https://next-gallery-blues.vercel.app/sitemap.xml",
+    // sitemap: "/sitemap.xml",
   };
 }

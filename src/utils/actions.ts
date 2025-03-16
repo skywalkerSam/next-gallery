@@ -28,10 +28,31 @@ validateEnvVars();
 let subscription: PushSubscription | null = null;
 
 export async function subscribeUser(sub: PushSubscription) {
-  subscription = sub;
+  // subscription = sub;
   // In a production environment, you would want to store the subscription in a database
   // For example: await db.subscriptions.create({ data: sub })
-  return { success: true };
+  // return { success: true };
+  try {
+    // Store in-memory for development
+    subscription = sub;
+
+    // TODO: Uncomment for production
+    // await db.subscriptions.create({
+    //   data: {
+    //     endpoint: sub.endpoint,
+    //     keys: JSON.stringify(sub.keys),
+    //     createdAt: new Date()
+    //   }
+    // });
+
+    return { success: true };
+  } catch (error) {
+    console.error("Error subscribing user:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Failed to subscribe",
+    };
+  }
 }
 
 export async function unsubscribeUser() {

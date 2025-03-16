@@ -3,6 +3,13 @@
 import { useState, useEffect } from "react";
 import { subscribeUser, unsubscribeUser, sendNotification } from "./actions";
 
+// Ensure VAPID key is available
+if (!process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY) {
+  throw new Error(
+    "VAPID key is not configured - Please check your environment variables!",
+  );
+}
+
 interface BeforeInstallPromptEvent extends Event {
   readonly platforms: string[];
   readonly userChoice: Promise<{
@@ -81,10 +88,10 @@ export function PushNotificationManager() {
     setError(null);
     try {
       const registration = await navigator.serviceWorker.ready;
-      const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY;
-      if (!vapidKey) {
-        throw new Error("VAPID key is not configured");
-      }
+      const vapidKey = process.env.NEXT_PUBLIC_VAPID_PUBLIC_KEY!;
+      // if (!vapidKey) {
+      //   throw new Error("VAPID key is not configured");
+      // }
       const sub = await registration.pushManager.subscribe({
         userVisibleOnly: true,
         // applicationServerKey: urlBase64ToUint8Array(
@@ -94,6 +101,7 @@ export function PushNotificationManager() {
       });
       setSubscription(sub);
       const serializedSub = JSON.parse(JSON.stringify(sub)) as PushSubscription;
+      // @ts-expect-error idk what's wrong here!
       await subscribeUser(serializedSub);
     } catch (err) {
       console.error("Failed to subscribe:", err);
@@ -243,15 +251,29 @@ export function InstallPrompt() {
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
 
-    // Show the install prompt
-    await deferredPrompt.prompt();
+    // // Show the install prompt
+    // await deferredPrompt.prompt();
 
-    // Wait for the user to respond to the prompt
-    const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to the install prompt: ${outcome}`);
+    // // Wait for the user to respond to the prompt
+    // const { outcome } = await deferredPrompt.userChoice;
+    // console.log(`User response to the install prompt: ${outcome}`);
 
-    // We've used the prompt, and can't use it again, throw it away
-    setDeferredPrompt(null);
+    // // We've used the prompt, and can't use it again, throw it away
+    // setDeferredPrompt(null);
+
+    try {
+      // Show the install prompt
+      await deferredPrompt.prompt();
+
+      // Wait for the user to respond to the prompt
+      const { outcome } = await deferredPrompt.userChoice;
+      console.log(`User response to the install prompt: ${outcome}`);
+    } catch (error) {
+      console.error("Error showing install prompt:", error);
+    } finally {
+      // We've used the prompt, and can't use it again, throw it away
+      setDeferredPrompt(null);
+    }
   };
 
   if (isStandalone) {
