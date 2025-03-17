@@ -20,8 +20,7 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: "Gallery",
         description: "View your gallery items",
         url: "/gallery",
-        // icons: [{ src: "/web-app-manifest-192x192.png", sizes: "192x192" }],
-        icons: [{ src: "/icon.png" }],
+        icons: [{ src: "/web-app-manifest-192x192.png", sizes: "192x192" }],
       },
     ],
     icons: [
