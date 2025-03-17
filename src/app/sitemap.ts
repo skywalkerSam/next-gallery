@@ -10,21 +10,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
       // url: "https://next-gallery-blues.vercel.app/",
-      url: `${baseUrl}/`,
+      url: `${baseUrl}`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
     },
     {
       // url: "https://next-gallery-blues.vercel.app/gallery",
-      url: `${baseUrl}/gallery/`,
+      url: `${baseUrl}/gallery`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
       // url: "https://next-gallery-blues.vercel.app/gallery/exGallery",
-      url: `${baseUrl}/gallery/exGallery/`,
+      url: `${baseUrl}/gallery/exGallery`,
       lastModified: new Date(),
       changeFrequency: "never",
       priority: 0.3,

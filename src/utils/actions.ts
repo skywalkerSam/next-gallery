@@ -56,10 +56,18 @@ export async function subscribeUser(sub: PushSubscription) {
 }
 
 export async function unsubscribeUser() {
-  subscription = null;
-  // In a production environment, you would want to remove the subscription from the database
-  // For example: await db.subscriptions.delete({ where: { ... } })
-  return { success: true };
+  try {
+    subscription = null;
+    // In a production environment, you would want to remove the subscription from the database
+    // For example: await db.subscriptions.delete({ where: { ... } })
+    return { success: true };
+  } catch (error) {
+    console.error("Error unsubscribing user:", error);
+    return {
+      success: false,
+      error: error instanceof Error ? error.message : "Failed to unsubscribe",
+    };
+  }
 }
 
 // export async function sendNotification(message: string) {

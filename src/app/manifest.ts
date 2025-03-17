@@ -7,10 +7,10 @@ export default function manifest(): MetadataRoute.Manifest {
     description: "A cloud-based gallery application built with NEXT.js",
     start_url: "/",
     display: "standalone",
-    // background_color: "#000000",
-    // theme_color: "#000000",
-    background_color: "#121212", // Softer black for background
-    theme_color: "#1e1e1e",
+    background_color: "#000000",
+    theme_color: "#000000",
+    // background_color: "#121212", // Softer black for background
+    // theme_color: "#1e1e1e",
     orientation: "portrait",
     scope: "/",
     categories: ["photography", "gallery", "art"],
