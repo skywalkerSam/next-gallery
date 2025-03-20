@@ -19,7 +19,7 @@ import StarboyLogo from "~/components/ui/starboy-logo";
 import UserSignInButton from "~/components/ui/clerk-sign-in";
 import { Toaster } from "~/components/ui/sonner";
 import { ThemeProvider } from "~/components/theme-provider";
-import { ModeToggle } from "~/components/theme-toggle";
+// import { ModeToggle } from "~/components/theme-toggle";
 import { PostHogProvider } from "./_analytics/providers";
 import { layoutStyles } from "~/styles/styles";
 
@@ -37,7 +37,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: "Image Gallery",
   description: "Image Gallery with Next.js + Vercel by skywalkerSam",
-  icons: [{ rel: "icon", url: "/icon.svg" }],
+  icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
 export default function RootLayout({
@@ -86,9 +86,9 @@ export default function RootLayout({
                   richColors
                 ></Toaster>
               </SignedIn>
-              <div className="m-3 flex items-center justify-center p-3">
+              {/* <div className="m-3 flex items-center justify-center p-3">
                 <ModeToggle></ModeToggle>
-              </div>
+              </div> */}
               <Footer></Footer>
             </ThemeProvider>
           </body>
