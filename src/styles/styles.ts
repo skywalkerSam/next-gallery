@@ -23,3 +23,12 @@ export const pwaStyles = {
   installPrompt:
     "fixed bottom-4 right-4 bg-blue-600 text-white p-4 rounded-lg shadow-lg",
 } as const;
+
+// footer.tsx
+export const footerStyles = {
+  centeredDiv: centeredDivStyle,
+  centeredFooter:
+    "flex flex-row items-center justify-center justify-items-end p-3",
+  skywalkerSam:
+    "text-slate-600 hover:text-blue-400 hover:underline focus:text-blue-400",
+} as const;
