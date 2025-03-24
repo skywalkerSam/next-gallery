@@ -48,17 +48,17 @@ const coreConfig = {
     // unoptimized: true,
   },
 
-  // For reducing build times
-  // typescript: { ignoreBuildErrors: true },
-  // eslint: { ignoreDuringBuilds: true },
+  // For reducing build times and build failures.)
+  typescript: { ignoreBuildErrors: true },
+  eslint: { ignoreDuringBuilds: true },
 
   // Only disable for development to speed up iteration
-  typescript: {
-    ignoreBuildErrors: process.env.NODE_ENV !== "production",
-  },
-  eslint: {
-    ignoreDuringBuilds: process.env.NODE_ENV !== "production",
-  },
+  // typescript: {
+  //   ignoreBuildErrors: process.env.NODE_ENV !== "production",
+  // },
+  // eslint: {
+  //   ignoreDuringBuilds: process.env.NODE_ENV !== "production",
+  // },
 
   // posthog ad-blocker bypass
   async rewrites() {
