@@ -2,7 +2,6 @@
  * @todo PWA components temporarily disabled until push notification service is fully configured—will be enabled in a future PR.
  */
 import Link from "next/link";
-import MainTitle from "~/components/ui/main-title";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,31 +10,28 @@ export const metadata: Metadata = {
     "Welcome to Next Gallery - A modern image gallery built with Next.js",
 };
 
-const pageStyle =
-  "grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 p-8 pb-20 font-[family-name:var(--font-geist-sans)] sm:p-20";
-const mainStyle = "row-start-2 flex flex-col items-center gap-3 sm:items-start";
+// Styles
+const centeredDiv = "flex flex-wrap min-h-screen flex-row items-center justify-center";
 const visitImageGalleryStyle =
-  "inline-flex items-center rounded-md text-xl text-blue-400 hover:text-slate-600 focus:outline-none focus:ring-0 focus:ring-blue-400 focus:ring-offset-2 active:text-slate-600 tracking-tight";
+  "p-2 rounded-md items-center text-xl md:text-2xl lg:text-3xl hover:text-blue-400 focus:outline-none focus:ring-0 focus:ring-blue-400 focus:ring-offset-2 active:text-slate-600";
+const textStyle =
+  "mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text font-semibold text-transparent tracking-tighter";
 
 export default function Home() {
   return (
-    <div className={pageStyle}>
-      <main className={mainStyle}>
-        <MainTitle></MainTitle>
-        <div className="p-3">
-          <Link
-            href={"/gallery"}
-            className={visitImageGalleryStyle}
-            aria-label="Navigate to image gallery"
-          >
-            {/* Visit Image Gallery → */}
-            <span className="hover:underline">Visit Image Gallery</span>
-            <span aria-hidden="true" className="ml-2">
-              →
-            </span>
-          </Link>
-        </div>
-      </main>
+    <div className={centeredDiv}>
+      <div className={textStyle}>
+        <Link
+          href={"/gallery"}
+          className={visitImageGalleryStyle}
+          aria-label="Navigate to image gallery"
+        >
+          <span>Visit Image Gallery</span>
+          <span aria-hidden="true" className="ml-2">
+            →
+          </span>
+        </Link>
+      </div>
     </div>
   );
 }

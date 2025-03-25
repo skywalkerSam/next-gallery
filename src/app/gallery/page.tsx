@@ -1,10 +1,7 @@
 import Link from "next/link";
-// import dynamic from "next/dynamic";
 import Image from "next/image";
 import { getUserImages } from "~/server/queries";
-// import { Suspense } from "react";
-import ImageUploadButton from "~/components/ui/gallery/default-upload-button";
-// import { db } from "~/server/db";
+// import ImageUploadButton from "~/components/ui/gallery/default-upload-button";
 
 // dynamic behavior
 export const dynamic = "force-dynamic";
@@ -39,7 +36,7 @@ export default async function Page() {
         </div>
 
         {/* uploadthing image uploads */}
-        <ImageUploadButton></ImageUploadButton>
+        {/* <ImageUploadButton></ImageUploadButton> */}
       </div>
     </main>
   );

@@ -7,6 +7,32 @@ await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
 const coreConfig = {
+  // Turbopack config
+  experimental: {
+    turbo: {
+      // moduleIdStrategy: "deterministic",
+      resolveAlias: {
+        underscore: "lodash",
+        mocha: { browser: "mocha/browser-entry.js" },
+      },
+      rules: {
+        "*.svg": {
+          loaders: ["@svgr/webpack"],
+          as: "*.js",
+        },
+      },
+      resolveExtensions: [
+        ".mdx",
+        ".tsx",
+        ".ts",
+        ".jsx",
+        ".js",
+        ".mjs",
+        ".json",
+      ],
+    },
+  },
+
   // Trusted domains for NEXT Image Components.
   images: {
     remotePatterns: [
@@ -17,13 +43,22 @@ const coreConfig = {
         pathname: "/**",
       },
     ],
+
     // Opt out of Image optimization (Save $$)
     // unoptimized: true,
   },
 
-  // For reducing build times.)
+  // For reducing build times and build failures.)
   typescript: { ignoreBuildErrors: true },
   eslint: { ignoreDuringBuilds: true },
+
+  // Only disable for development to speed up iteration
+  // typescript: {
+  //   ignoreBuildErrors: process.env.NODE_ENV !== "production",
+  // },
+  // eslint: {
+  //   ignoreDuringBuilds: process.env.NODE_ENV !== "production",
+  // },
 
   // posthog ad-blocker bypass
   async rewrites() {
@@ -42,10 +77,11 @@ const coreConfig = {
       },
     ];
   },
+
   // This is required to support PostHog trailing slash API requests
   skipTrailingSlashRedirect: true,
 
-  // PWA Integration: Security Configs
+  // PWA Integration: Security Config
   async headers() {
     return [
       {
