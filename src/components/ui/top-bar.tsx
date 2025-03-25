@@ -9,7 +9,7 @@ import UploadButton from "./upload-button";
 
 export default function TopBar(): JSX.Element {
   return (
-    <div className="flex">
+    <div className="inset-0 mt-0 flex h-20">
       <div className="flex size-9 flex-grow">
         <div className="w-20">
           <Link href="/">
@@ -25,7 +25,7 @@ export default function TopBar(): JSX.Element {
           </Link>
         </div>
       </div>
-      <div className="flex size-9 flex-grow">
+      <div className="flex size-9 flex-none p-1">
         <UploadButton></UploadButton>
       </div>
       <div className="flex size-9 flex-none p-12">
