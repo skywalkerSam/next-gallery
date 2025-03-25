@@ -1,24 +1,25 @@
 "use client";
 
 import NextLogo from "~/components/ui/next-logo";
-import { footerStyles } from "~/styles/styles";
 import { ModeToggle } from "~/components/theme-toggle";
 
 export default function Footer() {
   return (
-    <div className={footerStyles.centeredFooter}>
+    <div className="flex flex-row items-center justify-center justify-items-end p-3 text-xs text-gray-600">
       <div className="mr-2">
         <ModeToggle></ModeToggle>
       </div>
       <footer>
         <div>
-          <p className="text-slate-600">Built w/</p>
-          <NextLogo></NextLogo>
-          <p className="text-slate-600">
+          <p>Built w/</p>
+          <div className="w-36">
+            <NextLogo></NextLogo>
+          </div>
+          <p>
             &copy; 12025,{" "}
             <a
               href="https://github.com/skywalkerSam/"
-              className={footerStyles.skywalkerSam}
+              className="hover:text-sky-400 hover:underline focus:text-sky-400"
               target="_blank"
               rel="noopener noreferrer"
             >
