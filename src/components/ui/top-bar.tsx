@@ -28,7 +28,7 @@ export default function TopBar(): JSX.Element {
       <div className="flex size-9 flex-grow">
         <UploadButton></UploadButton>
       </div>
-      <div className="flex size-9 flex-none p-10">
+      <div className="flex size-9 flex-none p-12">
         <UserButton></UserButton>
       </div>
     </div>
