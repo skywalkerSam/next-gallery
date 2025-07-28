@@ -26,7 +26,7 @@ export default function Home() {
           className={visitImageGalleryStyle}
           aria-label="Navigate to image gallery"
         >
-          <span>Visit Image Gallery</span>
+          <span>Gallery</span>
           <span aria-hidden="true" className="ml-2">
             →
           </span>

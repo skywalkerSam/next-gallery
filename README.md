@@ -1,42 +1,29 @@
-# [Image Gallery w/ NEXT.js + Vercel](https://github.com/skywalkerSam/next-gallery/)
+<div align="center">
+    <a href="https://skywalkerSam.dev">
+        <img src="https://github.com/starboy-inc.png" alt="Starboy Logo" height=128>
+    </a>
+    <h1><a href="https://gallery.skywalkersam.dev/">Gallery Demo</a></h1>        
+    A Personalized Gallery Application.
+</div>
 
-`/gallery`
+&nbsp;
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Domains
 
-```bash
-pnpm create t3-app@latest
-```
+- [gallery.skywalkerSam.dev](https://gallery.skywalkersam.dev/)
+- [next-gallery-blues.vercel.app](https://next-gallery-blues.vercel.app/)
 
-## What's next? How do I make an app with this?
+&nbsp;
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Sources
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+- The Modern React Tutorial - [YouTube](https://www.youtube.com/watch?v=d5x0JCZbAJs)
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+&nbsp;
 
-## Learn More
+## ToDo
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
-
-## TODOs
-
-- [x] Deploy w/ vercel
+- [x] Deploy w/ Vercel
 - [x] Basic UI
 - [x] DB w/ vercel postgres
 - [x] DB integration
@@ -44,24 +31,43 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 - [x] Image Uploads
 - [x] Error handling w/ Sentry
 - [x] Routing (parallel routes)
-- [X] Upload Button
-- [X] shadcn-ui
-- [X] Analytics w/ PostHog
-- [X] Delete w/ **Server Actions**
-- [X] PWA Integration
-- [ ] Rate-limits w/ upstash
+- [x] Upload Button
+- [x] shadcn-ui
+- [x] Analytics w/ PostHog
+- [x] Delete w/ *Server Actions*
+- [x] *PWA* integration
+- Rate-limits w/ upstash
+
+&nbsp;
 
 ## Notes
 
-- `git add -p` - git diff
+- Pull `.env`
 
-- `vercel env pull` - pull _.env_
+```bash
+vercel env pull
+```
 
-- Use `pnpm add` and not `pnpm i` or, just use anyone.)
+- git `diff`
 
-## Error Log Archive
+```bash
+git add -p
+```
 
-1. [DEV]: I have no clue about this particular error because it happens unexpectedly. One minute it's working fine and another it's not. **/gallery** is effected. _error.tsx_ comes to the rescue but, no aid. One error route to another and the loop continues. And the funny part is that after some time it just somehow magically works, the error's gone.) - wtf?
-    ` ⨯ [Error: [object Object]] { digest: '2626315493' }`
+## Error Archives
 
-Until next time.)
+- [DEV]: i have no clue about this particular error because it happens unexpectedly. One minute it's working fine and the other it's not. **/gallery** is effected. _error.tsx_ comes to the rescue, but no aid. One error route to another and the loop continues. The funny part is that after some time it just somehow magically works, the error's gone.) - wtf?
+
+```bash
+  ` ⨯ [Error: [object Object]] { digest: '2626315493' }`
+```
+
+&nbsp;
+
+Until Next Time...✌️
+
+&nbsp;
+
+<div align="center">
+<p>Built w/ <a href="https://nextjs.org">Next.js</a> + <a href="https://vercel.com">Vercel</a>.</p>
+</div>
