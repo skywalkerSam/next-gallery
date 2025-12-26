@@ -2,8 +2,8 @@
     <a href="https://skywalkerSam.dev">
         <img src="https://github.com/starboy-inc.png" alt="Starboy Logo" height=128>
     </a>
-    <h1><a href="https://gallery.skywalkersam.dev/">image Gallery Demo</a></h1>        
-    A Personalized Gallery Application
+    <h1><a href="https://gallery.skywalkersam.dev/">image Gallery</a></h1>        
+    A Personalized Gallery Application Demo
 </div>
 
 &nbsp;
@@ -21,7 +21,7 @@
 
 &nbsp;
 
-## ☑️ ToDo
+## ☑️ To Do
 
 - [x] Deploy w/ Vercel
 - [x] Basic UI
