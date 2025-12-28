@@ -2,14 +2,12 @@
 
 import { useRouter } from "next/navigation";
 import { useUploadThing } from "~/utils/uploadthing";
-import UploadIcon from "./svg/upload-svg";
+import UploadIcon from "~/app/_components/svg/UploadSvg";
 import { toast } from "sonner";
-import LoadingSVG from "~/components/ui/svg/loading-svg";
+import LoadingSvg from "~/app/_components/svg/LoadingSvg";
 import { usePostHog } from "posthog-js/react";
 
 const uploadIconStyle = "cursor-pointer hover:text-slate-600";
-// const uploadIconFocusStyle =
-//   "focus:text-slate-600 focus:outline-none focus:ring-1 focus:ring-blue-400 focus:ring-offset-1 active:text-slate-600";
 
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
@@ -24,7 +22,6 @@ const useUploadThingInputProps = (...args: Input) => {
     const result = await $ut.startUpload(selectedFiles);
 
     console.log("uploaded files", result);
-    // TODO: persist result in state maybe?
   };
 
   return {
@@ -50,12 +47,13 @@ export default function UploadButton() {
       toast.info("Uploading...", {
         duration: 10000,
         id: "upload-info",
-        icon: <LoadingSVG fill="#38adf5"></LoadingSVG>,
+        icon: <LoadingSvg fill="#38adf5"></LoadingSvg>,
       });
     },
     onClientUploadComplete() {
       // toast.dismiss(toastId);
       toast.dismiss("upload-info");
+
       // toast.dismiss();
       toast.success("Upload Complete.", {
         duration: 5000,
@@ -80,9 +78,7 @@ export default function UploadButton() {
         className="sr-only"
         {...inputProps}
       ></input>
-      {/* <button aria-label="Upload images">
-                Upload
-            </button> */}
+
     </div>
   );
 }

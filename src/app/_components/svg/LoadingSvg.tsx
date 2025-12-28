@@ -1,6 +1,4 @@
-import "~/styles/loading-svg.css";
-
-export default function LoadingSVG({ fill = "#63b3ed" }: { fill: string }) {
+export default function LoadingSvg({ fill = "#63b3ed" }: { fill: string }) {
   return (
     <svg
       width="24"

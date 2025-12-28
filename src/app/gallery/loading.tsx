@@ -1,13 +1,11 @@
-import { galleryStyles } from "~/styles/styles";
-// animation
 const loadingAnimation = [...Array.from({ length: 9 })].map((_, i) => (
-  <div key={i} className={galleryStyles.loading} />
+  <div key={i} className={"h-[475px] w-[475px] animate-pulse"} />
 ));
 
 export default function GalleryLoading() {
   return (
-    <div className={galleryStyles.centeredDiv}>
-      <div className={galleryStyles.grid}>{loadingAnimation}</div>
+    <div className={"flex flex-row min-h-screen justify-center items-center"}>
+      <div className={"grid grid-cols-3 gap-3"}>{loadingAnimation}</div>
     </div>
   );
 }

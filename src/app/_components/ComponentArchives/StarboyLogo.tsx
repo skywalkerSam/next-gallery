@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import "~/styles/starboy-logo.css";
 
 export default function StarboyLogo() {
   return (
@@ -16,7 +15,6 @@ export default function StarboyLogo() {
           alt="Starboy Logo"
           width={300}
           height={300}
-          className="starboy-logo"
           priority
         ></Image>
       </a>
