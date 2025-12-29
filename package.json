@@ -16,7 +16,10 @@
     "generate-vapid": "npx web-push generate-vapid-keys"
   },
   "dependencies": {
+    "@base-ui/react": "^1.0.0",
     "@clerk/nextjs": "^6.9.6",
+    "@hugeicons/core-free-icons": "^3.1.1",
+    "@hugeicons/react": "^1.1.4",
     "@radix-ui/react-dropdown-menu": "^2.1.6",
     "@radix-ui/react-slot": "^1.1.2",
     "@sentry/core": "^9.5.0",
