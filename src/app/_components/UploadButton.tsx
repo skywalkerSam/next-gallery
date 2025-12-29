@@ -7,8 +7,6 @@ import { toast } from "sonner";
 import LoadingSvg from "~/app/_components/svg/LoadingSvg";
 import { usePostHog } from "posthog-js/react";
 
-const uploadIconStyle = "cursor-pointer hover:text-slate-600";
-
 // inferred input off useUploadThing
 type Input = Parameters<typeof useUploadThing>;
 
@@ -64,11 +62,7 @@ export default function UploadButton() {
 
   return (
     <div>
-      <label
-        htmlFor="upload-button"
-        aria-label="Upload button"
-        className={uploadIconStyle}
-      >
+      <label htmlFor="upload-button" aria-label="Upload button">
         {/* Upload */}
         <UploadIcon></UploadIcon>
       </label>
@@ -78,7 +72,6 @@ export default function UploadButton() {
         className="sr-only"
         {...inputProps}
       ></input>
-
     </div>
   );
 }
