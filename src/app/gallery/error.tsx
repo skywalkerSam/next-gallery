@@ -30,18 +30,15 @@ export default function GalleryError({
       role="alert"
     >
       <div className="max-w-md rounded-lg bg-destructive/10 p-4 text-center text-destructive">
-        <h2 className="mb-2 text-lg font-semibold">Something went wrong</h2>
+        <h2 className="mb-2 text-lg font-semibold">Something went wrong!</h2>
         <p className="mb-4 text-sm">
-          We encountered an error while loading your gallery.
+          Unable to load gallery.(
         </p>
         <Link href={"/"}>
           <Button variant="ghost" className="gap-1 text-3xl">
             <span aria-hidden="true">♻️</span>
             <span className="text-lg">Return to Home</span>
           </Button>
-          {/* <Button variant="ghost" className="text-3xl">
-          ♻️
-        </Button> */}
         </Link>
       </div>
     </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import NextLogo from "./next-logo";
+import NextLogo from "../NextLogo";
 
 // Styles
 const centeredDiv = "flex min-h-screen flex-row items-center justify-center";
@@ -11,7 +11,7 @@ const textStyle =
   "mb-8 bg-gradient-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text font-bold text-transparent";
 
 
-export default function MainTitle() {
+export default function Title() {
   return (
     <div className={centeredDiv}>
       <div className={titleStyle}>
