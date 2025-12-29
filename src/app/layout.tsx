@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+// import localFont from "next/font/local";
 import "./globals.css";
 import "@uploadthing/react/styles.css";
 import Footer from "~/app/_components/Footer";
@@ -7,18 +7,23 @@ import { ThemeProvider } from "~/components/theme-provider";
 import { PostHogProvider } from "./_analytics/providers";
 import { ClerkProvider } from "@clerk/nextjs";
 import NavBar from "~/app/_components/NavBar";
+import { Google_Sans_Flex } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
+const googleSansFlex = Google_Sans_Flex({
+  subsets: ["latin"],
 });
 
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+// const geistSans = localFont({
+//   src: "./fonts/GeistVF.woff",
+//   variable: "--font-geist-sans",
+//   weight: "100 900",
+// });
+//
+// const geistMono = localFont({
+//   src: "./fonts/GeistMonoVF.woff",
+//   variable: "--font-geist-mono",
+//   weight: "100 900",
+// });
 
 export const metadata: Metadata = {
   title: "image Gallery",
@@ -37,7 +42,8 @@ export default function RootLayout({
       <PostHogProvider>
         <html lang="en">
           <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={`${googleSansFlex.className} antialiased`}
+            // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
           >
             <ThemeProvider
               attribute="class"
