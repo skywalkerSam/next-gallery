@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import type { ImageType } from "~/types/ImageType";
+import type { ImageType } from "@/types/ImageType";
 
 import type { JSX } from "react";
 

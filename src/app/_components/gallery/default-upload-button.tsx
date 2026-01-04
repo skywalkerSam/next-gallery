@@ -3,7 +3,7 @@
 import { UploadButton } from "@uploadthing/react";
 import { useRouter } from "next/navigation";
 // import { OurFileRouter } from "./api/uploadthing/core";
-import type { OurFileRouter } from "~/app/api/uploadthing/core";
+import type { OurFileRouter } from "@/src/app/api/uploadthing/core";
 
 export default function ImageUploadButton() {
   const router = useRouter();

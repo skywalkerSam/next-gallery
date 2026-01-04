@@ -1,10 +1,10 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useUploadThing } from "~/utils/uploadthing";
-import UploadIcon from "~/app/_components/svg/UploadSvg";
+import { useUploadThing } from "@/src/utils/uploadthing";
+import UploadIcon from "@/src/app/_components/svg/UploadSvg";
 import { toast } from "sonner";
-import LoadingSvg from "~/app/_components/svg/LoadingSvg";
+import LoadingSvg from "@/src/app/_components/svg/LoadingSvg";
 import { usePostHog } from "posthog-js/react";
 
 // inferred input off useUploadThing

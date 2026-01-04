@@ -3,7 +3,7 @@
 import { UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 import { SignedIn, SignInButton, SignedOut } from "@clerk/nextjs";
-import UploadButton from "~/app/_components/UploadButton";
+import UploadButton from "@/src/app/_components/UploadButton";
 
 export default function NavBar() {
   return (

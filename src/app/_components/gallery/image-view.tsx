@@ -1,6 +1,6 @@
-import { deleteImage, getUserImage } from "~/server/queries";
+import { deleteImage, getUserImage } from "@/src/server/queries";
 // import Image from "next/image";
-// import type { ImageType } from "~/types/ImageType";
+// import type { ImageType } from "@/types/ImageType";
 import { Suspense } from "react";
 import { clerkClient } from "@clerk/nextjs/server";
 import ImageComponent from "./modal-image-component";

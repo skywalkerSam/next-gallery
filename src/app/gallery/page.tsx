@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import { getUserImages } from "~/server/queries";
-// import ImageUploadButton from "~/components/ui/gallery/default-upload-button";
+import { getUserImages } from "@/src/server/queries";
+// import ImageUploadButton from "@/src/components/ui/gallery/default-upload-button";
 
 // dynamic behavior
 export const dynamic = "force-dynamic";

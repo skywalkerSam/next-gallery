@@ -1,9 +1,9 @@
-// import { getUserImage } from "~/server/queries";
+// import { getUserImage } from "@/src/server/queries";
 import { Suspense } from "react";
 import { Modal } from "./modal";
-// import { FullImageView } from "~/ui/gallery/FullImageView";
-// import type { ImageType } from "~/types/ImageType";
-import { ImageView } from "~/app/_components/gallery/image-view";
+// import { FullImageView } from "@/ui/gallery/FullImageView";
+// import type { ImageType } from "@/types/ImageType";
+import { ImageView } from "@/src/app/_components/gallery/image-view";
 // import Image from "next/image";
 
 const centeredDivStyle =

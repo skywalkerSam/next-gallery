@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { captureException } from "@sentry/nextjs";
 import Link from "next/link";
-import { Button } from "~/components/ui/button";
+import { Button } from "@/src/components/ui/button";
 
 export default function ImageError({
   error,
