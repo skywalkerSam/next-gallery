@@ -17,7 +17,7 @@ export default function NavBar() {
       </SignedOut>
       <SignedIn>
         <div className="inset-0 mt-0 flex h-20">
-          <div className="flex size-9 flex-grow">
+          <div className="flex size-9 grow">
             <div className="w-20">
               <Link href="/gallery">
                 <div className={"p-4"}>

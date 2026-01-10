@@ -28,7 +28,7 @@ export async function ImageView(props: { imageId: number }) {
   return (
     <div className="mt-60 flex h-full w-full min-w-0 flex-wrap items-center justify-center p-3 text-gray-400">
       <Suspense fallback={<p>Fetching Image...</p>}>
-        <div className="flex flex-shrink items-center justify-center">
+        <div className="flex shrink items-center justify-center">
           {image && (
             // <Image
             //   src={image.url}
@@ -42,7 +42,7 @@ export async function ImageView(props: { imageId: number }) {
         </div>
       </Suspense>
       <Suspense fallback={<p>Fetching Metadata...</p>}>
-        <div className="ml-6 flex w-48 flex-shrink flex-col border-l border-blue-400 p-3">
+        <div className="ml-6 flex w-48 shrink flex-col border-l border-blue-400 p-3">
           <div className="text-gray-400">
             <div className="mb-6 text-center">
               <a
