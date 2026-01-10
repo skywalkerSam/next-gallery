@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-// import localFont from "next/font/local";
 import "./globals.css";
 import "@uploadthing/react/styles.css";
 import Footer from "~/app/_components/Footer";
@@ -7,43 +6,43 @@ import { ThemeProvider } from "~/components/theme-provider";
 import { PostHogProvider } from "./_analytics/providers";
 import { ClerkProvider } from "@clerk/nextjs";
 import NavBar from "~/app/_components/NavBar";
-import { Google_Sans_Flex } from "next/font/google";
+import { Geist, Geist_Mono, Figtree, Paprika } from "next/font/google";
 
-const googleSansFlex = Google_Sans_Flex({
+const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-// const geistSans = localFont({
-//   src: "./fonts/GeistVF.woff",
-//   variable: "--font-geist-sans",
-//   weight: "100 900",
-// });
-//
-// const geistMono = localFont({
-//   src: "./fonts/GeistMonoVF.woff",
-//   variable: "--font-geist-mono",
-//   weight: "100 900",
-// });
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const paprika = Paprika({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-paprika",
+});
 
 export const metadata: Metadata = {
   title: "image Gallery",
   description: "A Personalized Gallery Application Demo",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/gallery.svg" }],
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>
       <PostHogProvider>
-        <html lang="en">
+        <html lang="en" className={figtree.variable} suppressHydrationWarning>
           <body
-            className={`${googleSansFlex.className} antialiased`}
-            // className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={`${geistSans.variable} ${geistMono.variable} ${paprika.variable} antialiased`}
           >
             <ThemeProvider
               attribute="class"
@@ -52,7 +51,7 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <NavBar></NavBar>
-              <main>{children}</main>
+              {children}
               <Footer></Footer>
             </ThemeProvider>
           </body>

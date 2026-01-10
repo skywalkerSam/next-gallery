@@ -4,8 +4,8 @@ const loadingAnimation = [...Array.from({ length: 9 })].map((_, i) => (
 
 export default function GalleryLoading() {
   return (
-    <div className={"flex min-h-screen justify-center items-center"}>
-      <div className={"grid grid-cols-3 gap-3"}>{loadingAnimation}</div>
+    <div className={"flex min-h-screen items-center justify-center"}>
+      <div className={"grid grid-cols-3 gap-4"}>{loadingAnimation}</div>
     </div>
   );
 }

@@ -2,7 +2,7 @@
     <a href="https://skywalkerSam.dev">
         <img src="https://github.com/starboy-inc.png" alt="Starboy Logo" height=128>
     </a>
-    <h1><a href="https://gallery.skywalkersam.dev/">image Gallery</a></h1>        
+    <h1><a href="https://gallery.skywalkersam.dev/">image Gallery</a></h1>
     A Personalized Gallery Application Demo
 </div>
 
@@ -52,14 +52,6 @@ vercel env pull
 
 ```bash
 git add -p
-```
-
-## 🔴 Error Archives
-
-- [DEV]: i have no clue about this particular error because it happens unexpectedly. One minute it's working fine and the other it's not. **/gallery** is effected. _error.tsx_ comes to the rescue, but no aid. One error route to another and the loop continues. The funny part is that after some time it just somehow magically works, the error's gone.) - wtf?
-
-```bash
-  ` ⨯ [Error: [object Object]] { digest: '2626315493' }`
 ```
 
 &nbsp;

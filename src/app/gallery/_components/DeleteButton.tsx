@@ -10,7 +10,7 @@ export function DeleteButton() {
   if (confirming) {
     return (
       <div className="flex flex-col gap-2">
-        <p className="text-lg text-destructive">Are you sure?</p>
+        <p className="text-destructive text-lg">Are you sure?</p>
         <div className="flex gap-2">
           {/* onClick={() => redirect('/gallery')} */}
           <Button type="submit" variant="destructive" size="sm">
@@ -39,9 +39,3 @@ export function DeleteButton() {
     </Button>
   );
 }
-
-// onSubmit={(e) => {
-//   if (!confirm("Are you sure you want to delete this image?")) {
-//     e.preventDefault();
-//   }
-// }}

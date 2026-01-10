@@ -9,12 +9,15 @@ export default function ImageUploadButton() {
   const router = useRouter();
 
   return (
-    // <div className="mt-36 flex flex-col items-center gap-3 sm:flex-row">
-    <div className="p-3">
+    // <div className="mt-36 flex flex-col items-center gap-4 sm:flex-row">
+    <div className="p-4">
       {/* <UploadButton endpoint="imageUploader"></UploadButton> */}
-      <UploadButton<OurFileRouter, "imageUploader"> endpoint="imageUploader" onClientUploadComplete={() => {
-        router.refresh();
-      }}/>
+      <UploadButton<OurFileRouter, "imageUploader">
+        endpoint="imageUploader"
+        onClientUploadComplete={() => {
+          router.refresh();
+        }}
+      />
     </div>
   );
 }

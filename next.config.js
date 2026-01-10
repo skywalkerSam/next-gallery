@@ -6,32 +6,32 @@ import { withSentryConfig } from "@sentry/nextjs";
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const coreConfig = {
+const nextConfig = {
   // Turbopack config
-  experimental: {
-    turbo: {
-      // moduleIdStrategy: "deterministic",
-      resolveAlias: {
-        underscore: "lodash",
-        mocha: { browser: "mocha/browser-entry.js" },
-      },
-      rules: {
-        "*.svg": {
-          loaders: ["@svgr/webpack"],
-          as: "*.js",
-        },
-      },
-      resolveExtensions: [
-        ".mdx",
-        ".tsx",
-        ".ts",
-        ".jsx",
-        ".js",
-        ".mjs",
-        ".json",
-      ],
-    },
-  },
+  // experimental: {
+  //   turbo: {
+  //     // moduleIdStrategy: "deterministic",
+  //     resolveAlias: {
+  //       underscore: "lodash",
+  //       mocha: { browser: "mocha/browser-entry.js" },
+  //     },
+  //     rules: {
+  //       "*.svg": {
+  //         loaders: ["@svgr/webpack"],
+  //         as: "*.js",
+  //       },
+  //     },
+  //     resolveExtensions: [
+  //       ".mdx",
+  //       ".tsx",
+  //       ".ts",
+  //       ".jsx",
+  //       ".js",
+  //       ".mjs",
+  //       ".json",
+  //     ],
+  //   },
+  // },
 
   // Trusted domains for NEXT Image Components.
   images: {
@@ -123,7 +123,7 @@ const coreConfig = {
 };
 
 // Sentry config
-const config = withSentryConfig(coreConfig, {
+const config = withSentryConfig(nextConfig, {
   // For all available options, see:
   // https://github.com/getsentry/sentry-webpack-plugin#options
 

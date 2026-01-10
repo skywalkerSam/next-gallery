@@ -181,7 +181,7 @@ export function PushNotificationManager() {
           </button>
           <div className="mt-2 flex gap-2">
             <input
-              className="flex-grow rounded border p-2"
+              className="grow rounded border p-2"
               type="text"
               placeholder="Enter notification message"
               value={message}

@@ -10,14 +10,14 @@ export default function NavBar() {
     <>
       <SignedOut>
         <div className="justify-items-end">
-          <div className="p-4 text-lg">
+          <div className="hover:text-primary p-4 text-lg">
             <SignInButton />
           </div>
         </div>
       </SignedOut>
       <SignedIn>
         <div className="inset-0 mt-0 flex h-20">
-          <div className="flex size-9 flex-grow">
+          <div className="flex size-9 grow">
             <div className="w-20">
               <Link href="/gallery">
                 <div className={"p-4"}>
@@ -27,7 +27,7 @@ export default function NavBar() {
                     viewBox="0 0 24 24"
                     strokeWidth="1.2"
                     stroke="currentColor"
-                    className="size-12 hover:text-sky-500 focus:text-sky-500 cursor-pointer"
+                    className="size-12 cursor-pointer hover:text-sky-500 focus:text-sky-500"
                   >
                     <path
                       strokeLinecap="round"
@@ -39,10 +39,10 @@ export default function NavBar() {
               </Link>
             </div>
           </div>
-          <div className="flex size-9 flex-none mr-8">
+          <div className="mr-8 flex size-9 flex-none">
             <UploadButton></UploadButton>
           </div>
-          <div className="flex size-9 flex-none mt-5 mr-4">
+          <div className="mt-5 mr-4 flex size-9 flex-none">
             <UserButton></UserButton>
           </div>
         </div>
