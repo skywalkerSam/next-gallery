@@ -18,7 +18,7 @@ export default async function Page() {
               <Link
                 className="card"
                 key={image.id}
-                href={`/images/${image.id}`}
+                href={`/gallery/images/${image.id}`}
                 passHref
               >
                 <Image

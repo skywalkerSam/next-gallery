@@ -36,7 +36,7 @@ export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  modal: React.ReactNode;
+  // modal: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>
@@ -52,7 +52,7 @@ export default function RootLayout({
               disableTransitionOnChange
             >
               <NavBar></NavBar>
-              <main>{children}</main>
+              {children}
               <Footer></Footer>
             </ThemeProvider>
           </body>
