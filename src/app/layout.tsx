@@ -29,14 +29,13 @@ const paprika = Paprika({
 export const metadata: Metadata = {
   title: "image Gallery",
   description: "A Personalized Gallery Application Demo",
-  icons: [{ rel: "icon", url: "/favicon.ico" }],
+  icons: [{ rel: "icon", url: "/gallery.svg" }],
 };
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
-  // modal: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>

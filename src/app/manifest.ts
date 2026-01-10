@@ -21,33 +21,14 @@ export default function manifest(): MetadataRoute.Manifest {
         short_name: "Home",
         description: "image Gallery Home",
         url: "/gallery",
-        icons: [{ src: "/gallery.svg" }],
+        icons: [{ src: "/gallery.svg", sizes: "any" }],
       },
     ],
     icons: [
       {
         src: "/gallery.svg",
-        sizes: "192x192",
-        type: "svg",
-        purpose: "maskable",
-      },
-      {
-        src: "/gallery.svg",
-        sizes: "512x512",
-        type: "svg",
-        purpose: "maskable",
-      },
-      {
-        src: "/gallery.svg",
-        sizes: "192x192",
-        type: "svg",
-        purpose: "any",
-      },
-      {
-        src: "/gallery.svg",
-        sizes: "512x512",
-        type: "svg",
-        purpose: "any",
+        sizes: "any",
+        type: "image/svg+xml",
       },
     ],
   };
