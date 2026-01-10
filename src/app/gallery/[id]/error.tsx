@@ -29,15 +29,18 @@ export default function ImageError({
       className="flex min-h-screen items-center justify-center p-4"
       role="alert"
     >
-      <div className="bg-destructive/10 text-destructive max-w-md rounded-lg p-4 text-center">
-        <h2 className="mb-2 text-lg font-semibold">image not found!</h2>
+      <div className="bg-destructive/50 max-w-3xl rounded-lg p-4 text-center">
+        <h2 className="mb-2 text-xl font-semibold hover:text-red-500">
+          image not found!
+        </h2>
         <p className="mb-4 text-sm">
           We encountered an error while fetching this image.(
         </p>
         <Link href={"/"}>
-          <Button variant="ghost" className="gap-1 text-3xl">
-            <span aria-hidden="true">♻️</span>
-            <span className="text-lg">Return to Gallery</span>
+          <Button variant="outline" className={"hover:cursor-pointer"}>
+            <p aria-label="Refresh" className="text-xl">
+              ♻️
+            </p>
           </Button>
         </Link>
       </div>

@@ -41,7 +41,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <PostHogProvider>
-        <html lang="en" className={figtree.variable}>
+        <html lang="en" className={figtree.variable} suppressHydrationWarning>
           <body
             className={`${geistSans.variable} ${geistMono.variable} ${paprika.variable} antialiased`}
           >

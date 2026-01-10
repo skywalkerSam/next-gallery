@@ -35,7 +35,7 @@ export default async function ImageModal({
   // );
 
   return (
-    <main className="via-primary flex flex-row items-center justify-center bg-linear-to-b from-transparent to-transparent">
+    <main className="flex flex-row items-center justify-center bg-linear-to-b from-transparent via-gray-500 to-transparent">
       {/* <ErrorBoundary fallback={<div>Error loading image</div>}> */}
       <ErrorBoundary
         fallback={
