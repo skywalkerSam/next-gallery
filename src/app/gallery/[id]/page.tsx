@@ -1,11 +1,7 @@
-// import { getUserImage } from "~/server/queries";
-// import { Modal } from "./modal";
-// import { FullImageView } from "~/ui/gallery/FullImageView";
-// import type { ImageType } from "~/types/ImageType";
-import { ImageView } from "~/app/_components/gallery/image-view";
-// import Image from "next/image";
+import { ImageView } from "~/app/gallery/_components/ImageView";
 import { ErrorBoundary } from "@sentry/nextjs";
 import { Suspense } from "react";
+// import Image from "next/image";
 
 const centeredDivStyle =
   "flex flex-row start-row-3 items-center justify-center justify-items-end p-4";
@@ -16,23 +12,8 @@ export default async function ImageModal({
   params: Promise<{ id: string }>;
 }) {
   const imageId = (await params).id;
-  // Typecasting to Number because, thy server expects a Number.)
   const imageIdAsNum = Number(imageId);
   if (Number.isNaN(imageIdAsNum)) throw new Error("Image ID not found!");
-
-  // const image = await getUserImage(imageIdAsNum);
-  // const image: ImageType | undefined = await getUserImage(imageIdAsNum);
-
-  // return <Modal>{imageId}</Modal>;
-
-  // return (
-  //   <div>
-  //     {/* {image && <FullScreenImage expectedImage={image}></FullScreenImage>} */}
-  //     {/* { image && <ImageView imageId={imageIdAsNum}></ImageView>} */}
-  //     <ImageView imageId={imageIdAsNum}></ImageView>
-  //     {/* <FullImageView imageId={imageIdAsNum}></FullImageView> */}
-  //   </div>
-  // );
 
   return (
     <main className="flex flex-row items-center justify-center bg-linear-to-b from-transparent via-gray-500 to-transparent">
@@ -47,56 +28,16 @@ export default async function ImageModal({
           </div>
         }
       >
-        {/* <Suspense fallback={<div>Loading...</div>}> */}
-        {/* <Suspense
-          fallback={<p className="text-6xl ">Loading...</p>}
-        > */}
         <Suspense
           fallback={
             <div className={centeredDivStyle}>
-              <p className="text-5xl">Loading...</p>
+              <p className="text-6xl">⭕</p>
             </div>
           }
         >
-          {/* {image && <FullScreenImage expectedImage={image}></FullScreenImage>} */}
-          {/* { image && <ImageView imageId={imageIdAsNum}></ImageView>} */}
           <ImageView imageId={imageIdAsNum}></ImageView>
-          {/* <FullImageView imageId={imageIdAsNum}></FullImageView> */}
         </Suspense>
       </ErrorBoundary>
     </main>
   );
 }
-
-// Parallel routes (pr) i.e. `images/[id]` must also have the same content except the "Modal"
-
-// export const dynamicParams = false;
-
-// export function generateStaticParams() {
-//   const slugs = ["1", "2", "3", "4", "5", "6"];
-//   return slugs.map((slug) => ({ id: slug }));
-// }
-
-// export default async function ImagePage({
-//   params,
-// }: {
-//   params: Promise<{ id: string }>;
-// }) {
-//   const id = (await params).id;
-//   return (
-//     <div className="flex min-h-screen flex-row items-center justify-center">
-//       {id}
-//     </div>
-//   );
-// }
-
-// import { Modal } from "./modal";
-
-// export default async function ImageModal({
-//   params,
-// }: {
-//   params: Promise<{ id: string }>;
-// }) {
-//   const imageId = (await params).id;
-//   return <Modal>{imageId}</Modal>;
-// }
