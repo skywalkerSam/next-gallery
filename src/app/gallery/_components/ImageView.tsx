@@ -30,7 +30,7 @@ export async function ImageView(props: { imageId: number }) {
           <div className="">
             <div className="mb-6 text-center">
               <a
-                className="pointer hover:text-primary text-xl underline hover:grow hover:cursor-pointer"
+                className="pointer text-primary text-xl underline hover:grow hover:cursor-pointer"
                 href={image?.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -39,16 +39,25 @@ export async function ImageView(props: { imageId: number }) {
               </a>
             </div>
             <div className="mb-2">
-              <p>File: {image?.name}</p>
+              <p>
+                <span className="text-primary font-lg">File:</span>{" "}
+                {image?.name}
+              </p>
             </div>
             <div className="mb-2">
-              <p>Uploaded: {image?.createdAt.toDateString()}</p>
+              <p>
+                <span className="text-primary font-lg">Uploaded:</span>{" "}
+                {image?.createdAt.toDateString()}
+              </p>
               {/* <p>Uploaded: {new Date(image?.createdAt).toLocaleString()}</p> */}
               {/* <p>Uploaded: {new Date(image?.createdAt).toLocaleDateString()}</p> */}
               {/* <p>Uploaded: {new Date(image?.createdAt).toLocaleTimeString()}</p> */}
             </div>
             <div className="mb-2">
-              <p>Author: {uploaderInfo?.fullName}</p>
+              <p>
+                <span className="text-primary font-lg">Author:</span>{" "}
+                {uploaderInfo?.fullName}
+              </p>
             </div>
           </div>
           <div className="mt-4 flex items-center justify-center p-4">
