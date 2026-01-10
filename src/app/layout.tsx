@@ -6,7 +6,7 @@ import { ThemeProvider } from "~/components/theme-provider";
 import { PostHogProvider } from "./_analytics/providers";
 import { ClerkProvider } from "@clerk/nextjs";
 import NavBar from "~/app/_components/NavBar";
-import { Geist, Geist_Mono, Figtree } from "next/font/google";
+import { Geist, Geist_Mono, Figtree, Paprika } from "next/font/google";
 
 const figtree = Figtree({ subsets: ["latin"], variable: "--font-sans" });
 
@@ -18,6 +18,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const paprika = Paprika({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-paprika",
 });
 
 export const metadata: Metadata = {
@@ -37,7 +43,7 @@ export default function RootLayout({
       <PostHogProvider>
         <html lang="en" className={figtree.variable}>
           <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+            className={`${geistSans.variable} ${geistMono.variable} ${paprika.variable} antialiased`}
           >
             <ThemeProvider
               attribute="class"

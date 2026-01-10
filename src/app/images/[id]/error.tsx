@@ -26,10 +26,10 @@ export default function ImageError({
 
   return (
     <div
-      className="flex min-h-screen items-center justify-center p-3"
+      className="flex min-h-screen items-center justify-center p-4"
       role="alert"
     >
-      <div className="max-w-md rounded-lg bg-destructive/10 p-4 text-center text-destructive">
+      <div className="bg-destructive/10 text-destructive max-w-md rounded-lg p-4 text-center">
         <h2 className="mb-2 text-lg font-semibold">image not found!</h2>
         <p className="mb-4 text-sm">
           We encountered an error while fetching this image.(

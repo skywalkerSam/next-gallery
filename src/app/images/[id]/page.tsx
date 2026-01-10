@@ -8,7 +8,7 @@ import { ErrorBoundary } from "@sentry/nextjs";
 import { Suspense } from "react";
 
 const centeredDivStyle =
-  "flex flex-row start-row-3 items-center justify-center justify-items-end p-3";
+  "flex flex-row start-row-3 items-center justify-center justify-items-end p-4";
 
 export default async function ImageModal({
   params,
@@ -35,13 +35,13 @@ export default async function ImageModal({
   // );
 
   return (
-    <div className="flex min-h-screen flex-row items-center justify-center">
+    <main className="via-primary flex flex-row items-center justify-center bg-linear-to-b from-transparent to-transparent">
       {/* <ErrorBoundary fallback={<div>Error loading image</div>}> */}
       <ErrorBoundary
         fallback={
           <div className={centeredDivStyle}>
-            {/* <p className="text-6xl text-slate-600">Loading...</p> */}
-            <p className="mb-4 border-l border-green-600 p-3 text-slate-400">
+            {/* <p className="text-6xl ">Loading...</p> */}
+            <p className="mb-4 border-l border-green-500 p-4">
               Try refreshing the page or do a hard refresh (CTRL+SHIFT+R.)
             </p>
           </div>
@@ -49,12 +49,12 @@ export default async function ImageModal({
       >
         {/* <Suspense fallback={<div>Loading...</div>}> */}
         {/* <Suspense
-          fallback={<p className="text-6xl text-slate-600">Loading...</p>}
+          fallback={<p className="text-6xl ">Loading...</p>}
         > */}
         <Suspense
           fallback={
             <div className={centeredDivStyle}>
-              <p className="text-6xl text-slate-600">Loading...</p>
+              <p className="text-5xl">Loading...</p>
             </div>
           }
         >
@@ -64,7 +64,7 @@ export default async function ImageModal({
           {/* <FullImageView imageId={imageIdAsNum}></FullImageView> */}
         </Suspense>
       </ErrorBoundary>
-    </div>
+    </main>
   );
 }
 

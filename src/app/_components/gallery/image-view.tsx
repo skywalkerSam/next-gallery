@@ -26,7 +26,7 @@ export async function ImageView(props: { imageId: number }) {
   // const client = await clerkClient();
   // const uploaderInfo = image && (await client.users.getUser(image?.userId));
   return (
-    <div className="mt-60 flex h-full w-full min-w-0 flex-wrap items-center justify-center p-3 text-gray-400">
+    <div className="mt-60 flex h-full w-full min-w-0 flex-wrap items-center justify-center p-4 text-gray-400">
       <Suspense fallback={<p>Fetching Image...</p>}>
         <div className="flex shrink items-center justify-center">
           {image && (
@@ -42,11 +42,11 @@ export async function ImageView(props: { imageId: number }) {
         </div>
       </Suspense>
       <Suspense fallback={<p>Fetching Metadata...</p>}>
-        <div className="ml-6 flex w-48 shrink flex-col border-l border-blue-400 p-3">
+        <div className="ml-6 flex w-48 shrink flex-col border-l border-blue-400 p-4">
           <div className="text-gray-400">
             <div className="mb-6 text-center">
               <a
-                className="pointer text-xl text-blue-400 underline hover:grow hover:text-slate-400"
+                className="pointer hover:text-primary text-xl text-blue-400 underline hover:grow"
                 href={image?.url}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -67,7 +67,7 @@ export async function ImageView(props: { imageId: number }) {
               <p>Uploaded By: {uploaderInfo?.fullName}</p>
             </div>
           </div>
-          <div className="mt-3 flex items-center justify-center p-3">
+          <div className="mt-3 flex items-center justify-center p-4">
             {/* Server Actions (uses POST) */}
             <form
               action={async () => {

@@ -10,9 +10,9 @@ export default async function Page() {
   const images = await getUserImages();
 
   return (
-    <main className="to-grey flex min-h-screen flex-col items-center justify-center text-slate-600">
+    <main className="to-grey via-primary flex min-h-screen flex-col items-center justify-center bg-linear-to-b from-transparent to-transparent">
       <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16">
-        <div className="row-start-1 mt-0 flex flex-wrap items-center justify-center gap-2 p-3">
+        <div className="row-start-1 mt-0 flex flex-wrap items-center justify-center gap-2 p-4">
           {images.map((image) => (
             <div key={image.id}>
               <Link

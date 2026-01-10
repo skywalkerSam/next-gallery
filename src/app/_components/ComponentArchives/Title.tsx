@@ -5,11 +5,10 @@ import NextLogo from "../NextLogo";
 // Styles
 const centeredDiv = "flex min-h-screen flex-row items-center justify-center";
 const titleStyle =
-  "flex p-3 gap-3 text-5xl md:text-6xl tracking-tighter md:tracking-normal";
+  "flex p-4 gap-4 text-5xl md:text-6xl tracking-tighter md:tracking-normal";
 const nextLogoStyle = "pt-1 space-y-2 w-40 md:w-60";
 const textStyle =
   "mb-8 bg-linear-to-r from-blue-400 via-purple-500 to-cyan-400 bg-clip-text font-bold text-transparent";
-
 
 export default function Title() {
   return (

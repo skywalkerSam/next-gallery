@@ -26,14 +26,12 @@ export default function GalleryError({
 
   return (
     <div
-      className="flex min-h-screen items-center justify-center p-3"
+      className="flex min-h-screen items-center justify-center p-4"
       role="alert"
     >
-      <div className="max-w-md rounded-lg bg-destructive/10 p-4 text-center text-destructive">
+      <div className="bg-destructive/10 text-destructive max-w-md rounded-lg p-4 text-center">
         <h2 className="mb-2 text-lg font-semibold">Something went wrong!</h2>
-        <p className="mb-4 text-sm">
-          Unable to load gallery.(
-        </p>
+        <p className="mb-4 text-sm">Unable to load gallery.(</p>
         <Link href={"/"}>
           <Button variant="ghost" className="gap-1 text-3xl">
             <span aria-hidden="true">♻️</span>

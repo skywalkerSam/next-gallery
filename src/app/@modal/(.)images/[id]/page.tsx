@@ -7,7 +7,7 @@ import { ImageView } from "~/app/_components/gallery/image-view";
 // import Image from "next/image";
 
 const centeredDivStyle =
-  "flex flex-row start-row-3 items-center justify-center justify-items-end p-3";
+  "flex flex-row start-row-3 items-center justify-center justify-items-end p-4";
 
 export default async function ImageModal(props: {
   params: Promise<{ id: string }>;
@@ -43,7 +43,7 @@ export default async function ImageModal(props: {
         <Suspense
           fallback={
             <div className={centeredDivStyle}>
-              <p className="text-6xl text-slate-600">Loading...</p>
+              <p className="text-5xl">Loading...</p>
             </div>
           }
         >
